@@ -1,4 +1,4 @@
-import { UI } from "./ui";
+import { UI } from './ui';
 
 export const LANGUAGES = {
   ja: '日本語',
