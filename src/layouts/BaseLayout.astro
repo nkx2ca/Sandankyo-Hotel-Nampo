@@ -1,0 +1,32 @@
+---
+import { getLangFromUrl, useTranslations, generateLocalePaths, generateLocaleUrls} from '../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const localePaths = generateLocalePaths(Astro.url);
+const localeUrls = generateLocaleUrls(Astro.url);
+---
+
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		{
+			Object.keys(localeUrls).map((props) => (
+				<link rel="alternate" hreflang={localeUrls[props].locale} href={localeUrls[props].path} />
+			))
+		}
+		<title>{t('title')}</title>
+	</head>
+	<body>
+		<div>
+			<div><a href={localePaths.ja.path}>{localePaths.ja.label}</a></div>
+			<div>/</div>
+			<div><a href={localePaths.en.path}>{localePaths.en.label}</a></div>
+		</div>
+    <slot />
+	</body>
+</html>
