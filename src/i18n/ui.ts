@@ -1,7 +1,7 @@
 export const UI = {
   ja: {
     'title': '三段峡ホテル 南峰',
-    'menu_top': 'トップ',
+    'menu_home': 'ホーム',
     'menu_rooms': '客室',
     'menu_restaurants': 'レストラン',
     'menu_hot_springs': '温泉',
@@ -11,7 +11,7 @@ export const UI = {
   },
   en: {
     'title': 'Sandankyo Hotel Nampo',
-    'menu_top': 'Top',
+    'menu_home': 'Home',
     'menu_rooms': 'Rooms',
     'menu_restaurants': 'Restaurants',
     'menu_hot_springs': 'Hot springs',
