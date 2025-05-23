@@ -1,13 +1,13 @@
 html {
-  background-color: #ffffff;
 }
 
 body {
   margin: 0 auto;
   width: 100%;
+  background-color: white;
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
 }
 
 *, *:before, *:after {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
