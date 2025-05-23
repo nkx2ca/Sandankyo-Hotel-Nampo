@@ -1,5 +1,9 @@
 ---
+import { getRelativeLocaleUrl, getAbsoluteLocaleUrl } from 'astro:i18n';
 import { getLangFromUrl, useTranslations, generateLocalePaths, generateLocaleUrls} from '../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const localePaths = generateLocalePaths(Astro.url);
 ---
 
@@ -8,7 +12,7 @@ const localePaths = generateLocalePaths(Astro.url);
     <div class="nav_bar_column-1">
       <ul>
         <li>
-          <button type="button">宿泊予約</button>
+          <button type="button">{t('nav_booking')}</button>
         </li>
       </ul>
     </div>
@@ -27,17 +31,17 @@ const localePaths = generateLocalePaths(Astro.url);
         <div>Nampo</div>
       </div>
       <ul>
-        <li><a>トップ</a></li>
-        <li><a>客室</a></li>
-        <li><a>レストラン</a></li>
-        <li><a>温泉</a></li>
-        <li><a>アクセス</a></li>
-        <li><a>お問い合わせ</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, '/')}>{t('menu_top')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, '/rooms')}>{t('menu_rooms')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, '/restaurants')}>{t('menu_restaurants')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, '/hot_springs')}>{t('menu_hot_springs')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, '/access')}>{t('menu_access')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, '/contact')}>{t('menu_contact')}</a></li>
       </ul>
       <div class="locale_button">
-        <a>{localePaths.ja.label}</a>
+        <a href={getRelativeLocaleUrl(localePaths.ja.locale, '/')}>{localePaths.ja.label}</a>
         <div>/</div>
-        <a>{localePaths.en.label}</a>
+        <a href={getRelativeLocaleUrl(localePaths.en.locale, '/')}>{localePaths.en.label}</a>
       </div>
     </div>
   </div>
@@ -208,7 +212,6 @@ const localePaths = generateLocalePaths(Astro.url);
 
   .nav_menu ul {
     width: 100%;;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -253,6 +256,7 @@ const localePaths = generateLocalePaths(Astro.url);
   .locale_button a {
     margin: 0 20px;
     font-size: 16px;
+    color: #fff;
   }
 
 </style>
