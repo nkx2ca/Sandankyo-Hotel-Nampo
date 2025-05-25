@@ -1,6 +1,6 @@
 body {
-  margin: 0 auto;
-  width: 100%;
+  width: 100vw;
+  margin: 0;
   background-color: white;
   font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
 }

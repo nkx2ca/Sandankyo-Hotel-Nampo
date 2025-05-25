@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { getLangFromUrl, useTranslations, generateLocalePaths, generateLocaleUrls} from '../i18n/i18n';
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -24,5 +25,6 @@ const localeUrls = generateLocaleUrls(Astro.url);
 	<body>
 		<Navigation />
     <slot />
+		<Footer />
 	</body>
 </html>
