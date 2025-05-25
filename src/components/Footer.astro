@@ -2,7 +2,8 @@
 ---
 
 <footer>
-
+  <div class="line"></div>
+  <div class="copyright">© 2025 Sandankyo Hotel Nampo</div>
 </footer>
 
 <style>
@@ -10,12 +11,28 @@
     width: 100vw;
     height: 100px;
     margin-bottom: 47px;
-    background-color: yellowgreen;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+  }
+
+  footer > .line {
+    width: 95%;
+    border-bottom: 1px solid #4f4f4f;
+  }
+
+  footer > .copyright {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #4f4f4f;
   }
 
   @media screen and (min-width: 1025px) {
     footer {
       margin-bottom: 0;
-  }
+    }
   }
 </style>
