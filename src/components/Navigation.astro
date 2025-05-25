@@ -7,90 +7,90 @@ const t = useTranslations(lang);
 const localePaths = generateLocalePaths(Astro.url);
 ---
 
-<nav class="bottom_nav">
-  <div class="nav_bar">
-    <div class="nav_bar_column-1">
-      <ul>
-        <li>
-          <button type="button">{t('nav_booking')}</button>
-        </li>
-      </ul>
-    </div>
-    <div class="nav_bar_column-2">
-      <button type="button" class="hamburger">
-        <span class="hamburger_lines hamburger_line-1"></span>
-        <span class="hamburger_lines hamburger_line-2"></span>
-        <span class="hamburger_lines hamburger_line-3"></span>
-      </button>
-    </div>
-  </div>
-  <div class="nav_menu">
-    <div class="nav_menu_inner">
-      <div class="logo">
-        <div>Sandankyo Hotel</div>
-        <div>Nampo</div>
-      </div>
-      <ul>
-        <li><a href={getRelativeLocaleUrl(lang, '/')}>{t('menu_home')}</a></li>
-        <li><a href={getRelativeLocaleUrl(lang, '/rooms')}>{t('menu_rooms')}</a></li>
-        <li><a href={getRelativeLocaleUrl(lang, '/restaurants')}>{t('menu_restaurants')}</a></li>
-        <li><a href={getRelativeLocaleUrl(lang, '/hot_springs')}>{t('menu_hot_springs')}</a></li>
-        <li><a href={getRelativeLocaleUrl(lang, '/access')}>{t('menu_access')}</a></li>
-        <li><a href={getRelativeLocaleUrl(lang, '/contact')}>{t('menu_contact')}</a></li>
-      </ul>
-      <div class="locale_button">
-        <a href={getRelativeLocaleUrl(localePaths.ja.locale, '/')}>{localePaths.ja.label}</a>
-        <div>/</div>
-        <a href={getRelativeLocaleUrl(localePaths.en.locale, '/')}>{localePaths.en.label}</a>
-      </div>
-    </div>
-  </div>
-</nav>
 <nav class="top_nav">
-  <div class="nav_bar">
-    <div class="nav_bar_column-1">
-      <div class="logo">
-        <div>Sandankyo Hotel</div>
-        <div>Nampo</div>
-      </div>
-    </div>
-    <div class="nav_bar_column-2">
-      <ul>
-        <li><a href={getRelativeLocaleUrl(lang, '/rooms')}>{t('menu_rooms')}</a></li>
-        <li><a href={getRelativeLocaleUrl(lang, '/restaurants')}>{t('menu_restaurants')}</a></li>
-        <li><a href={getRelativeLocaleUrl(lang, '/hot_springs')}>{t('menu_hot_springs')}</a></li>
-        <li><a href={getRelativeLocaleUrl(lang, '/access')}>{t('menu_access')}</a></li>
-        <li><a href={getRelativeLocaleUrl(lang, '/contact')}>{t('menu_contact')}</a></li>
-      </ul>
-    </div>
-    <div class="nav_bar_column-3">
-      <ul>
-        <li><button type="button">{t('nav_booking')}</button></li>
-        <li>
-          {lang === 'ja' ?
-          <a class="locale_selector" href={getRelativeLocaleUrl(localePaths.en.locale, '/')}>{localePaths.en.label}</a>
-          :
-          <a class="locale_selector" href={getRelativeLocaleUrl(localePaths.ja.locale, '/')}>{localePaths.ja.label}</a>
-          }
-        </li>
-      </ul>
+  <div class="column-0">
+    <div class="logo">
+      <div>Sandankyo Hotel</div>
+      <div>Nampo</div>
     </div>
   </div>
+  <div class="column-1">
+    <ul>
+      <li><a href={getRelativeLocaleUrl(lang, '/rooms')}>{t('menu_rooms')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/restaurants')}>{t('menu_restaurants')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/hot_springs')}>{t('menu_hot_springs')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/access')}>{t('menu_access')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/contact')}>{t('menu_contact')}</a></li>
+    </ul>
+  </div>
+  <div class="column-2">
+    <ul>
+      <li><button type="button">{t('nav_booking')}</button></li>
+      <li>
+        {lang === 'ja' ?
+        <a class="locale" href={getRelativeLocaleUrl(localePaths.en.locale, '/')}>{localePaths.en.label}</a>
+        :
+        <a class="locale" href={getRelativeLocaleUrl(localePaths.ja.locale, '/')}>{localePaths.ja.label}</a>
+        }
+      </li>
+    </ul>
+  </div>
 </nav>
+
+<nav class="bottom_nav">
+  <div class="column-0">
+    <ul>
+      <li>
+        <button type="button">{t('nav_booking')}</button>
+      </li>
+    </ul>
+  </div>
+  <div class="column-1">
+    <button type="button" class="hamburger">
+      <span class="hamburger_line hamburger_line-0"></span>
+      <span class="hamburger_line hamburger_line-1"></span>
+      <span class="hamburger_line hamburger_line-2"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav_menu">
+  <div class="inner">
+    <div class="logo">
+      <div>Sandankyo Hotel</div>
+      <div>Nampo</div>
+    </div>
+    <ul>
+      <li><a href={getRelativeLocaleUrl(lang, '/')}>{t('menu_home')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/rooms')}>{t('menu_rooms')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/restaurants')}>{t('menu_restaurants')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/hot_springs')}>{t('menu_hot_springs')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/access')}>{t('menu_access')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/contact')}>{t('menu_contact')}</a></li>
+    </ul>
+    <div class="locale">
+      <a href={getRelativeLocaleUrl(localePaths.ja.locale, '/')}>{localePaths.ja.label}</a>
+      <div>/</div>
+      <a href={getRelativeLocaleUrl(localePaths.en.locale, '/')}>{localePaths.en.label}</a>
+    </div>
+  </div>
+</div>
+
 
 <script>
   const hamburger = document.querySelector<HTMLElement>('.hamburger');
   const navMenu = document.querySelector<HTMLElement>('.nav_menu');
+	const hamburgerLine0 = document.querySelector<HTMLElement>('.hamburger_line-0');
 	const hamburgerLine1 = document.querySelector<HTMLElement>('.hamburger_line-1');
 	const hamburgerLine2 = document.querySelector<HTMLElement>('.hamburger_line-2');
-	const hamburgerLine3 = document.querySelector<HTMLElement>('.hamburger_line-3');
   hamburger?.addEventListener('click', () => {
     navMenu?.classList.toggle('active');
+		hamburgerLine0?.classList.toggle('active');
 		hamburgerLine1?.classList.toggle('active');
 		hamburgerLine2?.classList.toggle('active');
-		hamburgerLine3?.classList.toggle('active');
 	});
 </script>
+
 
 <style>
   .top_nav {
@@ -98,200 +98,175 @@ const localePaths = generateLocalePaths(Astro.url);
   }
 
   .bottom_nav {
-    width: 100%;
-    height: 100vh;
-  }
-
-  .bottom_nav .nav_bar {
-    width: 100%;
+    width: 100vw;
     height: 48px;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 200;
+    z-index: 10;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
   }
   
-  .bottom_nav .nav_bar_column-1 {
+  .bottom_nav > .column-0 {
+    height: 100%;
     flex-grow: 1;
+  }
+
+  .bottom_nav > .column-0 > ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  
+  .bottom_nav > .column-0 > ul > li {
+    width: 100%;
     height: 100%;
   }
   
-  .bottom_nav .nav_bar_column-2 {
+  .bottom_nav > .column-0 > ul > li > button {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    color:#fff;
+    background-color: black;
+    font-size: 18px;
+    font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    line-height: 0;
+  }
+  
+  .bottom_nav > .column-1 {
     width: 51px;
     height: 100%;
     border-left: 1px solid #4f4f4f;
   }
   
-  .bottom_nav .nav_bar_column-1 ul {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  
-  .bottom_nav .nav_bar_column-1 ul li {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .bottom_nav .nav_bar_column-1 ul li button {
+  .bottom_nav > .column-1 > .hamburger {
     width: 100%;
     height: 100%;
     padding: 0;
     border: 0;
-    color:#fff;
     background-color: black;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-    font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
-  }
-  
-  .hamburger {
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    border: 0;
     position: relative;
-    background-color: black;
   }
   
-  .hamburger_lines {
-    display: block;
+  .bottom_nav > .column-1 > .hamburger > .hamburger_line {
     width: 20px;
     height: 2px;
     border-radius: 2px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #fff;
     position: absolute;
     top: 23px;
-    left: 0px;
-    margin-left: 15px;
-    margin-right: 15px;
-    background-color: #fff;
+    left: 15px;
   }
-  
-  .hamburger_line-1 {
+
+  .bottom_nav > .column-1 > .hamburger > .hamburger_line-0 {
     margin-top: -7px;
     transition: all 0.3s;
   }
   
-  .hamburger_line-2 {
+  .bottom_nav > .column-1 > .hamburger > .hamburger_line-1 {
     transition: all 0.3s;
   }
   
-  .hamburger_line-3 {
+  .bottom_nav > .column-1 > .hamburger > .hamburger_line-2 {
     margin-top: 7px;
     transition: all 0.3s;
   }
 
-  .hamburger_line-1.active {
-    transform: translateY(7px) rotate(-45deg);
+  .bottom_nav > .column-1 > .hamburger > .hamburger_line-0.active {
+    transform: translateY(7px) rotate(-765deg);
   }
 
-  .hamburger_line-2.active {
+  .bottom_nav > .column-1 > .hamburger > .hamburger_line-1.active {
     opacity: 0;
   }
 
-  .hamburger_line-3.active {
-    transform: translateY(-7px) rotate(45deg);
+  .bottom_nav > .column-1 > .hamburger > .hamburger_line-2.active {
+    transform: translateY(-7px) rotate(-495deg);
   }
+
 
   .nav_menu {
-    display: block;
-    width: 100%;
-    height: calc(100% - 48px);
+    width: 100vw;
+    height: calc(100vh - 48px);
     background-color: black;
-    transition: all 0.3s;
+    display: none;
     opacity: 0;
-    bottom: -100vh;
     position: absolute;
+    bottom: -100vh;
+    z-index: 10;
+    transition: all 0.5s;
   }
 
   .nav_menu.active {
+    display: block;
     opacity: 1;
     bottom: 48px;
   }
 
-  .nav_menu_inner {
+  .nav_menu > .inner {
     width: 100%;
     height: 100%;
+    padding: 16px 20px 16px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    padding: 16px 20px 50px;
-    border: 0;
-    margin: 0;
   }
 
-  .logo {
-    background-color: black;
-    color: #fff;
+  .nav_menu > .inner > .logo {
     width: 100%;
     height: 50px;
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  .logo > div {
-  }
-
-  .nav_menu ul {
-    width: 100%;;
+  .nav_menu > .inner > ul {
+    width: 100%;
+    margin: 10px 0px 10px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    padding: 0;
-    border: 0;
-    margin: 10px 0px 20px;
-    list-style: none;
   }
 
-  .nav_menu ul li {
+  .nav_menu > .inner > ul > li {
     width: 100%;
     border-bottom: 1px solid #4f4f4f;
   }
 
-  .nav_menu ul li a {
-    display: block;
+  .nav_menu > .inner > ul > li > a {
     width: 100%;
     height: 100%;
     padding: 20px 0;
-    border: 0;
     color:#fff;
-    background-color: black;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
     font-size: 19px;
     font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    display: block;
   }
 
-  .locale_button {
+  .nav_menu > .inner > .locale {
+    width: 100%;
+    padding: 30px 0;
+    color: #fff;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100px;
-    background-color: black;
-    color: #fff;
   }
 
-  .locale_button a {
+  .nav_menu > .inner > .locale > a {
     margin: 0 20px;
-    font-size: 16px;
     color: #fff;
+    font-size: 16px;
   }
   
 
@@ -301,86 +276,75 @@ const localePaths = generateLocalePaths(Astro.url);
     }
 
     .top_nav {
-      display: block;
-      width: 100%;
+      width: 100vw;
       height: 82px;
+      background-color: #fff;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 200;
-    }
-
-    .top_nav .nav_bar {
-      width: 100%;
-      height: 100%;
-      background-color: #fff;
+      z-index: 10;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
     }
 
-    .top_nav .nav_bar .nav_bar_column-1 {
+    .top_nav > .column-0 {
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .top_nav .nav_bar .nav_bar_column-1 .logo {
-      height: 100%;
+    .top_nav > .column-0 > .logo {
       padding: 0 20px;
-      background-color: #fff;
-      color: black;
     }
 
-    .top_nav .nav_bar .nav_bar_column-2 {
+    .top_nav > .column-0 > .logo > div {
+      font-size: 16px;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .top_nav > .column-1 {
       flex-grow: 1;
       height: 100%;
     }
 
-    .top_nav .nav_bar .nav_bar_column-2 ul {
+    .top_nav > .column-1 > ul {
       height: 100%;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      padding: 0;
-      margin: 0;
-      list-style: none;
     }
 
-    .top_nav .nav_bar .nav_bar_column-2 ul li {
-      height: 100%;
-      background-color: #fff;
+    .top_nav > .column-1 > ul > li {
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .top_nav .nav_bar .nav_bar_column-2 ul li a {
-      display: block;
+    .top_nav > .column-1 > ul > li > a {
       padding: 0 20px;
-      border: 0;
       color: black;
       font-size: 16px;
     }
 
-    .top_nav .nav_bar .nav_bar_column-3 {
+    .top_nav > .column-2 {
       height: 100%;
     }
 
-    .top_nav .nav_bar .nav_bar_column-3 ul {
+    .top_nav > .column-2 > ul {
       height: 100%;
       display: flex;
       flex-direction: row;
-      padding: 0;
-      margin: 0;
-      list-style: none;
     }
 
-    .top_nav .nav_bar .nav_bar_column-3 ul li {
+    .top_nav > .column-2 > ul > li {
       height: 100%;
       background-color: black;
       display: flex;
@@ -388,7 +352,7 @@ const localePaths = generateLocalePaths(Astro.url);
       align-items: center;
     }
 
-    .top_nav .nav_bar .nav_bar_column-3 ul li a {
+    .top_nav > .column-2 > ul > li > a {
       display: block;
       padding: 0 20px;
       border: 0;
@@ -396,9 +360,7 @@ const localePaths = generateLocalePaths(Astro.url);
       font-size: 16px;
     }
 
-    .top_nav .nav_bar .nav_bar_column-3 ul li button {
-      display: block;
-      height: 100%;
+    .top_nav > .column-2 > ul > li > button {
       padding: 0 20px;
       border: 0;
       color: #fff;
@@ -407,8 +369,8 @@ const localePaths = generateLocalePaths(Astro.url);
       font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
     }
 
-    .locale_selector {
-      border-left: 1px solid #4f4f4f !important; 
+    .top_nav > .column-2 > ul > li > .locale {
+      border-left: 1px solid #4f4f4f; 
     }
   }
 </style>
