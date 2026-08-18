@@ -7,344 +7,171 @@ const t = useTranslations(lang);
 const localePaths = generateLocalePaths(Astro.url);
 ---
 
-<nav class="top_nav">
-  <div class="column-0">
-    <div class="logo">
-      <div>Sandankyo Hotel</div>
-      <div>Nampo</div>
-    </div>
-  </div>
-  <div class="column-1">
-    <ul>
-      <li><a href={getRelativeLocaleUrl(lang, '/rooms')}>{t('menu_rooms')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/restaurants')}>{t('menu_restaurants')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/hot_springs')}>{t('menu_hot_springs')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/access')}>{t('menu_access')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/contact')}>{t('menu_contact')}</a></li>
-    </ul>
-  </div>
-  <div class="column-2">
-    <ul>
-      <li><button type="button">{t('nav_booking')}</button></li>
-      <li>
-        {lang === 'ja' ?
-        <a class="locale" href={getRelativeLocaleUrl(localePaths.en.locale, '/')}>{localePaths.en.label}</a>
-        :
-        <a class="locale" href={getRelativeLocaleUrl(localePaths.ja.locale, '/')}>{localePaths.ja.label}</a>
-        }
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<nav class="bottom_nav">
-  <div class="column-0">
-    <ul>
-      <li>
-        <button type="button">{t('nav_booking')}</button>
-      </li>
-    </ul>
-  </div>
-  <div class="column-1">
+<nav class="wide_screen_nav">
+  <div class="row-0">
     <button type="button" class="hamburger">
       <span class="hamburger_line hamburger_line-0"></span>
       <span class="hamburger_line hamburger_line-1"></span>
       <span class="hamburger_line hamburger_line-2"></span>
     </button>
   </div>
+  <div class="row-1">
+    <ul>
+      <li><a href={getRelativeLocaleUrl(localePaths.ja.locale, '/')}>JP</a></li>
+      <li>/</li>
+      <li><a href={getRelativeLocaleUrl(localePaths.en.locale, '/')}>EN</a></li>
+    </ul>
+  </div>
+  <div class="row-2 checkinn-reservation-button">{t('nav_booking')}</div>
 </nav>
 
 <div class="nav_menu">
-  <div class="inner">
-    <div class="logo">
-      <div>Sandankyo Hotel</div>
-      <div>Nampo</div>
-    </div>
-    <ul>
-      <li><a href={getRelativeLocaleUrl(lang, '/')}>{t('menu_home')}</a></li>
+  <div class="inner-box">
+    <ul class="row-0">
       <li><a href={getRelativeLocaleUrl(lang, '/rooms')}>{t('menu_rooms')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/restaurants')}>{t('menu_restaurants')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/hot_springs')}>{t('menu_hot_springs')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/cuisine')}>{t('menu_cuisine')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/facility')}>{t('menu_facility')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/gallery')}>{t('menu_gallery')}</a></li>
+    </ul>
+    <ul class="row-1">
       <li><a href={getRelativeLocaleUrl(lang, '/access')}>{t('menu_access')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/news')}>{t('menu_news')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/faq')}>{t('menu_faq')}</a></li>
       <li><a href={getRelativeLocaleUrl(lang, '/contact')}>{t('menu_contact')}</a></li>
     </ul>
-    <div class="locale">
-      <a href={getRelativeLocaleUrl(localePaths.ja.locale, '/')}>{localePaths.ja.label}</a>
-      <div>/</div>
-      <a href={getRelativeLocaleUrl(localePaths.en.locale, '/')}>{localePaths.en.label}</a>
-    </div>
+    <ul class="row-2">
+      <li>
+        <a href="https://www.instagram.com/sandankyohotelnampo/" target="_blank" rel="noopener noreferrer">
+          <img src="/instagram_logo_white.png"/>
+        </a>
+      </li>
+      <li class="copyright"><div>@2026 NAMPO</div></li>
+    </ul>
   </div>
 </div>
 
-
 <script>
-  const hamburger = document.querySelector<HTMLElement>('.hamburger');
+  const hamburger = document.querySelector<HTMLElement>('.row-0');
   const navMenu = document.querySelector<HTMLElement>('.nav_menu');
-	const hamburgerLine0 = document.querySelector<HTMLElement>('.hamburger_line-0');
-	const hamburgerLine1 = document.querySelector<HTMLElement>('.hamburger_line-1');
-	const hamburgerLine2 = document.querySelector<HTMLElement>('.hamburger_line-2');
+  const hamburgerLine0 = document.querySelector<HTMLElement>('.hamburger_line-0');
+  const hamburgerLine1 = document.querySelector<HTMLElement>('.hamburger_line-1');
+  const hamburgerLine2 = document.querySelector<HTMLElement>('.hamburger_line-2');
   hamburger?.addEventListener('click', () => {
     navMenu?.classList.toggle('active');
-		hamburgerLine0?.classList.toggle('active');
-		hamburgerLine1?.classList.toggle('active');
-		hamburgerLine2?.classList.toggle('active');
-	});
+    hamburgerLine0?.classList.toggle('active');
+    hamburgerLine1?.classList.toggle('active');
+    hamburgerLine2?.classList.toggle('active');
+  });
 </script>
 
 
 <style>
-  .top_nav {
-    display: none;
-  }
-
-  .bottom_nav {
-    width: 100vw;
-    height: 48px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .bottom_nav > .column-0 {
-    height: 100%;
-    flex-grow: 1;
-  }
-
-  .bottom_nav > .column-0 > ul {
-    width: 100%;
-    height: 100%;
-    display: flex;
-  }
-  
-  .bottom_nav > .column-0 > ul > li {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .bottom_nav > .column-0 > ul > li > button {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    border: 0;
-    color:#fff;
-    background-color: black;
-    font-size: 18px;
-    font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
-    line-height: 0;
-  }
-  
-  .bottom_nav > .column-1 {
-    width: 51px;
-    height: 100%;
-    border-left: 1px solid #4f4f4f;
-  }
-  
-  .bottom_nav > .column-1 > .hamburger {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    border: 0;
-    background-color: black;
-    position: relative;
-  }
-  
-  .bottom_nav > .column-1 > .hamburger > .hamburger_line {
-    width: 20px;
-    height: 2px;
-    border-radius: 2px;
-    margin-left: 0px;
-    margin-right: 0px;
-    background-color: #fff;
-    position: absolute;
-    top: 23px;
-    left: 15px;
-  }
-
-  .bottom_nav > .column-1 > .hamburger > .hamburger_line-0 {
-    margin-top: -7px;
-    transition: all 0.3s;
-  }
-  
-  .bottom_nav > .column-1 > .hamburger > .hamburger_line-1 {
-    transition: all 0.3s;
-  }
-  
-  .bottom_nav > .column-1 > .hamburger > .hamburger_line-2 {
-    margin-top: 7px;
-    transition: all 0.3s;
-  }
-
-  .bottom_nav > .column-1 > .hamburger > .hamburger_line-0.active {
-    transform: translateY(7px) rotate(-765deg);
-  }
-
-  .bottom_nav > .column-1 > .hamburger > .hamburger_line-1.active {
-    opacity: 0;
-  }
-
-  .bottom_nav > .column-1 > .hamburger > .hamburger_line-2.active {
-    transform: translateY(-7px) rotate(-495deg);
-  }
-
-
-  .nav_menu {
-    width: 100vw;
-    height: calc(100vh - 48px);
-    background-color: black;
-    display: none;
-    opacity: 0;
-    position: fixed;
-    bottom: -100vh;
-    z-index: 10;
-    transition: all 0.5s;
-  }
-
-  .nav_menu.active {
-    display: block;
-    opacity: 1;
-    bottom: 48px;
-  }
-
-  .nav_menu > .inner {
-    width: 100%;
-    height: 100%;
-    padding: 16px 20px 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-  }
-
-  .nav_menu > .inner > .logo {
-    width: 100%;
-    height: 50px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .nav_menu > .inner > ul {
-    width: 100%;
-    margin: 10px 0px 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-  }
-
-  .nav_menu > .inner > ul > li {
-    width: 100%;
-    border-bottom: 1px solid #4f4f4f;
-  }
-
-  .nav_menu > .inner > ul > li > a {
-    width: 100%;
-    height: 100%;
-    padding: 20px 0;
-    color:#fff;
-    font-size: 19px;
-    font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
-    display: block;
-  }
-
-  .nav_menu > .inner > .locale {
-    width: 100%;
-    padding: 30px 0;
-    color: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .nav_menu > .inner > .locale > a {
-    margin: 0 20px;
-    color: #fff;
-    font-size: 16px;
-  }
-  
-
   @media screen and (min-width: 1025px) {
-    .bottom_nav {
-      display: none;
-    }
-
-    .top_nav {
-      width: 100vw;
-      height: 82px;
-      background-color: #fff;
+    .wide_screen_nav {
+      width: 85px;
+      height: 100vh;
+      background-color: transparent;
+      opacity: 1;
       position: fixed;
       top: 0;
-      left: 0;
+      bottom: 0;
       right: 0;
-      z-index: 10;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .wide_screen_nav > .row-0 {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wide_screen_nav > .row-0 > .hamburger {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      background-color: transparent;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .wide_screen_nav > .row-0 > .hamburger > .hamburger_line {
+      width: 35px;
+      height: 2px;
+      border-radius: 2px;
+      margin-left: 0px;
+      margin-right: 0px;
+      background-color: #fff;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     }
+   
+     .wide_screen_nav > .row-0 > .hamburger > .hamburger_line-0 {
+       margin-top: -20px;
+       transition: all 0.3s;
+     }
+     
+     .wide_screen_nav > .row-0 > .hamburger > .hamburger_line-1 {
+       transition: all 0.3s;
+     }
+     
+     .wide_screen_nav > .row-0 > .hamburger > .hamburger_line-2 {
+       margin-top: 20px;
+       transition: all 0.3s;
+     }
+   
+     .wide_screen_nav > .row-0 > .hamburger > .hamburger_line-0.active {
+       transform: translateY(10px) rotate(-765deg);
+     }
+   
+     .wide_screen_nav> .row-0 > .hamburger > .hamburger_line-1.active {
+       opacity: 0;
+     }
+   
+     .wide_screen_nav > .row-0 > .hamburger > .hamburger_line-2.active {
+       transform: translateY(-10px) rotate(-495deg);
+     }
+
+    .wide_screen_nav > .row-1 {
+      width: 100%;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wide_screen_nav > .row-1 > ul {
+      height: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .top_nav > .column-0 {
-      height: 100%;
-      display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .top_nav > .column-0 > .logo {
-      padding: 0 20px;
-    }
-
-    .top_nav > .column-0 > .logo > div {
-      font-size: 16px;
-      color: black;
+    .wide_screen_nav > .row-1 > ul > li {
       display: flex;
       justify-content: center;
       align-items: center;
+      color: #fff;
     }
 
-    .top_nav > .column-1 {
-      flex-grow: 1;
-      height: 100%;
+    .wide_screen_nav > .row-1 > ul > li > a {
+      padding: 0 5px;
+      font-size: 12px;
+      color: #fff;
     }
 
-    .top_nav > .column-1 > ul {
-      height: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .top_nav > .column-1 > ul > li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .top_nav > .column-1 > ul > li > a {
-      padding: 0 20px;
-      color: black;
-      font-size: 16px;
-    }
-
-    .top_nav > .column-2 {
-      height: 100%;
-    }
-
-    .top_nav > .column-2 > ul {
-      height: 100%;
-      display: flex;
-      flex-direction: row;
-    }
-
-    .top_nav > .column-2 > ul > li {
+    .wide_screen_nav > .column-2 > ul > li {
       height: 100%;
       background-color: black;
       display: flex;
@@ -352,7 +179,7 @@ const localePaths = generateLocalePaths(Astro.url);
       align-items: center;
     }
 
-    .top_nav > .column-2 > ul > li > a {
+    .wide_screen_nav > .column-2 > ul > li > a {
       display: block;
       padding: 0 20px;
       border: 0;
@@ -360,7 +187,7 @@ const localePaths = generateLocalePaths(Astro.url);
       font-size: 16px;
     }
 
-    .top_nav > .column-2 > ul > li > button {
+    .wide_screen_nav > .column-2 > ul > li > button {
       padding: 0 20px;
       border: 0;
       color: #fff;
@@ -369,8 +196,120 @@ const localePaths = generateLocalePaths(Astro.url);
       font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
     }
 
-    .top_nav > .column-2 > ul > li > .locale {
+    .wide_screen_nav > .column-2 > ul > li > .locale {
       border-left: 1px solid #4f4f4f; 
+    }
+
+    .nav_menu {
+      width: 300px;
+      height: 100vh;
+      background: radial-gradient(at 0% 0%, #000, 20%, #001914, 90%, #007e66);
+      right: -300px;
+      overflow: hidden;
+      opacity: 0;
+      position: fixed;
+      z-index: 50;
+      transition: all 1s;
+    }
+  
+    .nav_menu.active {
+      opacity: 1;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+    }
+
+    .nav_menu > .inner-box {
+      width: 100%;
+      height: 100%;
+      padding: 20px 20px 20px 30px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .nav_menu > .inner-box > .row-0 {
+      width: 100%;
+      padding: 90px 0px 20px 0px;
+      color: #fff;
+    }
+ 
+    .nav_menu > .inner-box > .row-0 > li {
+      margin: 0px 0px 15px 0px;
+      font-size: 18px;
+    }
+
+    .nav_menu > .inner-box > .row-1 {
+      width: 100%;
+      padding: 20px 0px 0px 0px;
+      color: #fff;
+    }
+
+    .nav_menu > .inner-box > .row-1 > li {
+      margin: 0px 0px 15px 0px;
+      font-size: 14px;
+    }
+
+    .nav_menu > .inner-box > .row-2 {
+      width: 100%;
+      height: 20px;
+      margin-top: auto;
+      color: #fff;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .nav_menu > .inner-box > .row-2 > li {
+      width: fit-content;
+      height: 100%;
+      font-size: 10px;
+    }
+    
+    .nav_menu > .inner-box > .row-2 > li > a > img {
+      height: 100%;
+    }
+
+    .copyright {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .nav_menu > .inner-box > .row-2 > li > div {
+      width: fit-content;
     }
   }
 </style>
+
+
+<!-- Integration with Checkinn reservation system -->
+
+<script is:inline type="text/javascript">(function(t,a,y){r=a.createElement(y),i=a.getElementsByTagName(y)[0];r.type='text/javascript';r.async=1;r.src='https://widget.checkinn.jp/bookmarklet.js?aid=c14a2db858e37c71bd5f7c18fa481f2abc7ba72aec347019170c970dd727246b&emb=checkinn-reservation-button';r.id='checkinn-tag';i.parentNode.insertBefore(r,i)})(window,document,'script');</script>
+
+<style is:global>
+  .checkinn-reservation-button button {
+    font-family: "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif !important;
+    width: 100%!important;
+    height: auto!important;
+    background-color: transparent!important;
+    margin: 25px 0!important;
+    font-size: 16px!important;
+    color: #fff!important;
+    writing-mode: vertical-rl!important;
+    letter-spacing: 0.3em!important;
+    white-space: nowrap!important;
+    text-overflow: elipsis!important;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    padding: 0px 0px!important;
+  }
+
+  .checkinn-reservation-button {
+    width: 100%!important;
+  }
+</style>
+
+<!--------------------------------------------------->

@@ -1,0 +1,135 @@
+---
+import { getRelativeLocaleUrl, getAbsoluteLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, useTranslations, generateLocalePaths, generateLocaleUrls} from '../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const localePaths = generateLocalePaths(Astro.url);
+---
+
+<div class="loading">
+  <img class="loading_logo" src="/logo_with_text_white.png"/>
+</div>
+
+<section class="top">
+  <div class="top_bg"></div>
+  <div class="overlay">
+    <section class="page-0">
+      <a href={getRelativeLocaleUrl(lang, '/')}>
+        <img class="top_logo" src="/logo_with_text_white.png"/>
+      </a>
+    </section>
+    <section class="page-1">
+      <div class="top_text">Sandankyo Hotel</div>
+    </section>
+  </div>
+</section>
+
+<script>
+  const topSection = document.querySelector('.top');
+  const logo = document.querySelector('.top_logo');
+
+  topSection.addEventListener('scroll', () => {
+    if (topSection.scrollTop > 0) {
+      logo.classList.add('hidden');
+    } else {
+      logo.classList.remove('hidden');
+    }
+  });
+
+
+  const loading = document.querySelector('.loading');
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      loading?.classList.add('fade-out');
+    }, 1500);
+  });
+</script>
+
+<style>
+  @media screen and (min-width: 1025px) {
+    .loading {
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 1.0s ease;
+    }
+
+    .loading.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loading_logo {
+      width: 180px;
+      z-index: 510;
+    }
+
+    .top {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow-y: auto;
+    }
+
+    .top_bg {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-image: url(/hero-sandankyo-gorge.jpeg);
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .overlay {
+      width: 100%;
+      height: 200vh;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .top_text {
+      color: #fff;
+      font-size: 50px;
+    }
+
+    .top_logo {
+      position: absolute;
+      width: 80px;
+      margin-top: 15px;
+      margin-left: 30px;
+      top: 0px;
+      left: 0px;
+      transition: opacity 0.5s ease;
+    }
+
+    .top_logo.hidden {
+      opacity: 0;
+    }
+
+    .page-0 {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .page-1 {
+      width: 100%;
+      height: 100vh;
+    }
+  }
+</style>

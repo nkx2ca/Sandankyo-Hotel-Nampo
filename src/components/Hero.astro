@@ -2,9 +2,7 @@
 ---
 
 <div class="hero">
-  <video autoplay loop muted playsinline>
-    <source src="/public/web_pc.mp4">
-  </video>
+  <img src="/hero-sandankyo-gorge.jpeg"/>
   <div class="overlay">
     <div class="overlay_item-1">SANDANKYO HOTEL</div>
     <div>NAMPO</div>
@@ -12,21 +10,16 @@
 </div>
 
 <style>
-
   .hero {
     width: 100vw;
-    height: calc(100vh - 47px);
+    height: 100vh;
     position: relative;
     overflow: hidden;
   }
 
-  video {
-    min-width: 100%;
-    min-height: 100%;
+  img {
+    width: 100%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 
   .overlay {
@@ -59,21 +52,11 @@
   @media screen and (min-width: 1025px) {
     .hero {
       width: 100vw;
-      height: calc(100vh - 82px);
-      margin-top: 82px;
+      height: 100vh;
       position: relative;
       overflow: hidden;
     }
     
-    video {
-      min-width: 100%;
-      min-height: 100%;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
-
     .overlay {
       position: absolute;
       top: 50%;
