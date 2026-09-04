@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://nkx2ca.github.io',
   // For GitHub Pages
-  base: '/Sandankyo-Hotel-Nampo',
+  base: '/Sandankyo-Hotel-Nampo/',
   // For local development
   //base: "/",
   i18n: {
