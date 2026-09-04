@@ -17,9 +17,9 @@ const localePaths = generateLocalePaths(Astro.url);
   </div>
   <div class="row-1">
     <ul>
-      <li><a href={getRelativeLocaleUrl(localePaths.ja.locale, '/Sandankyo-Hotel-Nampo')}>JP</a></li>
+      <li><a href={getRelativeLocaleUrl(localePaths.ja.locale, `${import.meta.env.BASE_URL}`)}>JP</a></li>
       <li>/</li>
-      <li><a href={getRelativeLocaleUrl(localePaths.en.locale, '/Sandankyo-Hotel-Nampo')}>EN</a></li>
+      <li><a href={getRelativeLocaleUrl(localePaths.en.locale, `${import.meta.env.BASE_URL}`)}>EN</a></li>
     </ul>
   </div>
   <div class="row-2 checkinn-reservation-button">{t('nav_booking')}</div>
@@ -28,21 +28,21 @@ const localePaths = generateLocalePaths(Astro.url);
 <div class="nav_menu">
   <div class="inner-box">
     <ul class="row-0">
-      <li><a href={getRelativeLocaleUrl(lang, '/Sandankyo-Hotel-Nampo/rooms')}>{t('menu_rooms')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/Sandankyo-Hotel-Nampo/cuisine')}>{t('menu_cuisine')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/Sandankyo-Hotel-Nampo/facility')}>{t('menu_facility')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/Sandankyo-Hotel-Nampo/gallery')}>{t('menu_gallery')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}rooms`)}>{t('menu_rooms')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}cuisine`)}>{t('menu_cuisine')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}facility`)}>{t('menu_facility')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}gallery`)}>{t('menu_gallery')}</a></li>
     </ul>
     <ul class="row-1">
-      <li><a href={getRelativeLocaleUrl(lang, '/Sandankyo-Hotel-Nampo/access')}>{t('menu_access')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/Sandankyo-Hotel-Nampo/news')}>{t('menu_news')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/Sandankyo-Hotel-Nampo/faq')}>{t('menu_faq')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/Sandankyo-Hotel-Nampo/contact')}>{t('menu_contact')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}access`)}>{t('menu_access')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}news`)}>{t('menu_news')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}faq`)}>{t('menu_faq')}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}contact`)}>{t('menu_contact')}</a></li>
     </ul>
     <ul class="row-2">
       <li>
         <a href="https://www.instagram.com/sandankyohotelnampo/" target="_blank" rel="noopener noreferrer">
-          <img src="/Sandankyo-Hotel-Nampo/instagram_logo_white.png"/>
+          <img src=`${import.meta.env.BASE_URL}instagram_logo_white.png`/>
         </a>
       </li>
       <li class="copyright"><div>@2026 NAMPO</div></li>

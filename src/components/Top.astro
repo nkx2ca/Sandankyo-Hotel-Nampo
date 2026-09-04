@@ -8,19 +8,69 @@ const localePaths = generateLocalePaths(Astro.url);
 ---
 
 <div class="loading">
-  <img class="loading_logo" src="/Sandankyo-Hotel-Nampo/logo_with_text_white.png"/>
+  <img class="loading_logo" src=`${import.meta.env.BASE_URL}logo_with_text_white.png`/>
 </div>
 
 <section class="top">
-  <div class="top_bg"></div>
+  <div class="top_bg" style={`background-image: url(${import.meta.env.BASE_URL}hero-sandankyo-gorge.jpeg)`}></div>
   <div class="overlay">
     <section class="page-0">
-      <a href={getRelativeLocaleUrl(lang, '/Sandankyo-Hotel-Nampo')}>
-        <img class="top_logo" src="/Sandankyo-Hotel-Nampo/logo_with_text_white.png"/>
+      <a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}`)}>
+        <img class="top_logo" src=`${import.meta.env.BASE_URL}logo_with_text_white.png`/>
       </a>
     </section>
+    <section class="page-0-5">
+      <div class="opening-info">
+        <h3 class="opening-date">2026年12月15日開業</h3>
+        <p class="opening-text">富士箱根伊豆国立公園内、135,500㎡の広大な自然に囲まれた地。</p>
+        <p class="opening-text">かつて三井家の別荘が点在していたこの場所に、HOTEL THE MITSUI HAKONEが誕生します。</p>
+      </div>
+    </section>
     <section class="page-1">
-      <div class="top_text">Sandankyo Hotel</div>
+      <div class="news-section">
+        <h2 class="news-title">お知らせ</h2>
+        <ul class="news-list">
+          <li class="news-item">
+            <span class="news-date">2026.09.01</span>
+            <a href={getRelativeLocaleUrl(lang, '/news/1')} class="news-link">秋の特別プランのご案内</a>
+          </li>
+          <li class="news-item">
+            <span class="news-date">2026.08.15</span>
+            <a href={getRelativeLocaleUrl(lang, '/news/2')} class="news-link">夏季休業のお知らせ</a>
+          </li>
+          <li class="news-item">
+            <span class="news-date">2026.07.20</span>
+            <a href={getRelativeLocaleUrl(lang, '/news/3')} class="news-link">新しい客室がオープンしました</a>
+          </li>
+        </ul>
+        <div class="news-more">
+          <a href={getRelativeLocaleUrl(lang, '/news')} class="news-more-link">お知らせ一覧を見る</a>
+        </div>
+      </div>
+    </section>
+    <section class="page-2">
+      <div class="intro-text">
+        <p>季節を感じ、土地を味わい、素材を嗜む。</p>
+        <p>あるがままの自分を取り戻す、 無為自然に過ごす宿。</p>
+        <br/>
+        <p>都会の喧騒から離れ、</p>
+        <p>緑に囲まれた海の一望できる奥座敷に</p>
+        <p>SOKI ATAMIはあります。</p>
+        <br/>
+        <p>SOKIは、「素の器」を意味します。</p>
+        <p>飾らずに、あるがままに過ごす時を受け入れる宿です。</p>
+        <br/>
+        <p>全てのお部屋に備えられた温泉で思い思いに寛ぎ、</p>
+        <p>地元で採れた旬の食材を楽しみ、</p>
+        <p>景色を眺めてほっとするひとときを。</p>
+        <br/>
+        <p>古くから湯治文化の根付く熱海で、</p>
+        <p>現代に生きる私たちが、</p>
+        <p>自分をいたわり養生できる滞在を。</p>
+        <br/>
+        <p>季節と風土に身を委ね、</p>
+        <p>無為自然に過ごす時間をお楽しみください。</p>
+      </div>
     </section>
   </div>
 </section>
@@ -28,12 +78,15 @@ const localePaths = generateLocalePaths(Astro.url);
 <script>
   const topSection = document.querySelector('.top');
   const logo = document.querySelector('.top_logo');
+  const openingInfo = document.querySelector('.opening-info');
 
   topSection.addEventListener('scroll', () => {
     if (topSection.scrollTop > 0) {
       logo.classList.add('hidden');
+      openingInfo.classList.add('visible');
     } else {
       logo.classList.remove('hidden');
+      openingInfo.classList.remove('visible');
     }
   });
 
@@ -86,7 +139,6 @@ const localePaths = generateLocalePaths(Astro.url);
       position: fixed;
       top: 0;
       left: 0;
-      background-image: url(/Sandankyo-Hotel-Nampo/hero-sandankyo-gorge.jpeg);
       background-size: cover;
       background-position: center;
       z-index: 0;
@@ -95,7 +147,7 @@ const localePaths = generateLocalePaths(Astro.url);
 
     .overlay {
       width: 100%;
-      height: 200vh;
+      min-height: 100vh;
       position: relative;
       z-index: 1;
       display: flex;
@@ -127,9 +179,146 @@ const localePaths = generateLocalePaths(Astro.url);
       height: 100vh;
     }
 
+    .page-0-5 {
+      width: 100%;
+      height: 50vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 60px 80px 100px;
+    }
+
+    .opening-info {
+      color: #fff;
+      text-align: left;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .opening-info.visible {
+      opacity: 1;
+    }
+
+    .opening-date {
+      font-size: 32px;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
+      font-weight: normal;
+    }
+
+    .opening-text {
+      font-size: 14px;
+      line-height: 2;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
     .page-1 {
       width: 100%;
+      height: auto;
+      background-color: rgb(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 40px;
+    }
+
+    .news-section {
+      width: 100%;
+      max-width: 800px;
+      color: #fff;
+    }
+
+    .news-title {
+      font-size: 32px;
+      letter-spacing: 8px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px 0;
+    }
+
+    .news-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: opacity 0.3s;
+    }
+
+    .news-item:hover {
+      opacity: 0.7;
+    }
+
+    .news-date {
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.8);
+      white-space: nowrap;
+    }
+
+    .news-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      letter-spacing: 2px;
+      flex: 1;
+    }
+
+    .news-more {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .news-more-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 3px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #fff;
+      transition: opacity 0.3s;
+    }
+
+    .news-more-link:hover {
+      opacity: 0.7;
+    }
+
+    .page-2 {
+      width: 100%;
       height: 100vh;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 40px;
+    }
+
+    .intro-text {
+      width: 100%;
+      max-width: 800px;
+      color: #fff;
+      margin-right: auto;
+      margin-left: 20%;
+    }
+
+    .intro-text p {
+      font-size: 16px;
+      line-height: 2;
+      letter-spacing: 1px;
+      text-align: left;
+      margin: 0;
+    }
+
+    .intro-text br {
+      display: block;
+      content: "";
+      margin-top: 20px;
     }
   }
 </style>

@@ -1,38 +1,96 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, useTranslations } from '../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer>
-  <div class="line"></div>
-  <div class="copyright">© 2025 Sandankyo Hotel Nampo</div>
+  <div class="footer-content">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src=`${import.meta.env.BASE_URL}logo_with_text_white.png` alt="Sandankyo Hotel Nampo" />
+      </div>
+
+      <div class="footer-info">
+        <div class="info-section">
+          <h3>{lang === 'ja' ? '住所' : 'Address'}</h3>
+          <p>〒731-3813</p>
+          <p>{lang === 'ja' ? '広島県山県郡安芸太田町柴木1734-1' : '1734-1 Shibaki, Akiota-cho, Yamagata-gun, Hiroshima 731-3813'}</p>
+        </div>
+
+        <div class="info-section">
+          <h3>{lang === 'ja' ? '電話番号' : 'Phone'}</h3>
+          <p>0826-28-2255</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h3>{lang === 'ja' ? 'メニュー' : 'Menu'}</h3>
+        <ul>
+          <li><a href={getRelativeLocaleUrl(lang, '/rooms')}>{t('menu_rooms')}</a></li>
+          <li><a href={getRelativeLocaleUrl(lang, '/cuisine')}>{t('menu_cuisine')}</a></li>
+          <li><a href={getRelativeLocaleUrl(lang, '/facility')}>{t('menu_facility')}</a></li>
+          <li><a href={getRelativeLocaleUrl(lang, '/gallery')}>{t('menu_gallery')}</a></li>
+          <li><a href={getRelativeLocaleUrl(lang, '/access')}>{t('menu_access')}</a></li>
+          <li><a href={getRelativeLocaleUrl(lang, '/news')}>{t('menu_news')}</a></li>
+          <li><a href={getRelativeLocaleUrl(lang, '/faq')}>{t('menu_faq')}</a></li>
+          <li><a href={getRelativeLocaleUrl(lang, '/contact')}>{t('menu_contact')}</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-reservation">
+        <button class="reservation-button checkinn-reservation-button">{t('nav_booking')}</button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="copyright">© 2026 NAMPO</div>
+    </div>
+  </div>
 </footer>
 
+<!-- Integration with Checkinn reservation system -->
+<script is:inline type="text/javascript">(function(t,a,y){r=a.createElement(y),i=a.getElementsByTagName(y)[0];r.type='text/javascript';r.async=1;r.src='https://widget.checkinn.jp/bookmarklet.js?aid=c14a2db858e37c71bd5f7c18fa481f2abc7ba72aec347019170c970dd727246b&emb=checkinn-reservation-button';r.id='checkinn-tag';i.parentNode.insertBefore(r,i)})(window,document,'script');</script>
+
 <style>
-  footer {
-    width: 100vw;
-    height: 100px;
-    margin-bottom: 47px;
-    background-color: #4f4f4f;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-  }
-
-  footer > .line {
-    width: 95%;
-    border-bottom: 1px solid #4f4f4f;
-  }
-
-  footer > .copyright {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    font-size: 12px;
-    color: #4f4f4f;
-  }
-
   @media screen and (min-width: 1025px) {
     footer {
-      margin-bottom: 0;
+      width: 100vw;
+      height: 100px;
+      padding: 80px 60px 30px;
+    }
+
+    .footer-top {
+      grid-template-columns: 200px 1fr 1fr 250px;
+      gap: 60px;
+    }
+
+    .footer-logo img {
+      width: 150px;
     }
   }
 </style>
+
+<!--
+<style is:global>
+  .checkinn-reservation-button button {
+    font-family: "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif !important;
+    width: 100%!important;
+    padding: 15px 30px!important;
+    background-color: transparent!important;
+    border: 1px solid #fff!important;
+    color: #fff!important;
+    font-size: 14px!important;
+    letter-spacing: 3px!important;
+    cursor: pointer!important;
+    transition: all 0.3s!important;
+  }
+
+  .checkinn-reservation-button button:hover {
+    background-color: #fff!important;
+    color: #001914!important;
+  }
+</style>
+-->

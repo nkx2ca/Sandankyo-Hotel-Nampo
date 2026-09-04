@@ -7,16 +7,57 @@ const t = useTranslations(lang);
 const localePaths = generateLocalePaths(Astro.url);
 ---
 
-<a href={getRelativeLocaleUrl(lang, '/')}>
-  <img src="/Sandankyo-Hotel-Nampo/logo_with_text_white.png"/>
-</a>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+
+<nav class="side_logo">
+  <a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}`)}>
+    <img src=`${import.meta.env.BASE_URL}white_logo_without_text.png` alt="Logo" class="logo-image" />
+    <div class="logo-text">南峰</div>
+  </a>
+</nav>
+
 
 <style>
-  img {
-    position: absolute;
-    z-index: 100;
-    width: 80px;
-    margin-top: 30px;
-    margin-left: 30px;
-  }
+  @media screen and (min-width: 1025px) {
+    .side_logo {
+      width: 85px;
+      height: 100vh;
+      background-color: transparent;
+      opacity: 1;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .side_logo > a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .logo-image {
+      width: 50px;
+      height: auto;
+    }
+
+    .logo-text {
+      writing-mode: vertical-rl;
+      font-family: "Ma Shan Zheng", cursive;
+      font-size: 28px;
+      color: #fff;
+      letter-spacing: 4px;
+      padding: 10px 0;
+    }
 </style>

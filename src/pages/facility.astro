@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Logo from '../components/Logo.astro';
+---
+
+<BaseLayout>
+  <Logo />
+  <div class="page-content">
+    <div class="coming-soon">準備中</div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-content {
+    width: 100vw;
+    min-height: 100vh;
+    background: #001914;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .coming-soon {
+    color: #70644F;
+    font-size: 48px;
+    letter-spacing: 16px;
+    text-align: center;
+  }
+</style>
