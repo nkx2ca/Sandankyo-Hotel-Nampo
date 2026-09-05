@@ -28,15 +28,7 @@ interface LocaleRouteMap {
 
 
 export function getLangFromUrl(url: URL) {
-  // Remove base path if it exists (for GitHub Pages support)
-  const base = import.meta.env.BASE_URL;
-  let pathname = url.pathname;
-
-  if (base !== '/' && pathname.startsWith(base)) {
-    pathname = pathname.slice(base.length - 1); // Keep the leading slash
-  }
-
-  const [, lang] = pathname.split('/');
+  const [, lang] = url.pathname.split('/');
   if (lang in UI) return lang as keyof typeof UI;
   return DEFAULT_LANGUAGE;
 };
@@ -48,31 +40,18 @@ export function useTranslations(lang: keyof typeof UI) {
 };
 
 export function generateLocalePaths(url: URL): LocaleRouteMap {
-  const base = import.meta.env.BASE_URL;
-  let pathname = url.pathname;
-
-  // Remove base path if it exists
-  if (base !== '/' && pathname.startsWith(base)) {
-    pathname = pathname.slice(base.length - 1);
-  }
-
-  const pathnames_ja = pathname.split('/');
-  const pathnames_en = pathname.split('/');
+  const pathnames_ja = url.pathname.split('/');
+  const pathnames_en = url.pathname.split('/');
   pathnames_ja[1] = "ja";
   pathnames_en[1] = "en";
-
-  // Add base path back
-  const jaPath = (base === '/' ? '' : base.slice(0, -1)) + pathnames_ja.join('/').replace(/\/$/, '');
-  const enPath = (base === '/' ? '' : base.slice(0, -1)) + pathnames_en.join('/').replace(/\/$/, '');
-
   return {
     ja: {
-      path: jaPath,
+      path: pathnames_ja.join('/').replace(/\/$/, ''),
       locale: "ja" as Lang,
       label: LANGUAGES.ja,
     },
     en: {
-      path: enPath,
+      path: pathnames_en.join('/').replace(/\/$/, ''),
       locale: "en" as Lang,
       label: LANGUAGES.en,
     },
