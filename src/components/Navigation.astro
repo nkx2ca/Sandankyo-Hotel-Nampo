@@ -17,9 +17,9 @@ const localePaths = generateLocalePaths(Astro.url);
   </div>
   <div class="row-1">
     <ul>
-      <li><a href={getRelativeLocaleUrl(localePaths.ja.locale, "")}>JP</a></li>
+      <li><a href={getRelativeLocaleUrl(localePaths.ja.locale, "/")}>JP</a></li>
       <li>/</li>
-      <li><a href={getRelativeLocaleUrl(localePaths.en.locale, "")}>EN</a></li>
+      <li><a href={getRelativeLocaleUrl(localePaths.en.locale, "/")}>EN</a></li>
     </ul>
   </div>
   <div class="row-2 checkinn-reservation-button">{t('nav_booking')}</div>
