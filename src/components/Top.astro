@@ -21,7 +21,7 @@ const localePaths = generateLocalePaths(Astro.url);
     </section>
     <section class="page-0-5">
       <div class="opening-info">
-        <h3 class="opening-date">2026年12月15日開業</h3>
+        <h3 class="opening-date">2026年11月14日開業</h3>
         <p class="opening-text">富士箱根伊豆国立公園内、135,500㎡の広大な自然に囲まれた地。</p>
         <p class="opening-text">かつて三井家の別荘が点在していたこの場所に、HOTEL THE MITSUI HAKONEが誕生します。</p>
       </div>
@@ -32,19 +32,19 @@ const localePaths = generateLocalePaths(Astro.url);
         <ul class="news-list">
           <li class="news-item">
             <span class="news-date">2026.09.01</span>
-            <a href={getRelativeLocaleUrl(lang, '/news/1')} class="news-link">秋の特別プランのご案内</a>
+            <a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}news/1`)} class="news-link">秋の特別プランのご案内</a>
           </li>
           <li class="news-item">
             <span class="news-date">2026.08.15</span>
-            <a href={getRelativeLocaleUrl(lang, '/news/2')} class="news-link">夏季休業のお知らせ</a>
+            <a href={getRelativeLocaleUrl(lang, '${import.meta.env.BASE_URL}news/2')} class="news-link">夏季休業のお知らせ</a>
           </li>
           <li class="news-item">
             <span class="news-date">2026.07.20</span>
-            <a href={getRelativeLocaleUrl(lang, '/news/3')} class="news-link">新しい客室がオープンしました</a>
+            <a href={getRelativeLocaleUrl(lang, '${import.meta.env.BASE_URL}news/3')} class="news-link">新しい客室がオープンしました</a>
           </li>
         </ul>
         <div class="news-more">
-          <a href={getRelativeLocaleUrl(lang, '/news')} class="news-more-link">お知らせ一覧を見る</a>
+          <a href={getRelativeLocaleUrl(lang, `${import.meta.env.BASE_URL}news`)} class="news-more-link">お知らせ一覧を見る</a>
         </div>
       </div>
     </section>

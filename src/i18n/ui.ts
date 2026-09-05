@@ -3,7 +3,7 @@ export const UI = {
     'title': '三段峡ホテル 南峰',
     'menu_rooms': '客室',
     'menu_cuisine': '料理',
-    'menu_facility': '館内',
+    'menu_facility': '館内施設',
     'menu_gallery': 'ギャラリー',
     'menu_access': 'アクセス',
     'menu_news': 'お知らせ',

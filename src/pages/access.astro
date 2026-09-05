@@ -6,7 +6,52 @@ import Logo from '../components/Logo.astro';
 <BaseLayout>
   <Logo />
   <div class="page-content">
-    <div class="coming-soon">準備中</div>
+    <div class="title-section">
+      <h1 class="title-ja">アクセス</h1>
+      <h2 class="title-en">ACCESS</h2>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="logo-section">
+      <img src=`${import.meta.env.BASE_URL}logo_with_text_white.png` alt="Logo" class="center-logo" />
+    </div>
+
+    <div class="address-section">
+      <p>三段峡ホテル 南峰</p>
+      <p>〒731-3813 広島県山県郡安芸太田町柴木1734</p>
+    </div>
+
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.1715475061796!2d132.20594251231256!3d34.599823372842934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aed2a59c04987%3A0xc78b5e19947974a4!2z5LiJ5q615bOh44Ob44OG44Or5Y2X5bOw!5e0!3m2!1sen!2sjp!4v1788572050472!5m2!1sen!2sjp"
+        width="100%"
+        height="600"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    </div>
+
+    <div class="info-group">
+      <h3>車でお越しの場合</h3>
+      <ul class="transport-list">
+        <li>広島市内から約1時間30分。</li>
+        <li>中国自動車道「戸河内IC」より約20分。</li>
+        <li>駐車場は5台完備。</li>
+      </ul>
+    </div>
+
+    <div class="info-group">
+      <h3>公共交通機関でお越しの場合</h3>
+      <ul class="transport-list">
+        <li>
+          広島駅新幹線口から安芸太田町役場まで高速バス（新広益線）で約80分。安芸太田町役場からホテルまでタクシーで約10分。<br/>
+          <span class="note">※安芸太田町役場からの送迎はございません。予めご了承ください。</span>
+        </li>
+        <li>広島駅から広島バスセンター最寄り紙屋町東駅まで約10分。広島バスセンターからホテルまで高速バス（三段峡線）で約80分。</li>
+      </ul>
+    </div>
   </div>
 </BaseLayout>
 
@@ -15,15 +60,147 @@ import Logo from '../components/Logo.astro';
     width: 100vw;
     min-height: 100vh;
     background: #001914;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 60px 85px 60px 85px;
+    box-sizing: border-box;
   }
 
-  .coming-soon {
-    color: #70644F;
+  .title-section {
+    display: flex;
+    align-items: baseline;
+    margin: 0px 0px 60px 60px;
+    gap: 20px;
+  }
+
+  .title-ja {
     font-size: 48px;
-    letter-spacing: 16px;
+    letter-spacing: 8px;
+    color: #70644F;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  .title-en {
+    font-size: 24px;
+    letter-spacing: 4px;
+    color: #70644F;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  .title-line {
+    flex: 1;
+    height: 1px;
+    background-color: #70644F;
+    margin-left: 20px;
+  }
+
+  .logo-section {
     text-align: center;
+    margin: 60px 0;
+  }
+
+  .center-logo {
+    width: 150px;
+    height: auto;
+  }
+
+  .address-section {
+    text-align: center;
+    margin: 60px 0;
+    color: #fff;
+  }
+
+  .address-section h3 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: #70644F;
+    font-weight: normal;
+  }
+
+  .address-section p {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+    margin: 5px 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .map-container {
+    max-width: 100%;
+    margin: 60px 0px;
+  }
+
+  .map-container iframe {
+    width: 100%;
+  }
+
+  .info-group {
+    margin: 100px 0px 0px 60px;
+    max-width: 100%;
+  }
+
+  .info-group h3 {
+    font-size: 26px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #70644F;
+    font-weight: normal;
+  }
+
+  .info-group p {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+    margin: 5px 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .transport-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .transport-list li {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .transport-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+  }
+
+  .note {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    margin-top: 5px;
+    padding-left: 10px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .page-content {
+      padding: 100px 40px 60px 40px;
+    }
+
+    .title-ja {
+      font-size: 32px;
+    }
+
+    .title-en {
+      font-size: 18px;
+    }
+
+    .center-logo {
+      width: 120px;
+    }
   }
 </style>
