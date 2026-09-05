@@ -136,7 +136,7 @@ const localePaths = generateLocalePaths(Astro.url);
 
   function resetInterval() {
     clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 8000);
+    slideInterval = setInterval(nextSlide, 10000);
   }
 
   // Auto advance
@@ -203,7 +203,7 @@ const localePaths = generateLocalePaths(Astro.url);
       background-size: cover;
       background-position: center;
       opacity: 0;
-      transition: opacity 1.3s ease-in-out;
+      transition: opacity 1.5s ease-in-out;
       pointer-events: none;
       z-index: 1;
       filter: brightness(1);
