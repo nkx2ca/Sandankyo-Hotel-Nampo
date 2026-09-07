@@ -12,7 +12,8 @@ const t = useTranslations(lang);
     <img class="loading_logo" src=`${import.meta.env.BASE_URL}logo_with_text_white.png`/>
   </div>
 
-  <section class="top">
+  <!-- ヒーローセクション（スライドショー背景） -->
+  <section class="hero-section">
     <div class="slideshow">
       <div class="slide active" style={`background-image: url(${import.meta.env.BASE_URL}hero-sandankyo-gorge.jpeg)`}></div>
       <div class="slide" style={`background-image: url(${import.meta.env.BASE_URL}kurobuchi.jpg)`}></div>
@@ -25,86 +26,78 @@ const t = useTranslations(lang);
       <button class="indicator" data-slide="2" aria-label="Slide 3"></button>
     </div>
 
-    <div class="overlay">
-      <section class="page-0">
-        <a href={getRelativeLocaleUrl(lang, "/")}>
-          <img class="top_logo" src=`${import.meta.env.BASE_URL}logo_with_text_white.png`/>
-        </a>
-      </section>
-      <section class="page-0-5">
-        <div class="opening-info">
-          <h3 class="opening-date">Opening November 14, 2026</h3>
-          <p class="opening-text">Located within Fuji-Hakone-Izu National Park, surrounded by 135,500㎡ of vast nature.</p>
-          <p class="opening-text">HOTEL THE MITSUI HAKONE will be born in this place where the Mitsui family villas once stood.</p>
-        </div>
-      </section>
-      <section class="page-1">
-        <div class="news-section">
-          <h2 class="news-title">NEWS</h2>
-          <ul class="news-list">
-            <li class="news-item">
-              <span class="news-date">2026.09.01</span>
-              <a href={getRelativeLocaleUrl(lang, "/news/1")} class="news-link">Autumn Special Plan Announcement</a>
-            </li>
-            <li class="news-item">
-              <span class="news-date">2026.08.15</span>
-              <a href={getRelativeLocaleUrl(lang, "/news/2")} class="news-link">Summer Closure Notice</a>
-            </li>
-            <li class="news-item">
-              <span class="news-date">2026.07.20</span>
-              <a href={getRelativeLocaleUrl(lang, "/news/3")} class="news-link">New Guest Rooms Now Open</a>
-            </li>
-          </ul>
-          <div class="news-more">
-            <a href={getRelativeLocaleUrl(lang, "/news")} class="news-more-link">View All News</a>
-          </div>
-        </div>
-      </section>
-      <section class="page-2">
-        <div class="intro-text">
-          <p>Feel the seasons, taste the land, savor the ingredients.</p>
-          <p>A place to rediscover your true self and spend time in harmony with nature.</p>
-          <br/>
-          <p>Away from the bustle of the city,</p>
-          <p>Surrounded by greenery with an ocean view,</p>
-          <p>SOKI ATAMI awaits.</p>
-          <br/>
-          <p>SOKI means "pure vessel."</p>
-          <p>An inn that welcomes time spent naturally, just as you are.</p>
-          <br/>
-          <p>Relax in private hot springs in every room,</p>
-          <p>Enjoy seasonal ingredients sourced locally,</p>
-          <p>Take in the views and find peace.</p>
-          <br/>
-          <p>In Atami, where hot spring culture has deep roots,</p>
-          <p>We offer a stay where modern travelers</p>
-          <p>Can care for and rejuvenate themselves.</p>
-          <br/>
-          <p>Entrust yourself to the seasons and the land,</p>
-          <p>And enjoy time spent in harmony with nature.</p>
-        </div>
-      </section>
+    <div class="hero-content">
+      <a href={getRelativeLocaleUrl(lang, "/")}>
+        <img class="top_logo" src=`${import.meta.env.BASE_URL}logo_with_text_white.png`/>
+      </a>
+    </div>
+  </section>
+
+  <!-- 開業情報セクション -->
+  <section class="opening-section">
+    <div class="container">
+      <h3 class="opening-date">Opening November 14, 2026</h3>
+      <p class="opening-text">A grand gorge stretching approximately 16 kilometers within Nishi-Chugoku Sanchi Quasi-National Park.</p>
+      <p class="opening-text">Sandankyo Hotel Nampo will reopen at the gateway to Sandankyo, a Special Place of Scenic Beauty.</p>
+    </div>
+  </section>
+
+  <!-- お知らせセクション -->
+  <section class="news-section">
+    <div class="container">
+      <h2 class="news-title">NEWS</h2>
+      <ul class="news-list">
+        <li class="news-item">
+          <span class="news-date">2026.09.01</span>
+          <a href={getRelativeLocaleUrl(lang, "/news/1")} class="news-link">Autumn Special Plan Announcement</a>
+        </li>
+        <li class="news-item">
+          <span class="news-date">2026.08.15</span>
+          <a href={getRelativeLocaleUrl(lang, "/news/2")} class="news-link">Summer Closure Notice</a>
+        </li>
+        <li class="news-item">
+          <span class="news-date">2026.07.20</span>
+          <a href={getRelativeLocaleUrl(lang, "/news/3")} class="news-link">New Guest Rooms Now Open</a>
+        </li>
+      </ul>
+      <div class="news-more">
+        <a href={getRelativeLocaleUrl(lang, "/news")} class="news-more-link">View All News</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 紹介セクション -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-text">
+        <p>Sandankyo was once an "unknown hidden sanctuary."</p>
+        <p>Captivated by its majestic landscape and natural beauty</p>
+        <p>that combines garden-like elegance,</p>
+        <p>photographer Kuma Nampo devoted himself to this place.</p>
+        <br/>
+        <p>Together with local elementary school teacher Saito Rosui,</p>
+        <p>he shared its allure with the world,</p>
+        <p>leading Sandankyo to become one of Japan's most renowned scenic spots.</p>
+        <br/>
+        <p>"A Moment of Stillness, Awash in Green"</p>
+        <p>翠に染まる、癒しのひととき</p>
+        <br/>
+        <p>Crystal-clear water flowing through the ravine,</p>
+        <p>the fresh green of flourishing plants,</p>
+        <p>and the gentle light woven by nature.</p>
+        <p>Entrust yourself to the emerald world</p>
+        <p>created by Sandankyo's valley,</p>
+        <p>and find balance for body and mind.</p>
+        <p>In the slowly changing passage of time,</p>
+        <p>discover moments to face yourself.</p>
+        <br/>
+        <p>Feel the seasons, savor the land,</p>
+        <p>and enjoy a moment of stillness, awash in green.</p>
+      </div>
     </div>
   </section>
 
   <script>
-    const topSection = document.querySelector('.top');
-    const logo = document.querySelector('.top_logo');
-    const openingInfo = document.querySelector('.opening-info');
-    const slideIndicators = document.querySelector('.slide-indicators');
-
-    topSection.addEventListener('scroll', () => {
-      if (topSection.scrollTop > 0) {
-        logo.classList.add('hidden');
-        openingInfo.classList.add('visible');
-        slideIndicators.classList.add('hidden');
-      } else {
-        logo.classList.remove('hidden');
-        openingInfo.classList.remove('visible');
-        slideIndicators.classList.remove('hidden');
-      }
-    });
-
     const loading = document.querySelector('.loading');
 
     window.addEventListener('load', () => {
@@ -178,17 +171,18 @@ const t = useTranslations(lang);
       z-index: 510;
     }
 
-    .top {
-      width: 100vw;
-      height: 100vh;
+    /* ヒーローセクション */
+    .hero-section {
       position: relative;
-      overflow-y: auto;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
     }
 
     .slideshow {
+      position: absolute;
       width: 100%;
       height: 100%;
-      position: fixed;
       top: 0;
       left: 0;
       z-index: 0;
@@ -227,7 +221,7 @@ const t = useTranslations(lang);
     }
 
     .slide-indicators {
-      position: fixed;
+      position: absolute;
       bottom: 50px;
       left: 50%;
       transform: translateX(-50%);
@@ -235,13 +229,6 @@ const t = useTranslations(lang);
       display: flex;
       gap: 16px;
       align-items: center;
-      opacity: 1;
-      transition: opacity 0.5s ease;
-    }
-
-    .slide-indicators.hidden {
-      opacity: 0;
-      pointer-events: none;
     }
 
     .indicator {
@@ -281,52 +268,34 @@ const t = useTranslations(lang);
       transform: scaleX(1.1);
     }
 
-    .overlay {
-      width: 100%;
-      min-height: 100vh;
+    .hero-content {
       position: relative;
       z-index: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      width: 100%;
+      height: 100%;
     }
 
     .top_logo {
       position: absolute;
-      width: 80px;
+      width: 100px;
       margin-top: 15px;
       margin-left: 30px;
       top: 0px;
       left: 0px;
-      transition: opacity 0.5s ease;
     }
 
-    .top_logo.hidden {
-      opacity: 0;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
     }
 
-    .page-0 {
-      width: 100%;
-      height: 100vh;
-    }
-
-    .page-0-5 {
-      width: 100%;
-      height: 50vh;
-      display: flex;
-      align-items: flex-end;
-      padding: 60px 80px 100px;
-    }
-
-    .opening-info {
-      color: #fff;
-      text-align: left;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .opening-info.visible {
-      opacity: 1;
+    /* 開業情報セクション */
+    .opening-section {
+      padding: 100px 0;
+      background-color: #fff;
+      color: #333;
+      text-align: center;
     }
 
     .opening-date {
@@ -340,28 +309,20 @@ const t = useTranslations(lang);
       font-size: 14px;
       line-height: 2;
       letter-spacing: 1px;
-      margin: 0;
+      margin: 8px 0;
     }
 
-    .page-1 {
-      width: 100%;
-      height: auto;
-      background-color: rgb(0,0,0,0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 60px 40px;
-    }
-
+    /* お知らせセクション */
     .news-section {
-      width: 100%;
-      max-width: 800px;
+      padding: 100px 0;
+      background-color: rgb(78, 76, 67);
       color: #fff;
     }
 
     .news-title {
       font-size: 32px;
       letter-spacing: 8px;
+      margin-top: 0;
       margin-bottom: 40px;
       text-align: center;
       font-weight: normal;
@@ -371,6 +332,9 @@ const t = useTranslations(lang);
       list-style: none;
       padding: 0;
       margin: 0 0 40px 0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .news-item {
@@ -420,22 +384,19 @@ const t = useTranslations(lang);
       opacity: 0.7;
     }
 
-    .page-2 {
-      width: 100%;
-      height: 100vh;
-      background-color: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 60px 40px;
+    /* 紹介セクション */
+    .intro-section {
+      padding: 100px 0;
+      background-image: url('/moss.jpg');
+      background-size: 100% auto;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .intro-text {
-      width: 100%;
       max-width: 800px;
+      margin: 0 auto;
       color: #fff;
-      margin-right: auto;
-      margin-left: 20%;
     }
 
     .intro-text p {
