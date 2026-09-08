@@ -25,8 +25,8 @@ const t = useTranslations(lang);
         <p class="restaurant-name">レストラン みずのと</p>
       </div>
       <div class="others-container">
-        <p class="privacy-policy">個人情報保護方針</p>
-        <p class="terms-and-conditions">宿泊約款</p>
+        <a href={getRelativeLocaleUrl(lang, "privacy-policy")}><p class="privacy-policy">個人情報保護方針</p></a>
+        <a href={getRelativeLocaleUrl(lang, "accommodation-terms")}><p class="accommodation-terms">宿泊約款</p></a>
       </div>
     </div>
   </div>
@@ -131,7 +131,7 @@ const t = useTranslations(lang);
     margin: 0;
   }
   
-  .terms-and-conditions {
+  .accommodation-terms {
     font-size: 12px;
     letter-spacing: 0.5px;
     margin: 0;
