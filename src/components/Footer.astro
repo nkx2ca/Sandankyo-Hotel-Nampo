@@ -7,131 +7,133 @@ const t = useTranslations(lang);
 ---
 
 <footer>
-  <div class="footer-content">
-    <div class="footer-left">
+  <div class="main-container">
+    <div class="left-container">
       <img class="footer-logo" src=`${import.meta.env.BASE_URL}logo_with_text_white.png` alt="Sandankyo Hotel Nampo" />
       <div class="footer-sns">
         <img class="footer-instagram" src=`${import.meta.env.BASE_URL}instagram_logo_white.png`/>
         <img class="footer-facebook" src=`${import.meta.env.BASE_URL}facebook_logo_white.png`/>
       </div>
     </div>
-    <div class="footer-right">
-      <div class="container-address">
-        <p class="footer-tel">TEL: 0826-28-2255</p>
-        <p class="footer-address">〒731-3813 広島県山県郡安芸太田町柴木1734-1</p>
+    <div class="right-container">
+      <div class="address-container">
+        <p class="tel">TEL: 0826-28-2255</p>
+        <p class="address">〒731-3813 広島県山県郡安芸太田町柴木1734-1</p>
       </div>
-      <div class="container-name">
-        <p class="footer-hotel">株式会社三段峡の宿 三段峡ホテル 南峰</p>
-        <p class="footer-restaurant">レストラン みずのと</p>
+      <div class="company-container">
+        <p class="hotel-name">三段峡ホテル 南峰</p>
+        <p class="restaurant-name">レストラン みずのと</p>
       </div>
-      <div class="container-others">
-        <p class="footer-privacy-policy">個人情報保護方針</p>
-        <p class="footer-terms-and-conditions">宿泊約款</p>
+      <div class="others-container">
+        <p class="privacy-policy">個人情報保護方針</p>
+        <p class="terms-and-conditions">宿泊約款</p>
       </div>
     </div>
   </div>
 </footer>
 
 <style>
-  @media screen and (min-width: 1025px) {
-    footer {
-      width: 100%;
-      height: 400px;
-      background-color: rgb(78, 76, 67);
-      padding: 100px 40px 40px;
-      color: #fff;
-    }
+  @media screen and (max-width: 960px) {
+  }
 
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
+  footer {
+    width: 100%;
+    height: 400px;
+    background-color: rgb(78, 76, 67);
+    padding-top: 100px;
+    padding-bottom: 40px;
+    color: #fff;
+  }
+  
+  .main-container {
+    max-width: 1240px;
+    height: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .left-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .footer-logo {
+    width: 120px;
+    height: auto;
+  }
+  
+  .footer-sns {
+    width: 120px;
+    height: auto;
+  }
+  
+  .footer-instagram {
+    width: 30px;
+    height: auto;
+    margin-right: 15px;
+  }
+  
+  .footer-facebook {
+    width: 30px;
+    height: auto;
+  }
+  
+  .right-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: right;
+  }
+  
+  .address-container {
+    margin-bottom: 20px;
+  }
+  
+  .tel {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
 
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      height: 100%;
-    }
-
-    .footer-logo {
-      width: 120px;
-      height: auto;
-    }
-
-    .footer-sns {
-      width: 120px;
-      height: auto;
-      margin-top: auto;
-    }
-
-    .footer-instagram {
-      width: 30px;
-      height: auto;
-    }
-    
-    .footer-facebook {
-      width: 30px;
-      height: auto;
-      margin-left: 15px;
-    }
-
-    .footer-right {
-      text-align: right;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-end;
-      height: 100%;
-    }
-
-    .container-address {
-      margin-bottom: 20px;
-    }
-
-    .footer-address {
-      font-size: 16px;
-      letter-spacing: 0.5px;
-      margin: 5px 0;
-    }
-
-    .footer-tel {
-      font-size: 16px;
-      letter-spacing: 0.5px;
-    }
-
-    .footer-hotel {
-      font-size: 14px;
-      letter-spacing: 0.5px;
-    }
-
-    .footer-restaurant {
-      font-size: 14px;
-      letter-spacing: 0.5px;
-    }
-
-    .container-others {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      margin-top: auto;
-    }
-
-    .footer-privacy-policy {
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      margin: 0;
-    }
-
-    .footer-terms-and-conditions {
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      margin: 0;
-    }
+  .address {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin: 5px 0;
+  }
+  
+  .hotel-name {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  
+  .restaurant-name {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  
+  .others-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: auto;
+  }
+  
+  .privacy-policy {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+  
+  .terms-and-conditions {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin: 0;
   }
 </style>
