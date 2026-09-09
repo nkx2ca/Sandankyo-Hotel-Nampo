@@ -67,347 +67,348 @@ const localePaths = generateLocalePaths(Astro.url);
     </div>
   </section>
 
-  <!-- 紹介セクション -->
   <section class="intro-section">
-    <div class="container">
-      <div class="intro-text">
-        <p>かつて、"名もなき秘境" であった三段峡。</p>
-        <p>その雄大な景観と、庭園のような美しさを併せ持つ自然美に心を奪われた</p>
-        <p>写真技師・熊南峰（くま なんぽう）。</p>
-        <br/>
-        <p>地元の小学校教師・斎藤露翠（さいとう ろすい）とともにその魅力を世に広め、</p>
-        <p>三段峡を日本有数の名勝地へと導いた功労者である―</p>
-        <br/>
-        <p>「翠に染まる、癒しのひととき」</p>
-        <p>A Moment of Stillness, Awash in Green</p>
-        <br/>
-        <p>渓流を流れる清らかな水、瑞々しい草木の緑、</p>
-        <p>そして自然が織りなすやわらかな光。</p>
-        <p>三段峡の渓谷が紡ぎ出す翠の世界に身を委ね、</p>
-        <p>心身をととのえる。</p>
-        <p>ゆっくりと移ろう時間の中で、</p>
-        <p>自分自身と向き合うひとときを。</p>
-        <br/>
-        <p>季節を感じ、土地を味わいながら、</p>
-        <p>翠に染まる、癒しのひとときをお楽しみください。</p>
-      </div>
+    <div class="intro-text">
+      <p>かつて、"名もなき秘境" であった三段峡。</p>
+      <p>その雄大な景観と、庭園のような美しさを併せ持つ自然美に心を奪われた</p>
+      <p>写真技師・熊南峰（くま なんぽう）。</p>
+      <br/>
+      <p>地元の小学校教師・斎藤露翠（さいとう ろすい）とともにその魅力を世に広め、</p>
+      <p>三段峡を日本有数の名勝地へと導いた功労者である―</p>
+      <br/>
+      <p>「翠に染まる、癒しのひととき」</p>
+      <p>A Moment of Stillness, Awash in Green</p>
+      <br/>
+      <p>渓流を流れる清らかな水、瑞々しい草木の緑、</p>
+      <p>そして自然が織りなすやわらかな光。</p>
+      <p>三段峡の渓谷が紡ぎ出す翠の世界に身を委ね、</p>
+      <p>心身をととのえる。</p>
+      <p>ゆっくりと移ろう時間の中で、</p>
+      <p>自分自身と向き合うひとときを。</p>
+      <br/>
+      <p>季節を感じ、土地を味わいながら、</p>
+      <p>翠に染まる、癒しのひとときをお楽しみください。</p>
     </div>
   </section>
-
-  <script>
-    const loading = document.querySelector('.loading');
-
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        loading?.classList.add('fade-out');
-      }, 1500);
-    });
-
-    // Slideshow functionality
-    const slides = document.querySelectorAll('.slide');
-    const indicators = document.querySelectorAll('.indicator');
-    let currentSlide = 0;
-    let slideInterval;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      indicators.forEach((indicator, i) => {
-        indicator.classList.toggle('active', i === index);
-      });
-      currentSlide = index;
-    }
-
-    function nextSlide() {
-      const next = (currentSlide + 1) % slides.length;
-      showSlide(next);
-    }
-
-    function resetInterval() {
-      clearInterval(slideInterval);
-      slideInterval = setInterval(nextSlide, 10000);
-    }
-
-    // Auto advance
-    slideInterval = setInterval(nextSlide, 10000);
-
-    // Indicators
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        showSlide(index);
-        resetInterval();
-      });
-    });
-  </script>
-
-  <style>
-    @media screen and (min-width: 1025px) {
-      .loading {
-        width: 100vw;
-        height: 100vh;
-        background-color: #000;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 500;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 1.0s ease;
-      }
-
-      .loading.fade-out {
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .loading_logo {
-        width: 180px;
-        z-index: 510;
-      }
-
-      /* ヒーローセクション */
-      .hero-section {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-      }
-
-      .slideshow {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 0;
-        background-color: #000;
-      }
-
-      .slide {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-size: cover;
-        background-position: center;
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out;
-        pointer-events: none;
-        z-index: 1;
-        filter: brightness(1);
-      }
-
-      .slide::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.1);
-        z-index: 1;
-      }
-
-      .slide.active {
-        opacity: 1;
-        z-index: 2;
-      }
-
-      .slide-indicators {
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
-        display: flex;
-        gap: 16px;
-        align-items: center;
-      }
-
-      .indicator {
-        width: 40px;
-        height: 3px;
-        border-radius: 2px;
-        background: rgba(255, 255, 255, 0.4);
-        border: none;
-        cursor: pointer;
-        transition: all 0.4s ease;
-        padding: 0;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .indicator::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: rgba(255, 255, 255, 1);
-        transition: width 0.4s ease;
-      }
-
-      .indicator.active {
-        background: rgba(255, 255, 255, 0.6);
-      }
-
-      .indicator.active::before {
-        width: 100%;
-      }
-
-      .indicator:hover {
-        background: rgba(255, 255, 255, 0.7);
-        transform: scaleX(1.1);
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-      }
-
-      .top_logo {
-        position: absolute;
-        width: 100px;
-        margin-top: 15px;
-        margin-left: 30px;
-        top: 0px;
-        left: 0px;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 40px;
-      }
-
-      /* 開業情報セクション */
-      .opening-section {
-        padding: 100px 0;
-        background-color: #fff;
-        color: #333;
-        text-align: center;
-      }
-
-      .opening-date {
-        font-size: 32px;
-        letter-spacing: 4px;
-        margin-bottom: 30px;
-        font-weight: normal;
-      }
-
-      .opening-text {
-        font-size: 14px;
-        line-height: 2;
-        letter-spacing: 1px;
-        margin: 8px 0;
-      }
-
-      /* お知らせセクション */
-      .news-section {
-        padding: 100px 0;
-        background-color: rgb(78, 76, 67);
-        color: #fff;
-      }
-
-      .news-title {
-        font-size: 32px;
-        letter-spacing: 8px;
-        margin-top: 0;
-        margin-bottom: 40px;
-        text-align: center;
-        font-weight: normal;
-      }
-
-      .news-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 40px 0;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .news-item {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        padding: 20px 0;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        transition: opacity 0.3s;
-      }
-
-      .news-item:hover {
-        opacity: 0.7;
-      }
-
-      .news-date {
-        font-size: 14px;
-        letter-spacing: 2px;
-        color: rgba(255, 255, 255, 0.8);
-        white-space: nowrap;
-      }
-
-      .news-link {
-        color: #fff;
-        text-decoration: none;
-        font-size: 16px;
-        letter-spacing: 2px;
-        flex: 1;
-      }
-
-      .news-more {
-        text-align: center;
-        margin-top: 30px;
-      }
-
-      .news-more-link {
-        color: #fff;
-        text-decoration: none;
-        font-size: 14px;
-        letter-spacing: 3px;
-        padding-bottom: 5px;
-        border-bottom: 1px solid #fff;
-        transition: opacity 0.3s;
-      }
-
-      .news-more-link:hover {
-        opacity: 0.7;
-      }
-
-      /* 紹介セクション */
-      .intro-section {
-        padding: 100px 0;
-        background-image: url('/moss.jpg');
-        background-size: 100% auto;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-
-      .intro-text {
-        max-width: 800px;
-        margin: 0 auto;
-        color: #fff;
-      }
-
-      .intro-text p {
-        font-size: 16px;
-        line-height: 2;
-        letter-spacing: 1px;
-        text-align: left;
-        margin: 0;
-      }
-
-      .intro-text br {
-        display: block;
-        content: "";
-        margin-top: 20px;
-      }
-    }
-  </style>
 </BaseLayout>
+
+<script>
+  const loading = document.querySelector('.loading');
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      loading?.classList.add('fade-out');
+    }, 1500);
+  });
+
+  // Slideshow functionality
+  const slides = document.querySelectorAll('.slide');
+  const indicators = document.querySelectorAll('.indicator');
+  let currentSlide = 0;
+  let slideInterval;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+    indicators.forEach((indicator, i) => {
+      indicator.classList.toggle('active', i === index);
+    });
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    const next = (currentSlide + 1) % slides.length;
+    showSlide(next);
+  }
+
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 10000);
+  }
+
+  // Auto advance
+  slideInterval = setInterval(nextSlide, 10000);
+
+  // Indicators
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      showSlide(index);
+      resetInterval();
+    });
+  });
+</script>
+
+<style>
+  @media screen and (max-width: 960px) {
+  }
+
+ .loading {
+   width: 100vw;
+   height: 100vh;
+   background-color: #000;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 500;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: opacity 1.0s ease;
+ }
+
+ .loading.fade-out {
+   opacity: 0;
+   pointer-events: none;
+ }
+
+ .loading_logo {
+   width: 180px;
+   z-index: 510;
+ }
+
+ /* ヒーローセクション */
+ .hero-section {
+   position: relative;
+   width: 100%;
+   height: 100vh;
+   overflow: hidden;
+ }
+
+ .slideshow {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: 0;
+   background-color: #000;
+ }
+
+ .slide {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   background-size: cover;
+   background-position: center;
+   opacity: 0;
+   transition: opacity 1.5s ease-in-out;
+   pointer-events: none;
+   z-index: 1;
+   filter: brightness(1);
+ }
+
+ .slide::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.1);
+   z-index: 1;
+ }
+
+ .slide.active {
+   opacity: 1;
+   z-index: 2;
+ }
+
+ .slide-indicators {
+   position: absolute;
+   bottom: 50px;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 10;
+   display: flex;
+   gap: 16px;
+   align-items: center;
+ }
+
+ .indicator {
+   width: 40px;
+   height: 3px;
+   border-radius: 2px;
+   background: rgba(255, 255, 255, 0.4);
+   border: none;
+   cursor: pointer;
+   transition: all 0.4s ease;
+   padding: 0;
+   position: relative;
+   overflow: hidden;
+ }
+
+ .indicator::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 0;
+   height: 100%;
+   background: rgba(255, 255, 255, 1);
+   transition: width 0.4s ease;
+ }
+
+ .indicator.active {
+   background: rgba(255, 255, 255, 0.6);
+ }
+
+ .indicator.active::before {
+   width: 100%;
+ }
+
+ .indicator:hover {
+   background: rgba(255, 255, 255, 0.7);
+   transform: scaleX(1.1);
+ }
+
+ .hero-content {
+   position: relative;
+   z-index: 1;
+   width: 100%;
+   height: 100%;
+ }
+
+ .top_logo {
+   position: absolute;
+   width: 100px;
+   margin-top: 15px;
+   margin-left: 30px;
+   top: 0px;
+   left: 0px;
+ }
+
+ .container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 40px;
+ }
+
+ /* 開業情報セクション */
+ .opening-section {
+   padding: 100px 0;
+   background-color: #fff;
+   color: #333;
+   text-align: center;
+ }
+
+ .opening-date {
+   font-size: 32px;
+   letter-spacing: 4px;
+   margin-bottom: 30px;
+   font-weight: normal;
+ }
+
+ .opening-text {
+   font-size: 14px;
+   line-height: 2;
+   letter-spacing: 1px;
+   margin: 8px 0;
+ }
+
+ /* お知らせセクション */
+ .news-section {
+   padding: 100px 0;
+   background-color: rgb(78, 76, 67);
+   color: #fff;
+ }
+
+ .news-title {
+   font-size: 32px;
+   letter-spacing: 8px;
+   margin-top: 0;
+   margin-bottom: 40px;
+   text-align: center;
+   font-weight: normal;
+ }
+
+ .news-list {
+   list-style: none;
+   padding: 0;
+   margin: 0 0 40px 0;
+   max-width: 800px;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+ .news-item {
+   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+   padding: 20px 0;
+   display: flex;
+   align-items: center;
+   gap: 20px;
+   transition: opacity 0.3s;
+ }
+
+ .news-item:hover {
+   opacity: 0.7;
+ }
+
+ .news-date {
+   font-size: 14px;
+   letter-spacing: 2px;
+   color: rgba(255, 255, 255, 0.8);
+   white-space: nowrap;
+ }
+
+ .news-link {
+   color: #fff;
+   text-decoration: none;
+   font-size: 16px;
+   letter-spacing: 2px;
+   flex: 1;
+ }
+
+ .news-more {
+   text-align: center;
+   margin-top: 30px;
+ }
+
+ .news-more-link {
+   color: #fff;
+   text-decoration: none;
+   font-size: 14px;
+   letter-spacing: 3px;
+   padding-bottom: 5px;
+   border-bottom: 1px solid #fff;
+   transition: opacity 0.3s;
+ }
+
+ .news-more-link:hover {
+   opacity: 0.7;
+ }
+
+ .intro-section {
+   width: 100%;
+   padding: 100px 0;
+   background-image: url('/moss.jpg');
+   background-size: 100% auto;
+   background-position: center;
+   background-repeat: no-repeat;
+ }
+
+ .intro-text {
+   max-width: 1240px;
+   height: 100%;
+   padding: 0 20px;
+   margin: 0 auto;
+   color: #fff;
+ }
+
+ .intro-text p {
+   font-size: 16px;
+   line-height: 2;
+   letter-spacing: 1px;
+   text-align: left;
+   margin: 0;
+ }
+
+ .intro-text br {
+   display: block;
+   content: "";
+   margin-top: 20px;
+ }
+
+</style>
