@@ -13,7 +13,6 @@ const localePaths = generateLocalePaths(Astro.url);
     <img class="loading_logo" src=`${import.meta.env.BASE_URL}logo_with_text_white.png`/>
   </div>
 
-  <!-- ヒーローセクション（スライドショー背景） -->
   <section class="hero-section">
     <div class="slideshow">
       <div class="slide active" style={`background-image: url(${import.meta.env.BASE_URL}hero-sandankyo-gorge.jpeg)`}></div>
@@ -34,16 +33,16 @@ const localePaths = generateLocalePaths(Astro.url);
     </div>
   </section>
 
-  <!-- 開業情報セクション -->
   <section class="opening-section">
-    <div class="container">
-      <h3 class="opening-date">2026年11月14日開業</h3>
-      <p class="opening-text">西中国山地国定公園内、全長約16㎞の大峡谷。</p>
-      <p class="opening-text">特別名勝 三段峡の玄関口に、三段峡ホテル南峰がリニューアルオープンいたします。</p>
-    </div>
+    <div class="opening-filter">
+      <div class="container">
+        <h3 class="opening-date">2026年11月14日開業</h3>
+        <p class="opening-text">西中国山地国定公園内、全長約16㎞の大峡谷。</p>
+        <p class="opening-text">特別名勝 三段峡の玄関口に、三段峡ホテル南峰がリニューアルオープンいたします。</p>
+      </div>
+    <div>
   </section>
 
-  <!-- お知らせセクション -->
   <section class="news-section">
     <div class="container">
       <h2 class="news-title">お知らせ</h2>
@@ -68,26 +67,28 @@ const localePaths = generateLocalePaths(Astro.url);
   </section>
 
   <section class="intro-section">
-    <div class="intro-text">
-      <p>かつて、"名もなき秘境" であった三段峡。</p>
-      <p>その雄大な景観と、庭園のような美しさを併せ持つ自然美に心を奪われた</p>
-      <p>写真技師・熊南峰（くま なんぽう）。</p>
-      <br/>
-      <p>地元の小学校教師・斎藤露翠（さいとう ろすい）とともにその魅力を世に広め、</p>
-      <p>三段峡を日本有数の名勝地へと導いた功労者である―</p>
-      <br/>
-      <p>「翠に染まる、癒しのひととき」</p>
-      <p>A Moment of Stillness, Awash in Green</p>
-      <br/>
-      <p>渓流を流れる清らかな水、瑞々しい草木の緑、</p>
-      <p>そして自然が織りなすやわらかな光。</p>
-      <p>三段峡の渓谷が紡ぎ出す翠の世界に身を委ね、</p>
-      <p>心身をととのえる。</p>
-      <p>ゆっくりと移ろう時間の中で、</p>
-      <p>自分自身と向き合うひとときを。</p>
-      <br/>
-      <p>季節を感じ、土地を味わいながら、</p>
-      <p>翠に染まる、癒しのひとときをお楽しみください。</p>
+    <div class="container">
+      <div class="intro-text">
+        <p>かつて、"名もなき秘境" であった三段峡。</p>
+        <p>その雄大な景観と、庭園のような美しさを併せ持つ自然美に心を奪われた</p>
+        <p>写真技師・熊南峰（くま なんぽう）。</p>
+        <br/>
+        <p>地元の小学校教師・斎藤露翠（さいとう ろすい）とともにその魅力を世に広め、</p>
+        <p>三段峡を日本有数の名勝地へと導いた功労者である―</p>
+        <br/>
+        <p>「翠に染まる、癒しのひととき」</p>
+        <p>A Moment of Stillness, Awash in Green</p>
+        <br/>
+        <p>渓流を流れる清らかな水、瑞々しい草木の緑、</p>
+        <p>そして自然が織りなすやわらかな光。</p>
+        <p>三段峡の渓谷が紡ぎ出す翠の世界に身を委ね、</p>
+        <p>心身をととのえる。</p>
+        <p>ゆっくりと移ろう時間の中で、</p>
+        <p>自分自身と向き合うひとときを。</p>
+        <br/>
+        <p>季節を感じ、土地を味わいながら、</p>
+        <p>翠に染まる、癒しのひとときをお楽しみください。</p>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -167,7 +168,6 @@ const localePaths = generateLocalePaths(Astro.url);
    z-index: 510;
  }
 
- /* ヒーローセクション */
  .hero-section {
    position: relative;
    width: 100%;
@@ -281,17 +281,35 @@ const localePaths = generateLocalePaths(Astro.url);
  }
 
  .container {
-   max-width: 1200px;
+   max-width: 1240px;
+   height: 100%;
+   padding: 0 20px;
    margin: 0 auto;
-   padding: 0 40px;
  }
 
- /* 開業情報セクション */
  .opening-section {
-   padding: 100px 0;
-   background-color: #fff;
-   color: #333;
-   text-align: center;
+   width: 100%;
+   height: 100vh;
+   color: #fff;
+   background-image: url('/340001_02F.jpeg');
+   background-size: 100% auto;
+   background-position: center;
+   background-repeat: no-repeat;
+ }
+
+ .opening-filter {
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0,0.5);
+ }
+
+ .opening-section .container {
+   text-align: left;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   align-items: flex-start;
+   padding-bottom: 100px;
  }
 
  .opening-date {
@@ -305,14 +323,13 @@ const localePaths = generateLocalePaths(Astro.url);
    font-size: 14px;
    line-height: 2;
    letter-spacing: 1px;
-   margin: 8px 0;
+   margin: 4px 0;
  }
 
- /* お知らせセクション */
  .news-section {
+   width: 100%;
    padding: 100px 0;
-   background-color: rgb(78, 76, 67);
-   color: #fff;
+   background-color: #001914;
  }
 
  .news-title {
@@ -322,15 +339,14 @@ const localePaths = generateLocalePaths(Astro.url);
    margin-bottom: 40px;
    text-align: center;
    font-weight: normal;
+   color: #fff;
  }
 
  .news-list {
+   max-width: 800px;
    list-style: none;
    padding: 0;
-   margin: 0 0 40px 0;
-   max-width: 800px;
-   margin-left: auto;
-   margin-right: auto;
+   margin: 0 auto 60px auto;
  }
 
  .news-item {
@@ -363,7 +379,6 @@ const localePaths = generateLocalePaths(Astro.url);
 
  .news-more {
    text-align: center;
-   margin-top: 30px;
  }
 
  .news-more-link {
@@ -390,10 +405,8 @@ const localePaths = generateLocalePaths(Astro.url);
  }
 
  .intro-text {
-   max-width: 1240px;
+   width: 100%;
    height: 100%;
-   padding: 0 20px;
-   margin: 0 auto;
    color: #fff;
  }
 
