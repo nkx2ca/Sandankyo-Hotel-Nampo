@@ -1,0 +1,357 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, useTranslations, generateLocalePaths } from '../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const localePaths = generateLocalePaths(Astro.url);
+---
+
+<!-- Fixed Right Navigation Bar -->
+<nav class="nav-bar">
+  <!-- Hamburger Menu Button -->
+  <div class="nav-hamburger">
+    <button type="button" class="hamburger-button" aria-label="Toggle menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Language Switcher -->
+  <div class="nav-language">
+    <ul>
+      <li><a href={getRelativeLocaleUrl(localePaths.ja.locale, "/")}>JP</a></li>
+      <li class="separator">/</li>
+      <li><a href={getRelativeLocaleUrl(localePaths.en.locale, "/")}>EN</a></li>
+    </ul>
+  </div>
+
+  <!-- Reservation Button -->
+  <div class="nav-reservation checkinn-reservation-button">{t('booking')}</div>
+</nav>
+
+<!-- Slide-in Menu -->
+<div class="menu-panel">
+  <div class="menu-content">
+    <!-- Primary Links -->
+    <nav class="menu-primary">
+      <ul>
+        <li><a href={getRelativeLocaleUrl(lang, "rooms")}>{t('rooms')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, "cuisine")}>{t('cuisine')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, "facility")}>{t('facility')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, "gallery")}>{t('gallery')}</a></li>
+      </ul>
+    </nav>
+
+    <!-- Secondary Links -->
+    <nav class="menu-secondary">
+      <ul>
+        <li><a href={getRelativeLocaleUrl(lang, "access")}>{t('access')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, "news")}>{t('news')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, "faq")}>{t('faq')}</a></li>
+        <li><a href={getRelativeLocaleUrl(lang, "contact")}>{t('contact')}</a></li>
+      </ul>
+    </nav>
+
+    <!-- Footer -->
+    <div class="menu-footer">
+      <div class="menu-social">
+        <a href="https://www.instagram.com/sandankyohotelnampo/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <img src=`${import.meta.env.BASE_URL}instagram_logo_white.png` alt="Instagram"/>
+        </a>
+        <a href="https://www.facebook.com/sandankyohotelnampo/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <img src=`${import.meta.env.BASE_URL}facebook_logo_white.png` alt="Facebook"/>
+        </a>
+      </div>
+      <div class="menu-copyright">© 2026 NAMPO</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const hamburgerButton = document.querySelector('.hamburger-button');
+  const menuPanel = document.querySelector('.menu-panel');
+
+  hamburgerButton?.addEventListener('click', () => {
+    hamburgerButton.classList.toggle('active');
+    menuPanel?.classList.toggle('active');
+  });
+</script>
+
+<style>
+  /* Fixed Right Navigation Bar */
+  .nav-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 90px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+    background-color: transparent;
+  }
+
+  /* Hamburger Menu Button */
+  .nav-hamburger {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hamburger-button {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hamburger-line {
+    width: 40px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger-button .hamburger-line:nth-child(1) {
+    transform: translateY(-10px);
+  }
+
+  .hamburger-button .hamburger-line:nth-child(3) {
+    transform: translateY(10px);
+  }
+
+  .hamburger-button.active .hamburger-line:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  .hamburger-button.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-button.active .hamburger-line:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+  }
+
+  /* Language Switcher */
+  .nav-language {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-language ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .nav-language li {
+    color: #fff;
+    font-size: 12px;
+  }
+
+  .nav-language a {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+
+  .nav-language a:hover {
+    opacity: 0.7;
+  }
+
+  .separator {
+    opacity: 0.5;
+  }
+
+  /* Reservation Button */
+  .nav-reservation {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Slide-in Menu Panel */
+  .menu-panel {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100vh;
+    background: radial-gradient(at 0% 0%, #000, 20%, #001914, 90%, #007e66);
+    z-index: 50;
+    opacity: 0;
+    transition: all 1s ease;
+    box-sizing: border-box;
+  }
+
+  .menu-panel.active {
+    right: 0;
+    opacity: 1;
+  }
+
+  .menu-content {
+    width: 100%;
+    height: 100%;
+    padding: 90px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  /* Primary Menu Links */
+  .menu-primary {
+    margin-bottom: 20px;
+  }
+
+  .menu-primary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-primary li {
+    margin-bottom: 15px;
+  }
+
+  .menu-primary a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+
+  .menu-primary a:hover {
+    opacity: 0.7;
+  }
+
+  /* Secondary Menu Links */
+  .menu-secondary {
+    padding-top: 20px;
+  }
+
+  .menu-secondary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-secondary li {
+    margin-bottom: 15px;
+  }
+
+  .menu-secondary a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+
+  .menu-secondary a:hover {
+    opacity: 0.7;
+  }
+
+  /* Menu Footer */
+  .menu-footer {
+    margin-top: auto;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .menu-social {
+    display: flex;
+    gap: 15px;
+  }
+
+  .menu-social a {
+    display: block;
+  }
+
+  .menu-social img {
+    height: 20px;
+    width: auto;
+    transition: opacity 0.3s;
+  }
+
+  .menu-social a:hover img {
+    opacity: 0.7;
+  }
+
+  .menu-copyright {
+    color: #fff;
+    font-size: 10px;
+  }
+
+  /* Mobile Styles */
+  @media screen and (max-width: 960px) {
+    .nav-bar {
+      width: 70px;
+    }
+
+    .menu-panel {
+      width: 280px;
+      right: -280px;
+    }
+
+    .menu-content {
+      padding: 80px 20px 20px;
+    }
+  }
+</style>
+
+<!-- Integration with Checkinn reservation system -->
+<script is:inline type="text/javascript">
+  (function(t,a,y){
+    r=a.createElement(y);
+    i=a.getElementsByTagName(y)[0];
+    r.type='text/javascript';
+    r.async=1;
+    r.src='https://widget.checkinn.jp/bookmarklet.js?aid=c14a2db858e37c71bd5f7c18fa481f2abc7ba72aec347019170c970dd727246b&emb=checkinn-reservation-button';
+    r.id='checkinn-tag';
+    i.parentNode.insertBefore(r,i);
+  })(window,document,'script');
+</script>
+
+<style is:global>
+  .checkinn-reservation-button button {
+    font-family: "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif !important;
+    width: 100% !important;
+    height: auto !important;
+    background-color: transparent !important;
+    margin: 25px 0 !important;
+    font-size: 16px !important;
+    color: #fff !important;
+    writing-mode: vertical-rl !important;
+    letter-spacing: 0.3em !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+</style>

@@ -5,60 +5,51 @@ import { getLangFromUrl, useTranslations, generateLocalePaths, generateLocaleUrl
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const localePaths = generateLocalePaths(Astro.url);
+const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
 ---
 
-<nav class="wide_screen_nav">
-  <div class="row-0">
-    <button type="button" class="hamburger">
-      <span class="hamburger_line hamburger_line-0"></span>
-      <span class="hamburger_line hamburger_line-1"></span>
-      <span class="hamburger_line hamburger_line-2"></span>
-    </button>
-  </div>
-  <div class="row-1">
-    <ul>
-      <li><a href={getRelativeLocaleUrl(localePaths.ja.locale, "/")}>JP</a></li>
-      <li>/</li>
-      <li><a href={getRelativeLocaleUrl(localePaths.en.locale, "/")}>EN</a></li>
-    </ul>
-  </div>
-  <div class="row-2 checkinn-reservation-button">{t('booking')}</div>
+<nav class="nav-bar">
+  <button type="button" class="hamburger">
+    <span class="hamburger-line hamburger-line-0"></span>
+    <span class="hamburger-line hamburger-line-1"></span>
+    <span class="hamburger-line hamburger-line-2"></span>
+  </button>
+  <a class="i18n" href={getRelativeLocaleUrl(otherLang, "/")}>{t('i18n')}</a>
+  <div class="reservation checkinn-reservation-button">{t('reservation')}</div>
 </nav>
 
-<div class="nav_menu">
-  <div class="inner-box">
-    <ul class="row-0">
-      <li><a href={getRelativeLocaleUrl(lang, "rooms")}>{t('rooms')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, "cuisine")}>{t('cuisine')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, "facility")}>{t('facility')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, "gallery")}>{t('gallery')}</a></li>
-    </ul>
-    <ul class="row-1">
-      <li><a href={getRelativeLocaleUrl(lang, "access")}>{t('access')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, "news")}>{t('news')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, "faq")}>{t('faq')}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, "contact")}>{t('contact')}</a></li>
-    </ul>
-    <ul class="row-2">
-      <li>
-        <a href="https://www.instagram.com/sandankyohotelnampo/" target="_blank" rel="noopener noreferrer">
-          <img src=`${import.meta.env.BASE_URL}instagram_logo_white.png`/>
-        </a>
-        <a href="https://www.instagram.com/sandankyohotelnampo/" target="_blank" rel="noopener noreferrer">
-          <img src=`${import.meta.env.BASE_URL}facebook_logo_white.png`/>
-        </a>
-      </li>
-      <li class="copyright"><div>@2026 NAMPO</div></li>
-    </ul>
+<div class="nav-opened">
+  <div class="container">
+    <div class="main">
+      <a class="main-item" href={getRelativeLocaleUrl(lang, "rooms")}>{t('rooms')}</a>
+      <a class="main-item" href={getRelativeLocaleUrl(lang, "cuisine")}>{t('cuisine')}</a>
+      <a class="main-item" href={getRelativeLocaleUrl(lang, "facility")}>{t('facility')}</a>
+      <a class="main-item" href={getRelativeLocaleUrl(lang, "gallery")}>{t('gallery')}</a>
+    </div>
+    <div class="sub">
+      <a class="sub-item" href={getRelativeLocaleUrl(lang, "access")}>{t('access')}</a>
+      <a class="sub-item" href={getRelativeLocaleUrl(lang, "news")}>{t('news')}</a>
+      <a class="sub-item" href={getRelativeLocaleUrl(lang, "faq")}>{t('faq')}</a>
+      <a class="sub-item" href={getRelativeLocaleUrl(lang, "contact")}>{t('contact')}</a>
+    </div>
+    <div class="sns">
+      <a class="instagram-icon" href="https://www.instagram.com/sandankyohotelnampo/" target="_blank" rel="noopener noreferrer">
+        <img src=`${import.meta.env.BASE_URL}instagram_logo_white.png`/>
+      </a>
+      <a class="facebook-icon" href="https://www.instagram.com/sandankyohotelnampo/" target="_blank" rel="noopener noreferrer">
+        <img src=`${import.meta.env.BASE_URL}facebook_logo_white.png`/>
+      </a>
+      <div class="copyright">@2026 NAMPO</div>
+    <div>
   </div>
 </div>
 
 <script>
-  const hamburger = document.querySelector<HTMLElement>('.row-0');
-  const navMenu = document.querySelector<HTMLElement>('.nav_menu');
-  const hamburgerLine0 = document.querySelector<HTMLElement>('.hamburger_line-0');
-  const hamburgerLine1 = document.querySelector<HTMLElement>('.hamburger_line-1');
-  const hamburgerLine2 = document.querySelector<HTMLElement>('.hamburger_line-2');
+  const hamburger = document.querySelector<HTMLElement>('.hamburger');
+  const navMenu = document.querySelector<HTMLElement>('.nav-opened');
+  const hamburgerLine0 = document.querySelector<HTMLElement>('.hamburger-line-0');
+  const hamburgerLine1 = document.querySelector<HTMLElement>('.hamburger-line-1');
+  const hamburgerLine2 = document.querySelector<HTMLElement>('.hamburger-line-2');
   hamburger?.addEventListener('click', () => {
     navMenu?.classList.toggle('active');
     hamburgerLine0?.classList.toggle('active');
@@ -72,7 +63,7 @@ const localePaths = generateLocalePaths(Astro.url);
   @media screen and (max-width: 960px) {
   }
 
- .wide_screen_nav {
+ .nav-bar {
    width: 90px;
    height: 100vh;
    background-color: transparent;
@@ -88,17 +79,9 @@ const localePaths = generateLocalePaths(Astro.url);
    align-items: center;
  }
 
- .wide_screen_nav > .row-0 {
+ .hamburger {
    width: 100%;
    height: 80px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
-
- .wide_screen_nav > .row-0 > .hamburger {
-   width: 100%;
-   height: 100%;
    padding: 0;
    border: 0;
    background-color: transparent;
@@ -108,7 +91,7 @@ const localePaths = generateLocalePaths(Astro.url);
    align-items: center;
  }
 
- .wide_screen_nav > .row-0 > .hamburger > .hamburger_line {
+ .hamburger-line {
    width: 40px;
    height: 2px;
    border-radius: 2px;
@@ -121,93 +104,46 @@ const localePaths = generateLocalePaths(Astro.url);
    align-items: center;
   }
 
-  .wide_screen_nav > .row-0 > .hamburger > .hamburger_line-0 {
+  .hamburger-line-0 {
     margin-top: -20px;
     transition: all 0.3s;
   }
   
-  .wide_screen_nav > .row-0 > .hamburger > .hamburger_line-1 {
+  .hamburger-line-1 {
     transition: all 0.3s;
   }
   
-  .wide_screen_nav > .row-0 > .hamburger > .hamburger_line-2 {
+  .hamburger-line-2 {
     margin-top: 20px;
     transition: all 0.3s;
   }
 
-  .wide_screen_nav > .row-0 > .hamburger > .hamburger_line-0.active {
+  .hamburger-line-0.active {
     transform: translateY(10px) rotate(-765deg);
   }
 
-  .wide_screen_nav> .row-0 > .hamburger > .hamburger_line-1.active {
+  .hamburger-line-1.active {
     opacity: 0;
   }
 
-  .wide_screen_nav > .row-0 > .hamburger > .hamburger_line-2.active {
+  .hamburger-line-2.active {
     transform: translateY(-10px) rotate(-495deg);
   }
 
- .wide_screen_nav > .row-1 {
-   width: 100%;
-   height: 25px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
-
- .wide_screen_nav > .row-1 > ul {
-   height: 100%;
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
- }
-
- .wide_screen_nav > .row-1 > ul > li {
-   display: flex;
-   justify-content: center;
-   align-items: center;
+ .i18n {
+   width: 40px;
+   height: 40px;
    color: #fff;
+   font-size: 13px;
+   border-radius: 50%;
+   text-align: center;
+   line-height: 40px;
+   border: solid 1px #fff;
  }
 
- .wide_screen_nav > .row-1 > ul > li > a {
-   padding: 0 5px;
-   font-size: 12px;
-   color: #fff;
- }
-
- .wide_screen_nav > .column-2 > ul > li {
-   height: 100%;
-   background-color: black;
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
-
- .wide_screen_nav > .column-2 > ul > li > a {
-   display: block;
-   padding: 0 20px;
-   border: 0;
-   color: #fff;
-   font-size: 16px;
- }
-
- .wide_screen_nav > .column-2 > ul > li > button {
-   padding: 0 20px;
-   border: 0;
-   color: #fff;
-   background-color: black;
-   font-size: 16px;
-   font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
- }
-
- .wide_screen_nav > .column-2 > ul > li > .locale {
-   border-left: 1px solid #4f4f4f; 
- }
-
- .nav_menu {
+ .nav-opened {
    width: 350px;
-   height: 100vh;
+   height: 100%;
    background: radial-gradient(at 0% 0%, #000, 20%, #001914, 90%, #007e66);
    right: -350px;
    overflow: hidden;
@@ -217,14 +153,13 @@ const localePaths = generateLocalePaths(Astro.url);
    transition: all 1s;
  }
 
- .nav_menu.active {
+ .nav-opened.active {
    opacity: 1;
    top: 0px;
-   bottom: 0px;
    right: 0px;
  }
 
- .nav_menu > .inner-box {
+ .container {
    width: 100%;
    height: 100%;
    padding: 20px 20px 20px 30px;
@@ -235,61 +170,59 @@ const localePaths = generateLocalePaths(Astro.url);
    align-items: flex-start;
  }
 
- .nav_menu > .inner-box > .row-0 {
+ .main {
    width: 100%;
    padding: 90px 0px 20px 0px;
    color: #fff;
+   display: flex;
+   flex-direction: column;
  }
 
- .nav_menu > .inner-box > .row-0 > li {
+ .main-item {
    margin: 0px 0px 15px 0px;
    font-size: 18px;
  }
 
- .nav_menu > .inner-box > .row-1 {
+ .sub {
    width: 100%;
    padding: 20px 0px 0px 0px;
    color: #fff;
+   display: flex;
+   flex-direction: column;
  }
 
- .nav_menu > .inner-box > .row-1 > li {
+ .sub-item {
    margin: 0px 0px 15px 0px;
    font-size: 14px;
  }
 
- .nav_menu > .inner-box > .row-2 {
+ .sns {
    width: 100%;
    height: 20px;
    margin-top: auto;
+   margin-bottom: 0;
    color: #fff;
    display: flex;
    flex-direction: row;
-   justify-content: space-between;
+   justify-content: flex-start;
  }
 
- .nav_menu > .inner-box > .row-2 > li {
-   width: fit-content;
+ .instagram-icon {
    height: 100%;
-   font-size: 10px;
    display: flex;
-   flex-direction: row;
-   gap: 15px;
-   margin: 0;
+ }
+
+ .facebook-icon {
+   height: 100%;
+   display: flex;
+   margin-left: 15px;
  }
  
- .nav_menu > .inner-box > .row-2 > li > a > img {
-   height: 100%;
- }
-
  .copyright {
-   display: flex;
-   align-items: flex-end;
+   margin-left: auto;
+   font-size: 10px;
+   align-self: flex-end;
  }
-
- .nav_menu > .inner-box > .row-2 > li > div {
-   width: fit-content;
- }
-
 </style>
 
 

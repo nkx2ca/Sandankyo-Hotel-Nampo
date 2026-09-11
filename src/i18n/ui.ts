@@ -1,5 +1,6 @@
 export const UI = {
   ja: {
+    'i18n': 'ENG',
     'title': '三段峡ホテル 南峰',
     'rooms': '客室',
     'cuisine': '料理',
@@ -9,7 +10,7 @@ export const UI = {
     'news': 'お知らせ',
     'faq': 'よくあるご質問',
     'contact': 'お問い合わせ',
-    'booking': 'ご予約',
+    'reservation': 'ご予約',
     'address': '〒731-3813 広島県山県郡安芸太田町柴木1734',
     'hotel-name': '三段峡ホテル 南峰',
     'restaurant-name': 'レストラン みずのと',
@@ -18,6 +19,7 @@ export const UI = {
     'accommodation-terms': '宿泊約款',
   },
   en: {
+    'i18n': 'JP',
     'title': 'Sandankyo Hotel Nampo',
     'rooms': 'Rooms',
     'cuisine': 'Cuisine',
@@ -27,7 +29,7 @@ export const UI = {
     'news': 'News',
     'faq': 'FAQ',
     'contact': 'Contact',
-    'booking': 'Reservation',
+    'reservation': 'Reservation',
     'address': '〒731-3813 1734 Shibaki, Akiota-cho, Yamagata-gun, Hiroshima',
     'hotel-name': 'Sandankyo Hotel Nampo',
     'restaurant-name': 'Restaurant Mizunoto',
