@@ -4,9 +4,8 @@ import Logo from '../components/Logo.astro';
 ---
 
 <BaseLayout>
-  <Logo />
   <div class="main-container">
-    <p>特定商取引法に基づく表記</p>
+    <div>特定商取引法に基づく表記</div>
   </div>
 </BaseLayout>
 
@@ -16,8 +15,17 @@ import Logo from '../components/Logo.astro';
 
   .main-container {
     width: 100%;
-    height: 500px;
-    background-color: #fff;
+    height: 100vh;
+    background-color: #000;
     color: #000
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div {
+    color: #fff;
+    marigin auto;
+    display: flex;
   }
 </style>
