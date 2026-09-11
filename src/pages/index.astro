@@ -15,9 +15,11 @@ const localePaths = generateLocalePaths(Astro.url);
 
   <section class="hero-section">
     <div class="slideshow">
-      <div class="slide active" style={`background-image: url(${import.meta.env.BASE_URL}hero-sandankyo-gorge.jpeg)`}></div>
-      <div class="slide" style={`background-image: url(${import.meta.env.BASE_URL}kurobuchi.jpg)`}></div>
-      <div class="slide" style={`background-image: url(${import.meta.env.BASE_URL}hotel_extelia.jpg)`}></div>
+      <div class="hero-filter">
+        <div class="slide active" style={`background-image: url(${import.meta.env.BASE_URL}hero-sandankyo-gorge.jpeg)`}></div>
+        <div class="slide" style={`background-image: url(${import.meta.env.BASE_URL}kurobuchi.jpg)`}></div>
+        <div class="slide" style={`background-image: url(${import.meta.env.BASE_URL}hotel_extelia.jpg)`}></div>
+      </div>
     </div>
 
     <div class="slide-indicators">
@@ -34,13 +36,11 @@ const localePaths = generateLocalePaths(Astro.url);
   </section>
 
   <section class="opening-section">
-    <div class="opening-filter">
-      <div class="container">
-        <h3 class="opening-date">2026年11月14日開業</h3>
-        <p class="opening-text">西中国山地国定公園内、全長約16㎞の大峡谷。</p>
-        <p class="opening-text">特別名勝 三段峡の玄関口に、三段峡ホテル南峰がリニューアルオープンいたします。</p>
-      </div>
-    <div>
+    <div class="container">
+      <h3 class="opening-date">2026年11月14日開業</h3>
+      <p class="opening-text">西中国山地国定公園内、全長約16㎞の大峡谷。</p>
+      <p class="opening-text">特別名勝 三段峡の玄関口に、三段峡ホテル南峰がリニューアルオープンいたします。</p>
+    </div>
   </section>
 
   <section class="news-section">
@@ -197,7 +197,7 @@ const localePaths = generateLocalePaths(Astro.url);
    transition: opacity 1.5s ease-in-out;
    pointer-events: none;
    z-index: 1;
-   filter: brightness(1);
+   filter: brightness(0.9);
  }
 
  .slide::before {
@@ -289,33 +289,22 @@ const localePaths = generateLocalePaths(Astro.url);
 
  .opening-section {
    width: 100%;
-   height: 100vh;
-   color: #fff;
-   background-image: url('/340001_02F.jpeg');
-   background-size: 100% auto;
-   background-position: center;
-   background-repeat: no-repeat;
- }
-
- .opening-filter {
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0,0,0,0.5);
+   height: 400px;
+   background-color: #fff;
  }
 
  .opening-section .container {
-   text-align: left;
    display: flex;
    flex-direction: column;
-   justify-content: flex-end;
-   align-items: flex-start;
-   padding-bottom: 100px;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
  }
 
  .opening-date {
    font-size: 32px;
    letter-spacing: 4px;
-   margin-bottom: 30px;
+   margin: 0 0 30px 0;
    font-weight: normal;
  }
 
@@ -329,7 +318,7 @@ const localePaths = generateLocalePaths(Astro.url);
  .news-section {
    width: 100%;
    padding: 100px 0;
-   background-color: #001914;
+   background-color: #4e4c43;
  }
 
  .news-title {
