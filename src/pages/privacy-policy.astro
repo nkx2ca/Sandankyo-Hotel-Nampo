@@ -1,30 +1,250 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLangFromUrl } from '../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <BaseLayout>
-  <div class="main-container">
-    <div>個人情報保護方針</div>
-  </div>
+  <main class="privacy-policy">
+    <div class="container">
+      <h1 class="page-title">個人情報保護方針</h1>
+
+      <div class="content">
+        <section class="section">
+          <h2 class="section-title">基本方針</h2>
+          <p class="section-text">
+            三段峡ホテル 南峰（以下当社）では、当社をご利用いただくお客様の個人情報を重要なものと認識し、管理を厳正に行うなど、その取扱いにつきましては細心の注意を払っております。
+          </p>
+          <p class="section-text">
+            当社は、個人情報保護に関し以下の通り定め、社内体制の構築、施策の実施・維持、それらの継続的な改善を行い、「個人情報の保護に関する法律」（以下個人情報保護法）などの法令及びガイドライン等を遵守し、お客様の信頼にお応えする様に努めております。
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">個人情報の取得について</h2>
+          <p class="section-text">
+            当社では、以下のような場合に、お客様から「氏名」「ご住所」「ご連絡先」等の個人情報を取得させて頂く場合がございます。
+          </p>
+          <ul class="section-list">
+            <li>宿泊ご予約・ご利用</li>
+            <li>お問い合わせ・各種資料のご請求等</li>
+            <li>サービスの向上やマーケティングを目的としたアンケートへのご回答等</li>
+            <li>各種イベントへのご応募等</li>
+          </ul>
+          <p class="section-text">
+            上記以外の用途でお客様の個人情報を取得させていただく場合には、その目的及び内容を明確にご案内した上で、必要最小限の個人情報に限らせていただきます。
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">個人情報の利用について</h2>
+          <p class="section-text">
+            当社では、ご提供いただいた個人情報を、原則として、以下の目的で利用させていただくこととし、その目的以外及び範囲を超えての利用はいたしません。
+          </p>
+          <ul class="section-list">
+            <li>宿泊ご予約・ご利用</li>
+            <li>お問い合わせ・各種資料のご請求等</li>
+            <li>サービスの向上やマーケティングを目的としたアンケートへのご回答等</li>
+            <li>各種イベントへのご応募等</li>
+          </ul>
+          <p class="section-text">
+            上記以外の用途でお客様の個人情報を利用させていただく場合には、その目的及び内容を明確にご案内した上で、必要最小限の個人情報に限らせていただきます。
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">個人情報の第三者への開示・提供について</h2>
+          <p class="section-text">
+            当社では、以下のいずれかに該当する場合を除き、ご提供いただいた個人情報を第三者へ開示または提供いたしません。
+          </p>
+          <ul class="section-list">
+            <li>お客様ご本人の同意がある場合</li>
+            <li>法令に基づき開示・提供を求められた場合</li>
+            <li>人の生命、身体または財産の保護の為に必要な場合であって、お客様ご本人の同意を得ることが困難である場合</li>
+            <li>国またはその他公共団体等が公的な事務を実施する上で、協力する必要がある場合で、お客様の同意を得ることにより当該事務の遂行に支障が出る恐れがある場合</li>
+            <li>統計的なデータ等、本人を識別できない状態で開示・提供する場合</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">個人情報の管理について</h2>
+          <p class="section-text">
+            当社では、お客様の個人情報を、厳正に管理し、漏洩、紛失、改ざん等の防止に最大限の注意を払うと共に、個人情報保護法などの法令及びガイドライン等に基づき、社内体制の構築、施策の実施及び維持、また必要に応じて、それらの継続的な改善を行います。
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">個人情報の開示・訂正について</h2>
+          <p class="section-text">
+            当社では、当社が取得し、お預かりするお客様の個人情報に関して、お客様ご本人から自己の個人情報についての開示の請求がある場合、適切に対応致します。その際、ご本人であることが確認できない場合には、開示に応じることができません。
+          </p>
+          <p class="section-text">
+            また、個人情報の内容に誤りがあり、お客様ご本人から訂正・追加の請求がある場合、調査の上、これらの請求に適切に対応致します。その際も、ご本人であることが確認できない場合には、請求に応じることができません。
+          </p>
+          <p class="section-text">
+            尚、開示の請求に対し、1件につき500円 (税込) を手数料としてご負担いただきます。案件によって、回答までに日数を要する場合があることをご了承ください。
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">個人情報保護方針の適用と変更</h2>
+          <p class="section-text">
+            この個人情報保護方針では、当社におけるお客様の個人情報のお取り扱いについてご説明しており、当社のサービス及び商品をご利用のお客様は、本方針を十分ご理解いただきご同意いただいたものとみなします。
+          </p>
+          <p class="section-text">
+            尚、当社は、関連法令等の改正・変更・その他必要に応じて、この個人情報保護方針をいつでも変更することができるものとします。変更後の本方針につきましては当サイトに掲載された時点で有効となります。
+          </p>
+        </section>
+
+        <div class="footer-info">
+          <p class="company-name">三段峡ホテル 南峰</p>
+          <p class="dates">制定日 ： 2026年9月1日</p>
+          <p class="dates">最終改訂日 ： 2026年9月1日</p>
+        </div>
+      </div>
+    </div>
+  </main>
 </BaseLayout>
 
 <style>
-  @media screen and (max-width: 960px) {
+  .privacy-policy {
+    min-height: 100vh;
+    padding: 150px 20px 100px;
+    background-color: #4e4c43;
   }
 
-  .main-container {
-    width: 100%;
-    height: 100vh;
-    background-color: #000;
-    color: #000
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  div {
+  .page-title {
+    font-size: 32px;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: normal;
     color: #fff;
-    marigin auto;
-    display: flex;
+  }
+
+  .content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 8px;
+  }
+
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .section:last-of-type {
+    margin-bottom: 60px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .section-text {
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin: 0 0 15px 0;
+  }
+
+  .section-text:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+  }
+
+  .section-list li {
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    padding-left: 1.2em;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .section-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+  }
+
+  .footer-info {
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+  }
+
+  .company-name {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 20px 0;
+  }
+
+  .dates {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 5px 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .privacy-policy {
+      padding: 120px 15px 80px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .content {
+      padding: 25px 20px;
+    }
+
+    .section {
+      margin-bottom: 35px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .section-list li {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .company-name {
+      font-size: 15px;
+    }
+
+    .dates {
+      font-size: 12px;
+    }
   }
 </style>

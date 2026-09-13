@@ -1,31 +1,191 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Logo from '../components/Logo.astro';
+import { getLangFromUrl } from '../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <BaseLayout>
-  <div class="main-container">
-    <div>特定商取引法に基づく表記</div>
-  </div>
+  <main class="transaction-law">
+    <div class="container">
+      <h1 class="page-title">特定商取引法に基づく表記</h1>
+
+      <div class="content">
+        <table class="transaction-table">
+          <tbody>
+            <tr>
+              <th>事業者</th>
+              <td>株式会社三段峡の宿</td>
+            </tr>
+            <tr>
+              <th>代表</th>
+              <td>代表取締役　川本 秀昌</td>
+            </tr>
+            <tr>
+              <th>サイト名</th>
+              <td>三段峡ホテル 南峰 公式サイト</td>
+            </tr>
+            <tr>
+              <th>URL</th>
+              <td><a href="https://sandankyo-nampo.com">https://sandankyo-nampo.com</a></td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>広島県山県郡安芸太田町柴木1734</td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td>0826-28-2308</td>
+            </tr>
+            <tr>
+              <th>予約成立時期</th>
+              <td>
+                当サイトを利用してご宿泊予約をされる場合は、予約完了のご案内が画面に表示された時点で予約が成立します。<br/>
+                クレジットカードにて事前精算の場合は、クレジットによる決済が完了した時点で予約が成立します。
+              </td>
+            </tr>
+            <tr>
+              <th>料金（役務の対価）</th>
+              <td>
+                ご利用プラン・商品によって異なります。<br/>
+                詳細は宿泊プラン詳細ページをご参照ください。
+              </td>
+            </tr>
+            <tr>
+              <th>支払時期・支払い方法</th>
+              <td>
+                ご利用プラン・商品によって異なります。<br/>
+                詳細は宿泊プラン詳細ページをご参照ください。<br/>
+                ※クレジットカードにて事前決済の場合は、オンライン予約完了時にクレジットカードにてお支払となります。
+              </td>
+            </tr>
+            <tr>
+              <th>役務提供の時期</th>
+              <td>
+                ご利用プラン・商品によって異なります。<br/>
+                詳細は宿泊プラン詳細ページをご参照ください。
+              </td>
+            </tr>
+            <tr>
+              <th>キャンセル料について</th>
+              <td>
+                ご利用プラン・商品によって異なります。<br/>
+                詳細は宿泊プラン詳細ページをご参照ください。
+              </td>
+            </tr>
+            <tr>
+              <th>返金について</th>
+              <td>ご利用後の返金は致しておりません。</td>
+            </tr>
+            <tr>
+              <th>お問い合わせ</th>
+              <td>宿泊に関するお問い合わせは、直接ホテルへお願いいたします。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
 </BaseLayout>
 
 <style>
-  @media screen and (max-width: 960px) {
+  .transaction-law {
+    min-height: 100vh;
+    padding: 150px 20px 100px;
+    background-color: #4e4c43;
   }
 
-  .main-container {
-    width: 100%;
-    height: 100vh;
-    background-color: #000;
-    color: #000
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  div {
+  .page-title {
+    font-size: 32px;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: normal;
     color: #fff;
-    marigin auto;
-    display: flex;
+  }
+
+  .content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 8px;
+  }
+
+  .transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    padding: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .transaction-table th {
+    width: 200px;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .transaction-table td {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+  }
+
+  .transaction-table tr:last-child th,
+  .transaction-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .transaction-table a {
+    color: #fff;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+  }
+
+  .transaction-table a:hover {
+    opacity: 0.7;
+  }
+
+  @media screen and (max-width: 768px) {
+    .transaction-law {
+      padding: 120px 15px 80px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .transaction-table th,
+    .transaction-table td {
+      display: block;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .transaction-table th {
+      padding-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .transaction-table td {
+      padding-bottom: 20px;
+    }
   }
 </style>

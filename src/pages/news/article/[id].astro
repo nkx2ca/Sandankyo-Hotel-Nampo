@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLangFromUrl } from '../../../i18n/i18n';
+import { newsArticles } from '../../../data/newsData';
+
+const { id } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
+
+// IDで記事を検索
+const article = newsArticles.find(a => a.id === parseInt(id as string));
+
+if (!article) {
+  return Astro.redirect('/news');
+}
+
+export async function getStaticPaths() {
+  return newsArticles.map(article => ({
+    params: { id: article.id.toString() }
+  }));
+}
+---
+
+<BaseLayout>
+  <main class="news-detail">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/" class="breadcrumb-link">ホーム</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="/news" class="breadcrumb-link">お知らせ</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{article.title}</span>
+      </div>
+
+      <article class="article">
+        <header class="article-header">
+          <div class="article-meta">
+            <time class="article-date">{article.date}</time>
+            <span class="article-category">{article.category}</span>
+          </div>
+          <h1 class="article-title">{article.title}</h1>
+        </header>
+
+        <div class="article-content" set:html={article.content}></div>
+
+        <div class="article-footer">
+          <a href="/news" class="back-link">← お知らせ一覧に戻る</a>
+        </div>
+      </article>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .news-detail {
+    min-height: 100vh;
+    padding: 150px 20px 100px;
+    background-color: #4e4c43;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    font-size: 13px;
+  }
+
+  .breadcrumb-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .breadcrumb-link:hover {
+    color: #fff;
+  }
+
+  .breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .breadcrumb-current {
+    color: #fff;
+  }
+
+  .article {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 50px;
+    border-radius: 8px;
+  }
+
+  .article-header {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .article-date {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .article-category {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: #fff;
+  }
+
+  .article-title {
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0;
+  }
+
+  .article-content {
+    color: #fff;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+  }
+
+  .article-content :global(p) {
+    font-size: 15px;
+    margin: 0 0 25px 0;
+  }
+
+  .article-content :global(h3) {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin: 40px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .article-content :global(ul) {
+    margin: 20px 0;
+    padding-left: 25px;
+  }
+
+  .article-content :global(li) {
+    font-size: 15px;
+    margin-bottom: 10px;
+    line-height: 1.8;
+  }
+
+  .article-content :global(strong) {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: normal;
+    letter-spacing: 1px;
+  }
+
+  .article-content :global(br) {
+    display: block;
+    content: "";
+    margin: 8px 0;
+  }
+
+  .article-footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .back-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+
+  .back-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  @media screen and (max-width: 768px) {
+    .news-detail {
+      padding: 120px 15px 80px;
+    }
+
+    .breadcrumb {
+      margin-bottom: 30px;
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb-current {
+      display: none;
+    }
+
+    .article {
+      padding: 30px 20px;
+    }
+
+    .article-header {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+    }
+
+    .article-meta {
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .article-date {
+      font-size: 12px;
+    }
+
+    .article-category {
+      padding: 3px 10px;
+      font-size: 10px;
+    }
+
+    .article-title {
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+
+    .article-content :global(p) {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .article-content :global(h3) {
+      font-size: 18px;
+      margin: 30px 0 15px 0;
+    }
+
+    .article-content :global(li) {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .article-footer {
+      margin-top: 40px;
+      padding-top: 25px;
+    }
+
+    .back-link {
+      font-size: 13px;
+      padding: 8px 16px;
+    }
+  }
+</style>

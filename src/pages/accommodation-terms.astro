@@ -1,32 +1,766 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Logo from '../components/Logo.astro';
+import { getLangFromUrl } from '../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <BaseLayout>
-  <Logo />
-  <div class="main-container">
-    <div>宿泊約款</div>
-  </div>
+  <main class="accommodation-terms">
+    <div class="container">
+      <h1 class="page-title">宿泊約款</h1>
+
+      <div class="content">
+        <section class="article">
+          <h2 class="article-title">第1条 (適用範囲)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>当ホテルが宿泊客との間で締結する宿泊契約及びこれに関連する契約は、この約款の定めるところによるものとし、この約款に定めのない事項については、法令等(法令又は法令に基づくものをいう。以下同じ。)又は一般に確立された慣習によるものとします。</p>
+            <p class="clause"><span class="clause-num">2.</span>当ホテルが、法令等及び慣習に反しない範囲で特約に応じたときは、前項の規定にかかわらず、その特約が優先するものとします。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第2条 (宿泊契約の申込み)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>当ホテルに宿泊契約の申込みをしようとする者は、次の事項を当ホテルに申し出ていただきます。</p>
+            <ul class="sub-list">
+              <li>(1) 宿泊者名、連絡先電話番号</li>
+              <li>(2) 宿泊日及び到着予定時刻</li>
+              <li>(3) 宿泊料金(原則として別表第１の基本宿泊料による。)</li>
+              <li>(4) その他当ホテルが必要と認める事項</li>
+            </ul>
+            <p class="clause"><span class="clause-num">2.</span>宿泊客が、宿泊中に前項第2号の宿泊日を超えて宿泊の継続を申し入れた場合、当ホテルは、その申し出がなされた時点で新たな宿泊契約の申し込みがあったものとして処理します。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第3条 (宿泊契約の成立等)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>宿泊契約は、当ホテルが前条の申し込みを承諾したときに成立するものとします。ただし、当ホテルが承諾をしなかったことを証明したときは、この限りではありません。</p>
+            <p class="clause"><span class="clause-num">2.</span>前項の規定により宿泊契約が成立したときは、宿泊期間(3日を超えるときは3日間)の基本宿泊料を限度として当ホテルが定める申込金を、当ホテルが指定する日までに、お支払いいただきます。</p>
+            <p class="clause"><span class="clause-num">3.</span>申込金は、まず、宿泊客が最終的に支払うべき宿泊料金に充当し、第6条及び第18条の規定を適用する事態が生じたときは、違約金に次いで賠償金の順序で充当し、残額があれば、第12条の規定による料金の支払いの際に返還します。</p>
+            <p class="clause"><span class="clause-num">4.</span>第2項の申込金を同項の規定により当ホテルが指定した日までにお支払いいただけない場合は、宿泊契約はその効力を失うものとします。ただし、申込金の支払期日を指定するに当たり、当ホテルがその旨を宿泊客に告知した場合に限ります。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第4条 (申込金の支払いを要しないこととする特約)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>前条第2項の規定にかかわらず、当ホテルは、契約の成立後同項の申込金の支払いを要しないこととする特約に応じることがあります。</p>
+            <p class="clause"><span class="clause-num">2.</span>宿泊契約の申し込みを承諾するに当たり、当ホテルが前条第2項の申込金の支払いを求めなかった場合及び当該申込金の支払期日を指定しなかった場合は、前項の特約に応じたものとして取り扱います。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第４条の２（施設における感染防止対策への協力の求め）</h2>
+          <div class="article-body">
+            <p class="clause">当ホテルは、宿泊しようとする者に対し、旅館業法(昭和23年法律第138号)第4条の2第1項の規定による協力を求めることができます。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第５条 (宿泊契約締結の拒否)</h2>
+          <div class="article-body">
+            <p class="clause">当ホテルは、次に掲げる場合において、宿泊契約の締結に応じないことがあります。ただし、本項は、当ホテルが旅館業法第5条に掲げる場合以外の場合に宿泊を拒むことがあることを意味するものではありません。</p>
+            <ul class="sub-list">
+              <li>(1) 宿泊の申し込みが、この約款によらないとき。</li>
+              <li>(2) 満室(員)により客室の余裕がないとき。</li>
+              <li>(3) 宿泊しようとする者が、宿泊に関し、法令の規定、公の秩序若しくは善良の風俗に反する行為（暴行・脅迫・恐喝・強要・名誉棄損・侮辱・器物損壊・威力業務妨害・詐欺・不同意わいせつ・公然わいせつ・軽犯罪法違反等の犯罪行為を含むが、これらに限定されない）をするおそれがあると認められるとき。</li>
+              <li>(4) 宿泊しようとする者が、次のイからハに該当すると認められるとき。<br/>
+                イ) 暴力団員による不当な行為の防止等に関する法律(平成3年法律第77号)第2条第2号に規定する暴力団(以下「暴力団」という。)、同法第2条第6号に規定する暴力団員(以下「暴力団員」という。)、暴力団準構成員又は暴力団関係者その他の反社会的勢力<br/>
+                ロ) 暴力団又は暴力団員が事業活動を支配する法人その他の団体であるとき<br/>
+                ハ) 法人でその役員のうちに暴力団員に該当する者があるもの
+              </li>
+              <li>(5) 宿泊しようとする者が、喧騒な行為のほか、危険、不安等を感じさせるなど、他の宿泊客に著しい迷惑を及ぼす言動をしたとき。</li>
+              <li>(6) 宿泊しようとする者が、旅館業法第4条の2第1項第2号に規定する特定感染症の患者等(以下「特定感染症の患者等」という。)であるとき。</li>
+              <li>(7) 宿泊に関し暴力的要求行為が行われ、又は合理的な範囲を超える負担を求められたとき(宿泊しようとする者が障害を理由とする差別の解消の推進に関する法律(平成25年法律第65号。以下「障害者差別解消法」という。)第7条第2項又は第8条第2項の規定による社会的障壁の除去を求める場合は除く。)。</li>
+              <li>(8) 宿泊しようとする者が、当ホテルに対し、その実施に伴う負担が過重であって他の宿泊者に対する宿泊に関するサービスの提供を著しく阻害するおそれのある要求として旅館業法施行規則第5条の6で定めるもの（その内容の実現が容易でない事項の要求、粗野・乱暴・侮辱的・執拗・拘束的・差別的な言動その他の従業員の心身に負担を与える言動を交えた要求等）を繰り返したとき。（特定要求行為。具体例は【別表第2】のとおり）。</li>
+              <li>(9) 天災、施設の故障、その他やむを得ない事由により宿泊させることができないとき。</li>
+              <li>(10) 広島県旅館業法施行条例第11条の規定に該当するとき。</li>
+              <li>(11) かつて当ホテルにおいて、本条のいずれかに該当する行為をしたことがあるとき。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第５条の２ (宿泊契約締結の拒否の説明)</h2>
+          <div class="article-body">
+            <p class="clause">宿泊しようとする者は、当ホテルに対し、当ホテルが前条に基づいて宿泊契約の締結に応じない場合、その理由の説明を求めることができます。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第６条 (宿泊客の契約解除権)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>宿泊客は、当ホテルに申し出て、宿泊契約を解除することができます。</p>
+            <p class="clause"><span class="clause-num">2.</span>当ホテルは、宿泊客がその責めに帰すべき事由により宿泊契約の全部又は一部を解除した場合(第3条第2項の規定により当ホテルが申込金の支払期日を指定してその支払いを求めた場合であって、その支払いより前に宿泊客が宿泊契約を解除したときを除きます。)は、別表第3に掲げるところにより、違約金を申し受けます。ただし、当ホテルが第4条第1項の特約に応じた場合にあっては、その特約に応じるに当たって、宿泊客が宿泊契約を解除したときの違約金支払義務について、当ホテルが宿泊客に告知したときに限ります。</p>
+            <p class="clause"><span class="clause-num">3.</span>当ホテルは、宿泊客が連絡をしないで宿泊日当日の午後8時(あらかじめ到着予定時刻が明示されている場合は、その時刻を2時間経過した時刻)になっても到着しないときは、その宿泊契約は宿泊客により解除されたものとみなし処理することがあります。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第７条 (当ホテルの契約解除権)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>当ホテルは、次に掲げる場合においては、宿泊契約を解除することがあります。ただし、本項は、当ホテルが旅館業法第5条に掲げる場合以外の場合に宿泊を拒むことがあることを意味するものではありません。</p>
+            <ul class="sub-list">
+              <li>(1) 宿泊客が宿泊に関し、法令の規定、公の秩序若しくは善良の風俗に反する行為（暴行・脅迫・恐喝・強要・名誉棄損・侮辱・器物損壊・威力業務妨害・詐欺・不同意わいせつ・公然わいせつ・軽犯罪法違反等の犯罪行為を含むが、これらに限定されない）をするおそれがあると認められるとき、又は同行為をしたと認められるとき。</li>
+              <li>(2) 宿泊客が次のイからハに該当すると認められるとき。<br/>
+                イ) 暴力団、暴力団員、暴力団準構成員又は暴力団関係者その他の反社会的勢力<br/>
+                ロ) 暴力団又は暴力団員が事業活動を支配する法人その他の団体であるとき<br/>
+                ハ) 法人でその役員のうちに暴力団員に該当する者があるもの
+              </li>
+              <li>(3) 宿泊客が、喧騒な行為のほか、危険、不安等を感じさせるなど、他の宿泊客に著しい迷惑を及ぼす言動をしたとき。</li>
+              <li>(4) 宿泊客が特定感染症の患者等であるとき。</li>
+              <li>(5) 宿泊に関し暴力的要求行為が行われ、又は合理的な範囲を超える負担を求められたとき(宿泊客が障害者差別解消法第7条第2項又は第8条第2項に規定による社会的障壁の除去を求める場合は除く。)。</li>
+              <li>(6) 宿泊客が、当ホテルに対し、その実施に伴う負担が過重であって他の宿泊者に対する宿泊に関するサービスの提供を著しく阻害するおそれのある要求として旅館業法施行規則第5条の6で定めるもの(その内容の実現が容易でない事項の要求、粗野・乱暴・侮辱的・執拗・拘束的・差別的な言動その他の従業員の心身に負担を与える言動を交えた要求等)を繰り返したとき（特定要求行為。具体例は【別表第2】のとおり）。</li>
+              <li>(7) 天災等不可抗力に起因する事由により宿泊させることができないとき。</li>
+              <li>(8) 広島県旅館業法施行条例第16条の規定する場合に該当するとき。</li>
+              <li>(9) 寝室での寝たばこ、消防用設備等に対するいたずら、その他当ホテルが定める利用規則の禁止事項(火災予防上必要なものに限る。)に従わないとき。</li>
+              <li>(10) かつて当ホテルにおいて第5条又は本条のうちのいずれかに該当する行為をしたことが当ホテル利用中に判明したとき。</li>
+            </ul>
+            <p class="clause"><span class="clause-num">2.</span>当ホテルが前項の規定に基づいて宿泊契約を解除したときは、宿泊客がいまだ提供を受けていない宿泊サービス等の料金はいただきません。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第７条の２ (宿泊契約解除の説明)</h2>
+          <div class="article-body">
+            <p class="clause">宿泊客は、当ホテルに対し、当ホテルが前条に基づいて宿泊契約を解除した場合、その理由の説明を求めることができます。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第８条 (宿泊の登録)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>宿泊客は、宿泊日当日、当ホテルのフロントにおいて、次の事項を登録していただきます。</p>
+            <ul class="sub-list">
+              <li>(1) 宿泊客の氏名、年齢、住所及び連絡先</li>
+              <li>(2) 外国人においては、国籍、旅券番号</li>
+              <li>(3) 出発日及び出発時刻</li>
+              <li>(4) その他当ホテルが必要と認める事項</li>
+            </ul>
+            <p class="clause"><span class="clause-num">2.</span>宿泊客が第12条の料金の支払いを、旅行小切手、宿泊券、クレジットカード等通貨に代わり得る方法により行おうとするときは、あらかじめ、前項の登録時にそれらを呈示していただきます。</p>
+            <p class="clause"><span class="clause-num">3.</span>外国⼈においては、本⼈確認のため旅券のコピーを取らせていただきます。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第9条 (客室の使用時間)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>宿泊客が当ホテルの客室を使用できる時間は、午後3時から翌朝11時までとします。ただし、連続して宿泊する場合においては、到着日及び出発日を除き、終日使用することができます。</p>
+            <p class="clause"><span class="clause-num">2.</span>当ホテルは、前項の規定にかかわらず、同項に定める時間外の客室の使用に応じることがあります。この場合には次に掲げる追加料金を申し受けます。</p>
+            <ul class="sub-list">
+              <li>(1) 超過2時間までは、室料金の2分の1(又は室料相当額の50%)</li>
+              <li>(2) 超過5時間までは、室料金の全額(又は室料相当額の100%)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第10条 (利用規約の遵守)</h2>
+          <div class="article-body">
+            <p class="clause">宿泊客は、当ホテル内においては、当ホテルが定めてホテル内に掲示した利用規約に従っていただきます。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第11条 (営業時間)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>当ホテルの主な施設等の営業時間、その他の施設等の詳しい営業時間はウェブサイト、備付けパンフレット、各所の掲示、客室内の設備等で御案内いたします。</p>
+            <p class="clause"><span class="clause-num">2.</span>前項の時間は、必要やむを得ない場合には臨時に変更することがあります。その場合には、適当な方法をもってお知らせします。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第12条 (料金の支払い)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>宿泊者が支払うべき宿泊料金等の内訳は、別表第１に掲げるところによります。</p>
+            <p class="clause"><span class="clause-num">2.</span>前項の宿泊料金等の支払いは、通貨又は当ホテルが認めた旅行小切手、宿泊券、クレジットカード等これに代わり得る方法により、宿泊客の出発の際又は当ホテルが請求した時、フロントにおいて行っていただきます。</p>
+            <p class="clause"><span class="clause-num">3.</span>当ホテルが宿泊客に客室を提供し、使用が可能になったのち、宿泊客が任意に宿泊しなかった場合においても、宿泊料金は申し受けます。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第13条 (当ホテルの責任)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>当ホテルは、宿泊契約及びこれに関連する契約の履行に当たり、又はそれらの不履行により宿泊客に損害を与えたときは、その損害を賠償します。ただし、それが当ホテルの責めに帰すべき事由によるものでないときは、この限りではありません。</p>
+            <p class="clause"><span class="clause-num">2.</span>当ホテルは、万一の火災等に対処するため、旅館賠償責任保険に加入しております。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第14条 (契約した客室の提供ができないときの取扱い)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>当ホテルは、宿泊客に契約した客室を提供できないときは、宿泊客の了解を得て、できる限り同一の条件による他の宿泊施設をあっ旋するものとします。</p>
+            <p class="clause"><span class="clause-num">2.</span>当ホテルは、前項の規定にかかわらず他の宿泊施設のあっ旋ができないときは、違約金相当額の補償料を宿泊客に支払い、その補償料は損害賠償額に充当します。ただし、客室が提供できないことについて、当ホテルの責めに帰すべき事由がないときは、補償料を支払いません。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第15条 (寄託物等の取扱い)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>宿泊客がフロントにお預けになった物品又は現金並びに貴重品について、滅失、毀損等の損害が生じたときは、それが、不可抗力である場合を除き、当ホテルは、その損害を賠償します。ただし、現金及び貴重品については、当ホテルがその種類及び価額の明告を求めた場合であって、宿泊客がそれを行わなかったときは、当ホテルは15万円を限度としてその損害を賠償します。</p>
+            <p class="clause"><span class="clause-num">2.</span>宿泊客が、当ホテル内にお持込みになった物品又は現金並びに貴重品であってフロントにお預けにならなかったものについて、当ホテルの故意又は過失により滅失、毀損等の損害が生じたときは、当ホテルは、その損害を賠償します。ただし、宿泊客からあらかじめ種類及び価額の明告のなかったものについては、当ホテルに故意又は重大な過失がある場合を除き、15万円を限度として当ホテルはその損害を賠償します。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第16条 (宿泊客の手荷物又は携帯品の保管)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>宿泊客の手荷物が、宿泊に先立って当ホテルに到着した場合は、その到着前に当ホテルが了解したときに限って責任をもって保管し、宿泊客がフロントにおいてチェックインする際お渡しします。</p>
+            <p class="clause"><span class="clause-num">2.</span>宿泊客がチェックアウトしたのち、宿泊客の手荷物又は携帯品が当ホテルに置き忘れられていた場合において、その所有者が判明したときは、当ホテルは、当該所有者に連絡をするとともにその指示を求めるものとします。ただし、所有者の指示がない揚合又は所有者が判明しないときは、発見日を含め7日間保管し、その後最寄りの警察署に届けるか、3ヶ月経過後に処分させていただきます。また、飲食物・雑誌並びにその他の廃棄物に類するものについては当ホテルにて任意に処分させていだだきます。</p>
+            <p class="clause"><span class="clause-num">3.</span>前2項の場合における宿泊客の手荷物又は携帯品の保管についての当ホテルの責任は、第1項の場合にあっては前条第1項の規定に、前項の場合にあっては同条第2項の規定に準じるものとします。</p>
+            <p class="clause"><span class="clause-num">4.</span>自転車の客室内への持ち込みはご遠慮ください。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第17条(駐車の責任)</h2>
+          <div class="article-body">
+            <p class="clause">宿泊客が当ホテルの駐車場をご利用になる場合、車両のキーの寄託の如何にかかわらず、当ホテルは場所をお貸しするものであって、車両の管理責任まで負うものではありません。ただし、駐車場の管理に当たり、当ホテルの故意又は過失によって損害を与えたときは、その賠償の責めに任じます。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第18条 (宿泊客の責任)</h2>
+          <div class="article-body">
+            <p class="clause">宿泊客の故意又は過失により当ホテルが損害を被ったときは、当該宿泊客は当ホテルに対し、その損害を賠償していただきます。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第19条（個人情報保護）</h2>
+          <div class="article-body">
+            <p class="clause">宿泊契約に伴い宿泊客から開⽰いただきました個⼈情報は、「個⼈情報の保護に関する法律」に基づき管理いたします。</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">第20条（優先する言語）</h2>
+          <div class="article-body">
+            <p class="clause">本約款は⽇本語と英語で作成されますが、双⽅の間に不⼀致⼜は相違があるときは、⽇本語版を優先するものとします。</p>
+          </div>
+        </section>
+
+        <section class="appendix">
+          <h2 class="appendix-title">［別表第1］宿泊料⾦等の内訳</h2>
+          <p class="appendix-subtitle">（第２条第１項及び第 12 条第１項関係）</p>
+          <table class="appendix-table">
+            <thead>
+              <tr>
+                <th colspan="2">内訳</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="label">宿泊客が払うべき総額</td>
+                <td>宿泊料⾦（１）基本宿泊料［室料 (及び室料+夕食・朝食］</td>
+              </tr>
+              <tr>
+                <td class="label">追加料⾦</td>
+                <td>（３）追加飲⾷及びその他の利⽤料⾦等</td>
+              </tr>
+              <tr>
+                <td class="label">税⾦</td>
+                <td>（５）消費税<br/>（６）入湯税（安芸太田町）<br/>（7）宿泊税（広島県）</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="appendix-notes">
+            <p class="note-title">備考</p>
+            <p class="note-text">1. 基本宿泊料は当ホテルが当ホテル公式ホームページに掲⽰する料⾦表によります。</p>
+            <p class="note-text">2. 3歳以上12歳以下のお子様については、宿泊基本料金はいただかず、施設利用料としてお一人様1泊につき3,300円（税込）を申し受けます。なお、お子様用の食事及び寝具をご希望の場合は、別途所定の料金を申し受けます。寝具及び食事を提供しない幼児については、料金はいただきません。（但し2歳以下の幼児に限ります。）</p>
+            <p class="note-text">3. 税法が改正された場合は、その改正された規定によるものとします。</p>
+          </div>
+        </section>
+
+        <section class="appendix">
+          <h2 class="appendix-title">［別表第2］特定要求行為の具体例</h2>
+          <ul class="specific-list">
+            <li>宿泊しようとする者が、宿泊サービスに従事する従業者に対し、宿泊料の不当な割引や不当な慰謝料、不当な部屋のアップグレード、不当なレイトチェックアウト、不当なアーリーチェックイン、契約にない送迎等、他の宿泊者に対するサービスと比較して過剰なサービスを行うよう繰り返し求める行為</li>
+            <li>宿泊しようとする者が、宿泊サービスに従事する従業者に対し、自身の泊まる部屋の上下左右の部屋に宿泊客を入れないことを繰り返し求める行為</li>
+            <li>宿泊しようとする者が、宿泊サービスに従事する従業者に対し、特定の者にのみ自身の応対をさせること又は特定の者を出勤させないことを繰り返し求める行為</li>
+            <li>宿泊しようとする者が、宿泊サービスに従事する従業者に対し、土下座等の社会的相当性を欠く方法による謝罪を繰り返し求める行為</li>
+            <li>泥酔し、他の宿泊者に迷惑を及ぼすおそれがある宿泊者が、宿泊サービスに従事する従業者に対し、長時間にわたる介抱を繰り返し求める行為</li>
+            <li>宿泊しようとする者が、宿泊サービスに従事する従業者に対し、対面や電話、メール等により、長時間にわたって、又は叱責しながら、不当な要求を繰り返し行う行為</li>
+            <li>宿泊しようとする者が、宿泊サービスに従事する従業者に対し、当ホテルの提供するサービスに瑕疵・過失が認められないにもかかわらず要求を繰り返し行う行為、または、当ホテルの提供するサービスの内容とは関係がない要求を繰り返し行う行為</li>
+            <li>宿泊しようとする者が、宿泊サービスに従事する従業者に対し、以下のような手段・態様において不相当な言動を交えての要求を繰り返し行う行為
+              <ul class="sub-examples">
+                <li>身体的な攻撃（暴行、傷害）</li>
+                <li>精神的な攻撃（脅迫、中傷、名誉毀損、侮辱、暴言）</li>
+                <li>土下座の要求</li>
+                <li>継続的な（繰り返される）、執拗な（しつこい）言動</li>
+                <li>拘束的な行動（不退去、居座り、監禁）</li>
+                <li>差別的な言動</li>
+                <li>性的な言動</li>
+                <li>従業者個人への攻撃、要求（要求内容の妥当性に照らして不相当とされる場合があるもの）</li>
+                <li>商品交換の要求</li>
+                <li>金銭補償の要求</li>
+                <li>謝罪の要求（土下座を除く。）</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section class="appendix">
+          <h2 class="appendix-title">［別表第3］違約⾦</h2>
+          <p class="appendix-subtitle">（第 6 条第 2 項関係）</p>
+          <table class="cancellation-table">
+            <thead>
+              <tr>
+                <th>ご予約お取消し⽇</th>
+                <th>個⼈</th>
+                <th>団体（全5部屋）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>不泊</td>
+                <td>100％</td>
+                <td rowspan="5" class="group-note">別途、事前協議（契約書）の規定に基づく</td>
+              </tr>
+              <tr>
+                <td>当⽇</td>
+                <td>100％</td>
+              </tr>
+              <tr>
+                <td>前⽇</td>
+                <td>80％</td>
+              </tr>
+              <tr>
+                <td>3⽇前</td>
+                <td>50％</td>
+              </tr>
+              <tr>
+                <td>7⽇前</td>
+                <td>20％</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="appendix-notes">
+            <p class="note-title">備 考</p>
+            <p class="note-text">1. ％は基本宿泊料に対する違約⾦の⽐率です。</p>
+            <p class="note-text">2. 契約⽇数が短縮した場合は、その短縮⽇数にかかわりなく1泊分（初⽇）の違約⾦を収受します。</p>
+            <p class="note-text">3. 個⼈予約の違約⾦は宿泊予約確認書に明記しているものが優先されます。</p>
+          </div>
+        </section>
+
+        <section class="rules">
+          <h2 class="rules-title">利⽤規約</h2>
+          <div class="rules-intro">
+            <p>当ホテルでは、お客様に安全で快適なご滞在をお楽しみいただくために、宿泊約款第 10 条に基づき、次の通り利⽤規約を定めておりますので、ご協⼒くださいますようお願い申し上げます。</p>
+            <p>この利⽤規約をお守りいただけない場合は、宿泊約款第 7 条により、宿泊またはホテル内の諸施設のご利⽤をお断り申し上げることがあります。またこの利⽤規約を守れないことによって⽣じた事故については、当ホテルは責任を負いかねますので、ご了承くださいますようお願い申し上げます。</p>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">1. 客室のご利⽤に関して</h3>
+            <ul class="rules-list">
+              <li>(1) 客室からの避難経路図は、客室⼊⼝ドアの裏側に掲⽰しておりますので、ご確認ください。</li>
+              <li>(2) ご在室中、特にご就寝の際には内鍵とドアラッチをお掛けください。</li>
+              <li>(3) ドアをノックされた際は、ドアラッチを掛けたままドアを開けるか、ドアスコープでご確認ください。また、不審者の来訪に際しては、不⽤意にドアを開かずフロントにご連絡ください。</li>
+              <li>(4) 客室、また館内の指定場所以外での喫煙はお控えください。なお、指定場所以外で喫煙された場合は、寝具・カーテン・壁紙等のクリーニング費⽤その他補修等にかかる実費を申し受けます。</li>
+              <li>(5) その他、⼀切の⽕器の使⽤はご遠慮ください。</li>
+              <li>(6) 客室内では暖房⽤、炊事⽤などの⽕器等⽕災の原因となりやすいものをご使⽤にならないでください。</li>
+              <li>(7) ホテルの許可無く客室を営業⾏為（展⽰会、パーティその他）等、ご宿泊以外の⽬的に使⽤することはできません。</li>
+              <li>(8) ホテルの許可なく客室の備品を移動したり、また客室内に造作を施し、あるいは改造する等現状を著しく変更することはできません。</li>
+              <li>(9) ホテルの外観を損なうような物を窓側に置かないでください。</li>
+              <li>(10) 午後 10 時以降のご訪問客との⾯会は、ロビーでお願いいたします。</li>
+              <li>(11) 登録された宿泊客以外のご宿泊は固くお断りしております。</li>
+              <li>(12) 未成年のみの宿泊は特に親権者の許可がない限りお断り申し上げます。</li>
+              <li>(13) お客様の安全上の観点から、客室において「Do not disturb/起こさないでください」を客室ドアに貼られている場合であっても、⻑時間に渡ってお客様と連絡が取れていない場合には、ホテル従業員が客室への電話連絡や客室前での呼び出しを⾏います。また、応答がない場合や緊急時など、当ホテルが必要と判断した場合は、やむを得ず客室に⼊室を⾏いますのでご了承ください。</li>
+              <li>(15) 当ホテルでは、8連泊以上ホテルにご滞在されるお客様には、旅館業法第4条にもとづき衛生面から定期的にお部屋替えをお願いしております。</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">2. お部屋の鍵・お部屋番号について</h3>
+            <ul class="rules-list">
+              <li>(1) お出かけの際は、必ず施錠されていることを確認し、鍵はお持ちください。（当ホテルは⾃動施錠となっております。）</li>
+              <li>(2) ホテルレストランでのご署名によって利⽤される場合は、お客様のお名前とお部屋番号をホテル予約管理システムと照合の上、お部屋付けさせていただきます。</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">3. お⽀払いに関して</h3>
+            <ul class="rules-list">
+              <li>(1) お会計はご出発の際にはフロント会計でお願いいたします。なお、ご滞在中でも都合により会計をお願いする場合がありますので、その都度お⽀払いください。</li>
+              <li>(2) ご到着時にお預かり⾦を申し受ける事がございますので、ご了承ください。</li>
+              <li>(3) お買い物代、切⼿代、タクシー代、郵便切⼿代、荷物送料等のお⽴替えはお断りさせていただきます。</li>
+              <li>(4) 旅⾏⼩切⼿以外の⼩切⼿によるお⽀払い及び両替はお断りいたします。</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">4. 貴重品、お預かり品について</h3>
+            <ul class="rules-list">
+              <li>(1) ご滞在中の現⾦、有価証券、その他貴重品の保管につきましては、所定の備え付けの貸⾦庫（無料）をご利⽤ください。ご利⽤にならないで万⼀紛失、盗難等が発⽣した場合にはその責任を負いかねますのでご了承ください。なお、美術品、⾻董品等の品物はお預かりいたしかねます。</li>
+              <li>(2) ホテル内での遺失物の処理は、⼀定期間ホテルで保管し、その後は遺失物法に基づいてお取り扱いさせていただきます。</li>
+              <li>(3) ホテルでのお預かり物は、所定の期間（１ヵ⽉）を経過しても連絡がない場合、お引取りの意思がないものとし処理させていただきます。</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">5. ホテル敷地内では、他のお客様の迷惑になる下記の物の持ち込み、または⾏為はご遠慮いただいております。</h3>
+            <ul class="rules-list">
+              <li>(1) 盲導⽝以外の動物、⿃等のペット</li>
+              <li>(2) ⽕薬、揮発油、その他発⽕または引⽕性の物</li>
+              <li>(3) 悪臭を発する物</li>
+              <li>(4) 法により所持を禁じられているピストル、⼑剣、覚醒剤の類</li>
+              <li>(5) 賭博や⾵紀を乱すような⾏為、または他のお客様の迷惑になるような⾔動</li>
+              <li>(6) 広告宣伝物の配布、品物販売、勧誘等</li>
+              <li>(7) ホテルの許可無くホテル内で撮影した写真を営業上の⽬的で使⽤する場合</li>
+              <li>(8) 緊急事態、あるいはやむを得ない事情を除き、⾮常階段、屋上、機械室等お客様⽤以外の施設に⽴ち⼊ること</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <ul class="rules-list rules-list-continued">
+              <li>6. 宿泊約款第 5 条第 1 項第 3 号に定める公序良俗等に反する恐れのある場合、⼜は同項第 4 号に定める暴⼒団等に該当する場合には、当ホテルのご利⽤をお断り申し上げます。（予約成⽴後、あるいは利⽤中にその事実が判明した場合には、その時点でご利⽤をお断り申し上げます。）</li>
+              <li>7. 建造物、備品、その他の品物を損傷、汚染または紛失させた場合には、相当額を弁償していただく場合があります。</li>
+              <li>8. ⾼声や放歌、またテレビやスピーカー⾳量を⼤きくするなどで、他のお客様にご迷惑のかかるような⾏為はなさらないでください。近隣住⺠へのご配慮をお願いいたします。</li>
+              <li>9. ゴミは客室内のゴミ箱へお捨ていただくか、ホテルスタッフへお渡しください。</li>
+              <li>11. 夜間は安全上の理由により、三段峡内への立ち入り・通行はご遠慮ください。</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">12. 飲酒後利用の注意点</h3>
+            <p class="rules-text">すでに過度の飲酒をされている方、体調不良の方、お車の運転をされる予定のある方、その他当館がアルコール類の提供・販売することが不適当であると判断させていただいた方へは、アルコール類の提供・販売ができかねます。</p>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">13. 薬機法（旧薬事法）第24条の規定により、医薬品のご提供は致しておりません。</h3>
+            <p class="rules-text">ホテル周辺の病院・薬局をフロントにてご紹介しておりますので、ご希望のお客様はフロントにお問い合わせください。なお、時間帯や曜日によってはお買い求めいただけない場合がございます。</p>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">14. モバイルバッテリー</h3>
+            <p class="rules-text">モバイルバッテリーなどの充電は、安全確保のためお客様の目の届く場所で行ってください。異常が認められた場合は、直ちに使用を中止してください。保管はカバンや引き出しなどを避け、直射日光や高温となる場所をのぞき、目の届く場所に置いてください。客室を不在にされる際は、モバイルバッテリーの充電はお控えください。離室中に充電が行われていることが確認された場合は、スタッフが充電を中止することがあります。</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
 </BaseLayout>
 
 <style>
-  @media screen and (max-width: 960px) {
+  .accommodation-terms {
+    min-height: 100vh;
+    padding: 150px 20px 100px;
+    background-color: #4e4c43;
   }
 
-  .main-container {
-    width: 100%;
-    height: 100vh;
-    background-color: #000;
-    color: #000
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
-  div {
+  .page-title {
+    font-size: 32px;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: normal;
     color: #fff;
-    marigin auto;
-    display: flex;
+  }
+
+  .content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 50px;
+    border-radius: 8px;
+  }
+
+  .article {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .article:last-of-type {
+    border-bottom: none;
+  }
+
+  .article-title {
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 0 0 20px 0;
+  }
+
+  .article-body {
+    padding-left: 10px;
+  }
+
+  .clause {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin: 0 0 15px 0;
+    position: relative;
+  }
+
+  .clause-num {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .sub-list {
+    list-style: none;
+    padding-left: 1.5em;
+    margin: 10px 0;
+  }
+
+  .sub-list li {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .appendix {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .appendix-title {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 10px 0;
+  }
+
+  .appendix-subtitle {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 20px 0;
+  }
+
+  .appendix-table,
+  .cancellation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+
+  .appendix-table th,
+  .appendix-table td,
+  .cancellation-table th,
+  .cancellation-table td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .appendix-table th,
+  .cancellation-table th {
+    background-color: rgba(255, 255, 255, 0.05);
+    font-weight: normal;
+  }
+
+  .appendix-table .label {
+    font-weight: normal;
+    white-space: nowrap;
+    width: 180px;
+  }
+
+  .cancellation-table .group-note {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .appendix-notes {
+    margin-top: 15px;
+  }
+
+  .note-title {
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 0 0 10px 0;
+  }
+
+  .note-text {
+    font-size: 12px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 5px 0;
+    padding-left: 1em;
+  }
+
+  .specific-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0;
+  }
+
+  .specific-list > li {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin-bottom: 15px;
+    padding-left: 1.2em;
+    position: relative;
+  }
+
+  .specific-list > li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+  }
+
+  .sub-examples {
+    list-style: none;
+    padding-left: 1.5em;
+    margin: 10px 0;
+  }
+
+  .sub-examples li {
+    font-size: 12px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 5px;
+  }
+
+  .sub-examples li::before {
+    content: "- ";
+  }
+
+  .rules {
+    margin-top: 60px;
+    padding-top: 50px;
+    border-top: 3px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .rules-title {
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 3px;
+    color: #fff;
+    margin: 0 0 30px 0;
+    text-align: center;
+  }
+
+  .rules-intro {
+    margin-bottom: 40px;
+  }
+
+  .rules-intro p {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin: 0 0 15px 0;
+  }
+
+  .rules-section {
+    margin-bottom: 35px;
+  }
+
+  .rules-section-title {
+    font-size: 15px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 0 0 15px 0;
+  }
+
+  .rules-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .rules-list li {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin-bottom: 12px;
+    padding-left: 0;
+  }
+
+  .rules-list-continued {
+    margin-top: 20px;
+  }
+
+  .rules-text {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .accommodation-terms {
+      padding: 120px 15px 80px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .content {
+      padding: 25px 20px;
+    }
+
+    .article {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+    }
+
+    .article-title {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .article-body {
+      padding-left: 5px;
+    }
+
+    .clause,
+    .sub-list li,
+    .specific-list > li,
+    .rules-list li,
+    .rules-text,
+    .rules-intro p {
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .appendix-table th,
+    .appendix-table td,
+    .cancellation-table th,
+    .cancellation-table td {
+      padding: 10px;
+      font-size: 11px;
+    }
+
+    .appendix-table .label {
+      width: 120px;
+    }
+
+    .rules-title {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .rules-section-title {
+      font-size: 13px;
+    }
   }
 </style>

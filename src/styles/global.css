@@ -1,7 +1,10 @@
+html {
+}
+
 body {
-  width: 100vw;
+  width: 100%;
   margin: 0;
-  background-color: white;
+  background: #4e4c43;
   font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
 }
 
@@ -18,4 +21,5 @@ ul {
 
 *, *:before, *:after {
   box-sizing: border-box;
+  color: #fff;
 }

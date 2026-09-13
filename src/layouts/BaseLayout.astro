@@ -10,7 +10,7 @@ const t = useTranslations(lang);
 const localeUrls = generateLocaleUrls(Astro.url);
 ---
 
-<html lang={lang}>
+<html lang={lang} style="background: #4e4c43; background-color: #4e4c43;">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -23,7 +23,7 @@ const localeUrls = generateLocaleUrls(Astro.url);
     }
     <title>{t('title')}</title>
   </head>
-  <body>
+  <body style="background: #4e4c43; background-color: #4e4c43;">
     <Logo />
     <Navigation />
     <slot />
