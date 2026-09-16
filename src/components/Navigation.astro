@@ -18,6 +18,9 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
   <div class="reservation checkinn-reservation-button">{t('reservation')}</div>
 </nav>
 
+<!-- オーバーレイ -->
+<div class="nav-overlay"></div>
+
 <div class="nav-opened">
   <div class="container">
     <div class="main">
@@ -47,14 +50,27 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
 <script>
   const hamburger = document.querySelector<HTMLElement>('.hamburger');
   const navMenu = document.querySelector<HTMLElement>('.nav-opened');
+  const navOverlay = document.querySelector<HTMLElement>('.nav-overlay');
   const hamburgerLine0 = document.querySelector<HTMLElement>('.hamburger-line-0');
   const hamburgerLine1 = document.querySelector<HTMLElement>('.hamburger-line-1');
   const hamburgerLine2 = document.querySelector<HTMLElement>('.hamburger-line-2');
+
+  // ハンバーガーメニューのクリック
   hamburger?.addEventListener('click', () => {
     navMenu?.classList.toggle('active');
+    navOverlay?.classList.toggle('active');
     hamburgerLine0?.classList.toggle('active');
     hamburgerLine1?.classList.toggle('active');
     hamburgerLine2?.classList.toggle('active');
+  });
+
+  // オーバーレイのクリックでメニューを閉じる
+  navOverlay?.addEventListener('click', () => {
+    navMenu?.classList.remove('active');
+    navOverlay?.classList.remove('active');
+    hamburgerLine0?.classList.remove('active');
+    hamburgerLine1?.classList.remove('active');
+    hamburgerLine2?.classList.remove('active');
   });
 </script>
 
@@ -141,11 +157,29 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
    border: solid 1px #fff;
  }
 
- .nav-opened {
-   width: 350px;
+ .nav-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
    height: 100%;
-   background-color: #24231E;
-   right: -350px;
+   background-color: rgba(0, 0, 0, 0.6);
+   z-index: 40;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.5s, visibility 0.5s;
+ }
+
+ .nav-overlay.active {
+   opacity: 1;
+   visibility: visible;
+ }
+
+ .nav-opened {
+   width: 400px;
+   height: 100%;
+   background-color: #000;
+   right: -400px;
    overflow: hidden;
    opacity: 0;
    position: fixed;
@@ -180,7 +214,7 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
 
  .main-item {
    margin: 0px 0px 15px 0px;
-   font-size: 18px;
+   font-size: 22px;
  }
 
  .sub {
@@ -193,7 +227,7 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
 
  .sub-item {
    margin: 0px 0px 15px 0px;
-   font-size: 14px;
+   font-size: 16px;
  }
 
  .sns {
