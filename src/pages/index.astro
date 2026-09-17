@@ -34,15 +34,6 @@ const localePaths = generateLocalePaths(Astro.url);
     </div>
   </section>
 
-<!--
-  <section class="opening-section">
-    <div class="container">
-      <h3 class="opening-date">2026年11月14日開業</h3>
-      <p class="opening-text">西中国山地国定公園内、全長約16㎞の大峡谷。</p>
-      <p class="opening-text">特別名勝 三段峡の玄関口に、三段峡ホテル南峰がリニューアルオープンいたします。</p>
-    </div>
-  </section>
--->
   <section class="news-section">
     <div class="container">
       <h2 class="news-title">お知らせ</h2>
@@ -162,28 +153,6 @@ const localePaths = generateLocalePaths(Astro.url);
 </script>
 
 <style>
-  @media screen and (max-width: 960px) {
-    .hero-text {
-      bottom: 80px;
-      left: 20px;
-      right: 20px;
-    }
-
-    .hero-title {
-      font-size: 20px;
-      letter-spacing: 2px;
-    }
-
-    .hero-subtitle {
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-
-    .slide-indicators {
-      bottom: 30px;
-    }
-  }
-
  .loading {
    width: 100vw;
    height: 100vh;
@@ -265,7 +234,7 @@ const localePaths = generateLocalePaths(Astro.url);
  }
 
  .hero-title {
-   font-size: 30px;
+   font-size: 20px;
    font-weight: normal;
    letter-spacing: 3px;
    margin: 0 0 10px 0;
@@ -273,7 +242,7 @@ const localePaths = generateLocalePaths(Astro.url);
  }
 
  .hero-subtitle {
-   font-size: 20px;
+   font-size: 16px;
    font-weight: normal;
    letter-spacing: 2px;
    margin: 0;
@@ -462,6 +431,110 @@ const localePaths = generateLocalePaths(Astro.url);
    display: block;
    content: "";
    margin-top: 20px;
+ }
+
+ /* モバイル対応 */
+ @media screen and (max-width: 960px) {
+   .loading_logo {
+     width: 120px;
+   }
+
+   .hero-text {
+     bottom: 80px;
+     left: 20px;
+     right: 20px;
+   }
+
+   .hero-title {
+     font-size: 18px;
+     letter-spacing: 2px;
+   }
+
+   .hero-subtitle {
+     font-size: 12px;
+     letter-spacing: 1px;
+   }
+
+   .slide-indicators {
+     bottom: 30px;
+     gap: 12px;
+   }
+
+   .indicator {
+     width: 30px;
+     height: 2px;
+   }
+
+   .container {
+     padding: 0 15px;
+   }
+
+   .opening-section {
+     height: auto;
+     padding: 60px 0;
+   }
+
+   .opening-date {
+     font-size: 24px;
+     letter-spacing: 3px;
+     margin-bottom: 20px;
+   }
+
+   .opening-text {
+     font-size: 13px;
+     line-height: 1.8;
+   }
+
+   .news-section {
+     padding: 60px 0;
+   }
+
+   .news-title {
+     font-size: 24px;
+     letter-spacing: 6px;
+     margin-bottom: 30px;
+   }
+
+   .news-list {
+     margin-bottom: 40px;
+   }
+
+   .news-item {
+     flex-direction: column;
+     align-items: flex-start;
+     gap: 8px;
+     padding: 15px 0;
+   }
+
+   .news-date {
+     font-size: 12px;
+     letter-spacing: 1px;
+   }
+
+   .news-link {
+     font-size: 14px;
+     letter-spacing: 1px;
+   }
+
+   .news-more-link {
+     font-size: 13px;
+     letter-spacing: 2px;
+   }
+
+   .intro-section {
+     padding: 60px 0;
+     background-size: cover;
+   }
+
+   .intro-text p {
+     font-size: 14px;
+     line-height: 1.9;
+     letter-spacing: 0.5px;
+   }
+
+   .intro-text br {
+     margin-top: 15px;
+   }
  }
 
 </style>

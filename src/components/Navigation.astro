@@ -15,10 +15,9 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
     <span class="hamburger-line hamburger-line-2"></span>
   </button>
   <a class="i18n" href={getRelativeLocaleUrl(otherLang, "/")}>{t('i18n')}</a>
-  <div class="reservation checkinn-reservation-button">{t('reservation')}</div>
+  <a class="reservation" href="https://book.checkinn.jp/c14a2db858e37c71bd5f7c18fa481f2abc7ba72aec347019170c970dd727246b" target="_blank">{t('reservation')}</a>
 </nav>
 
-<!-- オーバーレイ -->
 <div class="nav-overlay"></div>
 
 <div class="nav-opened">
@@ -55,7 +54,6 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
   const hamburgerLine1 = document.querySelector<HTMLElement>('.hamburger-line-1');
   const hamburgerLine2 = document.querySelector<HTMLElement>('.hamburger-line-2');
 
-  // ハンバーガーメニューのクリック
   hamburger?.addEventListener('click', () => {
     navMenu?.classList.toggle('active');
     navOverlay?.classList.toggle('active');
@@ -64,7 +62,6 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
     hamburgerLine2?.classList.toggle('active');
   });
 
-  // オーバーレイのクリックでメニューを閉じる
   navOverlay?.addEventListener('click', () => {
     navMenu?.classList.remove('active');
     navOverlay?.classList.remove('active');
@@ -76,9 +73,6 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
 
 
 <style>
-  @media screen and (max-width: 960px) {
-  }
-
  .nav-bar {
    width: 90px;
    height: 100vh;
@@ -155,6 +149,24 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
    text-align: center;
    line-height: 40px;
    border: solid 1px #fff;
+ }
+
+ .reservation {
+   font-family: "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+   width: 100%;
+   height: auto;
+   background-color: transparent;
+   margin: 25px 0;
+   font-size: 16px;
+   color: #fff;
+   writing-mode: vertical-rl;
+   letter-spacing: 0.3em;
+   white-space: nowrap;
+   text-overflow: elipsis;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0px 0px;
  }
 
  .nav-overlay {
@@ -257,35 +269,98 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
    font-size: 10px;
    align-self: flex-end;
  }
+
+ /* モバイル対応 */
+ @media screen and (max-width: 960px) {
+   .nav-bar {
+     width: 70px;
+   }
+
+   .hamburger {
+     height: 70px;
+   }
+
+   .hamburger-line {
+     width: 30px;
+   }
+
+   .hamburger-line-0 {
+     margin-top: -15px;
+   }
+
+   .hamburger-line-2 {
+     margin-top: 15px;
+   }
+
+   .hamburger-line-0.active {
+     transform: translateY(7.5px) rotate(-765deg);
+   }
+
+   .hamburger-line-2.active {
+     transform: translateY(-7.5px) rotate(-495deg);
+   }
+
+   .i18n {
+     width: 35px;
+     height: 35px;
+     font-size: 12px;
+     line-height: 35px;
+   }
+
+   .reservation {
+     font-size: 14px;
+     letter-spacing: 0.25em;
+     margin: 20px 0;
+   }
+
+   .nav-opened {
+     width: 80vw;
+     max-width: 320px;
+     right: -80vw;
+   }
+
+   .nav-opened.active {
+     right: 0;
+   }
+
+   .container {
+     padding: 15px 15px 15px 20px;
+   }
+
+   .main {
+     padding: 80px 0 15px 0;
+   }
+
+   .main-item {
+     font-size: 20px;
+     margin-bottom: 12px;
+   }
+
+   .sub {
+     padding: 15px 0 0 0;
+   }
+
+   .sub-item {
+     font-size: 14px;
+     margin-bottom: 12px;
+   }
+
+   .sns {
+     height: 18px;
+   }
+
+   .instagram-icon img,
+   .facebook-icon img {
+     height: 100%;
+     width: auto;
+   }
+
+   .facebook-icon {
+     margin-left: 12px;
+   }
+
+   .copyright {
+     font-size: 9px;
+   }
+ }
 </style>
-
-
-<!-- Integration with Checkinn reservation system -->
-
-<script is:inline type="text/javascript">(function(t,a,y){r=a.createElement(y),i=a.getElementsByTagName(y)[0];r.type='text/javascript';r.async=1;r.src='https://widget.checkinn.jp/bookmarklet.js?aid=c14a2db858e37c71bd5f7c18fa481f2abc7ba72aec347019170c970dd727246b&emb=checkinn-reservation-button';r.id='checkinn-tag';i.parentNode.insertBefore(r,i)})(window,document,'script');</script>
-
-<style is:global>
-  .checkinn-reservation-button button {
-    font-family: "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif !important;
-    width: 100%!important;
-    height: auto!important;
-    background-color: transparent!important;
-    margin: 25px 0!important;
-    font-size: 16px!important;
-    color: #fff!important;
-    writing-mode: vertical-rl!important;
-    letter-spacing: 0.3em!important;
-    white-space: nowrap!important;
-    text-overflow: elipsis!important;
-    display: flex!important;
-    justify-content: center!important;
-    align-items: center!important;
-    padding: 0px 0px!important;
-  }
-
-  .checkinn-reservation-button {
-    width: 100%!important;
-  }
-</style>
-
-<!--------------------------------------------------->

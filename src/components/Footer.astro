@@ -35,9 +35,6 @@ const localePaths = generateLocalePaths(Astro.url);
 </footer>
 
 <style>
-  @media screen and (max-width: 960px) {
-  }
-
   footer {
     width: 100%;
     height: 400px;
@@ -47,7 +44,7 @@ const localePaths = generateLocalePaths(Astro.url);
     padding-bottom: 40px;
     color: #fff;
   }
-  
+
   .main-container {
     max-width: 1240px;
     height: 100%;
@@ -57,7 +54,7 @@ const localePaths = generateLocalePaths(Astro.url);
     justify-content: space-between;
     align-items: flex-start;
   }
-  
+
   .left-container {
     height: 100%;
     display: flex;
@@ -65,28 +62,28 @@ const localePaths = generateLocalePaths(Astro.url);
     justify-content: space-between;
     align-items: flex-start;
   }
-  
+
   .footer-logo {
     width: 120px;
     height: auto;
   }
-  
+
   .footer-sns {
     width: 120px;
     height: auto;
   }
-  
+
   .footer-instagram {
     width: 30px;
     height: auto;
     margin-right: 15px;
   }
-  
+
   .footer-facebook {
     width: 30px;
     height: auto;
   }
-  
+
   .right-container {
     height: 100%;
     display: flex;
@@ -95,7 +92,7 @@ const localePaths = generateLocalePaths(Astro.url);
     align-items: flex-end;
     text-align: right;
   }
-  
+
   .address-container {
     display: flex;
     flex-direction: column;
@@ -103,7 +100,7 @@ const localePaths = generateLocalePaths(Astro.url);
     margin-bottom: 30px;
     gap: 7px;
   }
-  
+
   .tel {
     font-size: 16px;
     letter-spacing: 0.5px;
@@ -121,26 +118,26 @@ const localePaths = generateLocalePaths(Astro.url);
     flex-direction: column;
     gap: 7px;
   }
-  
+
   .hotel-name {
     font-size: 16px;
     letter-spacing: 0.5px;
     margin: 0;
   }
-  
+
   .restaurant-name {
     font-size: 16px;
     letter-spacing: 0.5px;
     margin: 0;
   }
-  
+
   .others-container {
     display: flex;
     flex-direction: column;
     margin-top: auto;
     gap: 5px;
   }
-  
+
   .privacy-policy {
     font-size: 12px;
     letter-spacing: 0.5px;
@@ -152,10 +149,101 @@ const localePaths = generateLocalePaths(Astro.url);
     letter-spacing: 0.5px;
     margin: 0;
   }
- 
+
   .accommodation-terms {
     font-size: 12px;
     letter-spacing: 0.5px;
     margin: 0;
+  }
+
+  /* モバイル対応 */
+  @media screen and (max-width: 960px) {
+    footer {
+      height: auto;
+      padding: 60px 0 40px;
+      background-position: center;
+    }
+
+    .main-container {
+      padding: 0 15px;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .left-container {
+      width: 100%;
+      height: auto;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      width: 100px;
+    }
+
+    .footer-sns {
+      width: auto;
+      display: flex;
+      gap: 15px;
+    }
+
+    .footer-instagram {
+      width: 28px;
+      margin-right: 0;
+    }
+
+    .footer-facebook {
+      width: 28px;
+    }
+
+    .right-container {
+      width: 100%;
+      height: auto;
+      align-items: flex-start;
+      text-align: left;
+      gap: 25px;
+    }
+
+    .address-container {
+      margin-bottom: 0;
+      gap: 5px;
+    }
+
+    .tel {
+      font-size: 14px;
+    }
+
+    .address {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .company-container {
+      gap: 5px;
+    }
+
+    .hotel-name {
+      font-size: 14px;
+    }
+
+    .restaurant-name {
+      font-size: 14px;
+    }
+
+    .others-container {
+      margin-top: 0;
+      gap: 8px;
+    }
+
+    .privacy-policy {
+      font-size: 11px;
+    }
+
+    .transaction-law {
+      font-size: 11px;
+    }
+
+    .accommodation-terms {
+      font-size: 11px;
+    }
   }
 </style>
