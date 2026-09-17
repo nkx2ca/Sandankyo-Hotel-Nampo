@@ -1,29 +1,413 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Logo from '../../components/Logo.astro';
+import { getLangFromUrl } from '../../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+
+// Gallery image data
+// Update this data when replacing with actual photos
+const galleryImages = [
+  {
+    id: 1,
+    src: "/hero-sandankyo-gorge.jpeg",
+    category: "Surroundings",
+    title: "Sandankyo Gorge Beauty",
+    description: "Beautiful scenery of Sandankyo, designated as a Special Place of Scenic Beauty"
+  },
+  {
+    id: 2,
+    src: "/kurobuchi.jpg",
+    category: "Surroundings",
+    title: "Kurobuchi",
+    description: "A representative scenic spot of Sandankyo"
+  },
+  {
+    id: 3,
+    src: "/hotel_extelia.jpg",
+    category: "Facilities",
+    title: "Hotel Exterior",
+    description: "Hotel surrounded by the nature of Sandankyo"
+  },
+  {
+    id: 4,
+    src: "/moss.jpg",
+    category: "Surroundings",
+    title: "Moss-covered Gorge",
+    description: "The beauty of fresh nature"
+  },
+  {
+    id: 5,
+    src: "/opening.jpg",
+    category: "Facilities",
+    title: "Interior",
+    description: "Calm atmosphere interior"
+  },
+  {
+    id: 6,
+    src: "/340001_02F.jpeg",
+    category: "Cuisine",
+    title: "Cuisine",
+    description: "Kaiseki cuisine using local ingredients"
+  },
+  {
+    id: 7,
+    src: "/mtaira190300257.jpg",
+    category: "Surroundings",
+    title: "Four Seasons of Sandankyo",
+    description: "Gorge that changes its expression with each season"
+  },
+];
+
+// Category list
+const categories = ["All", "Facilities", "Rooms", "Cuisine", "Surroundings"];
 ---
 
 <BaseLayout>
-  <Logo />
-  <div class="page-content">
-    <div class="coming-soon">Coming Soon</div>
-  </div>
+  <main class="gallery">
+    <div class="container">
+      <h1 class="page-title">Gallery</h1>
+
+      <div class="content">
+        <div class="category-filter">
+          {categories.map((category) => (
+            <button
+              class={`filter-btn ${category === "All" ? "active" : ""}`}
+              data-category={category}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div class="gallery-grid">
+          {galleryImages.map((image) => (
+            <div class="gallery-item" data-category={image.category}>
+              <div class="image-wrapper">
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  loading="lazy"
+                />
+                <div class="image-overlay">
+                  <h3 class="image-title">{image.title}</h3>
+                  <p class="image-description">{image.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+      <span class="modal-close">&times;</span>
+      <img class="modal-content" id="modalImage" alt="" />
+      <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+  </main>
 </BaseLayout>
 
+<script>
+  // Category filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.dataset.category;
+
+      // Toggle active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter items
+      galleryItems.forEach(item => {
+        if (category === 'All' || item.dataset.category === category) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Modal functionality
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage') as HTMLImageElement;
+  const modalCaption = document.getElementById('modalCaption');
+  const closeBtn = document.querySelector('.modal-close');
+
+  // Show modal on image click
+  const images = document.querySelectorAll('.gallery-item img');
+  images.forEach(img => {
+    img.addEventListener('click', function(this: HTMLImageElement) {
+      if (modal && modalImg && modalCaption) {
+        modal.classList.add('show');
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+        modalCaption.textContent = this.alt;
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Close modal
+  closeBtn?.addEventListener('click', () => {
+    modal?.classList.remove('show');
+    document.body.style.overflow = 'auto';
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Close modal with ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('show')) {
+      modal.classList.remove('show');
+      document.body.style.overflow = 'auto';
+    }
+  });
+</script>
+
 <style>
-  .page-content {
-    width: 100vw;
+  .gallery {
     min-height: 100vh;
-    background: #001914;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 150px 20px 100px;
+    background-color: #4e4c43;
   }
 
-  .coming-soon {
-    color: #70644F;
-    font-size: 48px;
-    letter-spacing: 16px;
+  .container {
+    max-width: 1240px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-size: 32px;
+    letter-spacing: 4px;
     text-align: center;
+    margin-bottom: 60px;
+    font-weight: normal;
+    color: #fff;
+  }
+
+  .content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 8px;
+  }
+
+  .category-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 10px 25px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .filter-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .filter-btn.active {
+    background-color: #fff;
+    border-color: #fff;
+    color: #4e4c43;
+    font-weight: bold;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .image-wrapper:hover img {
+    transform: scale(1.1);
+  }
+
+  .image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+  }
+
+  .image-wrapper:hover .image-overlay {
+    transform: translateY(0);
+  }
+
+  .image-title {
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 0 0 5px 0;
+  }
+
+  .image-description {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+  }
+
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+
+  .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    animation: zoomIn 0.3s;
+  }
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.8);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .modal-close:hover {
+    color: #ccc;
+  }
+
+  .modal-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+  }
+
+  @media screen and (max-width: 960px) {
+    .gallery {
+      padding: 120px 15px 80px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .content {
+      padding: 25px 20px;
+    }
+
+    .category-filter {
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      padding: 8px 18px;
+      font-size: 13px;
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .modal-close {
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+    }
+
+    .modal-caption {
+      bottom: 20px;
+      font-size: 14px;
+    }
   }
 </style>
+

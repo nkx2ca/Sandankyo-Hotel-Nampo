@@ -14,16 +14,22 @@ import Logo from '../../components/Logo.astro';
   .page-content {
     width: 100vw;
     min-height: 100vh;
-    background: #001914;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .coming-soon {
-    color: #70644F;
     font-size: 48px;
     letter-spacing: 16px;
     text-align: center;
+  }
+
+  @media screen and (max-width: 960px) {
+    .coming-soon {
+      font-size: 32px;
+      letter-spacing: 10px;
+      padding: 0 20px;
+    }
   }
 </style>

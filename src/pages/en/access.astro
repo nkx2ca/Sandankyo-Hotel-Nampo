@@ -5,19 +5,14 @@ import Logo from '../../components/Logo.astro';
 
 <BaseLayout>
   <Logo />
-  <div class="page-content">
+  <div class="main">
     <div class="title-section">
-      <h1 class="title-en">ACCESS</h1>
-      <div class="title-line"></div>
-    </div>
-
-    <div class="logo-section">
-      <img src=`${import.meta.env.BASE_URL}logo_with_text_white.png` alt="Logo" class="center-logo" />
+      <h1 class="title">Access</h1>
     </div>
 
     <div class="address-section">
       <p>Sandankyo Hotel Nampo</p>
-      <p>〒731-3813 1734-1 Shibaki, Akiota-cho, Yamagata-gun, Hiroshima</p>
+      <p>〒731-3813 1734 Shibaki, Akiota-cho, Yamagata-gun, Hiroshima</p>
     </div>
 
     <div class="map-container">
@@ -33,16 +28,16 @@ import Logo from '../../components/Logo.astro';
     </div>
 
     <div class="info-group">
-      <h3>By Car</h3>
+      <h3 class="info-group-title">By Car</h3>
       <ul class="transport-list">
-        <li>Approx. 1.5 hours from Hiroshima city center.</li>
+        <li>Approx. 1 hour 30 minutes from Hiroshima city center.</li>
         <li>Approx. 20 minutes from Togōchi IC on the Chūgoku Expressway.</li>
         <li>5 parking spaces available.</li>
       </ul>
     </div>
 
     <div class="info-group">
-      <h3>By Public Transportation</h3>
+      <h3 class="info-group-title">By Public Transportation</h3>
       <ul class="transport-list">
         <li>
           Approx. 80 minutes by express bus (Shin-Koeki Line) from Hiroshima Station Shinkansen Exit to Akiota Town Hall. Approx. 10 minutes by taxi from Akiota Town Hall to the hotel.<br/>
@@ -55,57 +50,37 @@ import Logo from '../../components/Logo.astro';
 </BaseLayout>
 
 <style>
-  .page-content {
-    width: 100vw;
+  .main {
     min-height: 100vh;
-    background: #001914;
-    padding: 60px 85px 60px 85px;
-    box-sizing: border-box;
+    width: 100%;
   }
 
   .title-section {
+    max-width: 1240px;
+    height: auto;
+    padding: 0 20px;
+    margin: 0 auto;
     display: flex;
-    align-items: baseline;
-    margin: 0px 0px 60px 60px;
+    justify-content: center;
     gap: 20px;
   }
 
-  .title-en {
-    font-size: 48px;
+  .title {
+    font-size: 32px;
     letter-spacing: 8px;
-    color: #70644F;
     font-weight: normal;
-    margin: 0;
-  }
-
-  .title-line {
-    flex: 1;
-    height: 1px;
-    background-color: #70644F;
-    margin-left: 20px;
-  }
-
-  .logo-section {
-    text-align: center;
-    margin: 60px 0;
-  }
-
-  .center-logo {
-    width: 150px;
-    height: auto;
+    margin-top: 200px;
   }
 
   .address-section {
     text-align: center;
     margin: 60px 0;
-    color: #fff;
   }
 
   .address-section h3 {
     font-size: 18px;
     letter-spacing: 2px;
     margin-bottom: 15px;
-    color: #70644F;
     font-weight: normal;
   }
 
@@ -114,12 +89,11 @@ import Logo from '../../components/Logo.astro';
     line-height: 2;
     letter-spacing: 1px;
     margin: 5px 0;
-    color: rgba(255, 255, 255, 0.9);
   }
 
   .map-container {
-    max-width: 100%;
-    margin: 60px 0px;
+    width: 100%;
+    margin: 100px 0px;
   }
 
   .map-container iframe {
@@ -127,15 +101,16 @@ import Logo from '../../components/Logo.astro';
   }
 
   .info-group {
-    margin: 100px 0px 0px 60px;
-    max-width: 100%;
+    max-width: 1240px;
+    height: auto;
+    padding: 0 20px 70px 20px;
+    margin: 0 auto;
   }
 
-  .info-group h3 {
+  .info-group-title {
     font-size: 26px;
     letter-spacing: 2px;
     margin-bottom: 30px;
-    color: #70644F;
     font-weight: normal;
   }
 
@@ -144,7 +119,6 @@ import Logo from '../../components/Logo.astro';
     line-height: 2;
     letter-spacing: 1px;
     margin: 5px 0;
-    color: rgba(255, 255, 255, 0.9);
   }
 
   .transport-list {
@@ -160,7 +134,6 @@ import Logo from '../../components/Logo.astro';
     margin-bottom: 15px;
     padding-left: 20px;
     position: relative;
-    color: rgba(255, 255, 255, 0.9);
   }
 
   .transport-list li::before {
@@ -171,19 +144,22 @@ import Logo from '../../components/Logo.astro';
 
   .note {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
     display: block;
     margin-top: 5px;
     padding-left: 10px;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 960px) {
     .page-content {
       padding: 100px 40px 60px 40px;
     }
 
-    .title-en {
+    .title-ja {
       font-size: 32px;
+    }
+
+    .title-en {
+      font-size: 18px;
     }
 
     .center-logo {

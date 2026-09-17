@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { newsArticles } from '../../../../data/newsData-en';
+
+export async function getStaticPaths() {
+  return newsArticles.map((article) => ({
+    params: { id: String(article.id) },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+
+if (!article) {
+  return Astro.redirect('/en/news');
+}
+---
+
+<BaseLayout>
+  <main class="article">
+    <div class="container">
+      <div class="article-header">
+        <div class="article-meta">
+          <time class="article-date">{article.date}</time>
+          <span class="article-category">{article.category}</span>
+        </div>
+        <h1 class="article-title">{article.title}</h1>
+      </div>
+
+      <div class="article-content">
+        <div class="content-inner" set:html={article.content} />
+      </div>
+
+      <div class="article-footer">
+        <a href="/en/news" class="back-link">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to News List
+        </a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .article {
+    min-height: 100vh;
+    padding: 150px 20px 100px;
+    background-color: #4e4c43;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .article-header {
+    margin-bottom: 50px;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .article-date {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .article-category {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #fff;
+  }
+
+  .article-title {
+    font-size: 32px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0;
+  }
+
+  .article-content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 50px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+  }
+
+  .content-inner {
+    color: #fff;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+  }
+
+  .content-inner :global(p) {
+    font-size: 16px;
+    margin: 0 0 25px 0;
+  }
+
+  .content-inner :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .content-inner :global(h3) {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin: 40px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .content-inner :global(h3:first-child) {
+    margin-top: 0;
+  }
+
+  .content-inner :global(ul),
+  .content-inner :global(ol) {
+    margin: 0 0 25px 20px;
+    padding-left: 20px;
+  }
+
+  .content-inner :global(li) {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .content-inner :global(li:last-child) {
+    margin-bottom: 0;
+  }
+
+  .article-footer {
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .back-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateX(-5px);
+  }
+
+  @media screen and (max-width: 960px) {
+    .article {
+      padding: 120px 15px 80px;
+    }
+
+    .article-header {
+      margin-bottom: 30px;
+    }
+
+    .article-meta {
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .article-date {
+      font-size: 12px;
+    }
+
+    .article-category {
+      padding: 4px 12px;
+      font-size: 11px;
+    }
+
+    .article-title {
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    .article-content {
+      padding: 30px 20px;
+      margin-bottom: 40px;
+    }
+
+    .content-inner :global(p) {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .content-inner :global(h3) {
+      font-size: 18px;
+      margin: 30px 0 15px 0;
+    }
+
+    .content-inner :global(ul),
+    .content-inner :global(ol) {
+      margin-left: 10px;
+      padding-left: 15px;
+    }
+
+    .content-inner :global(li) {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .back-link {
+      padding: 12px 25px;
+      font-size: 13px;
+    }
+  }
+</style>
