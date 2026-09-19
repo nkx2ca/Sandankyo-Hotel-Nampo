@@ -273,11 +273,28 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
 
  @media screen and (max-width: 960px) {
    .nav-bar {
-     width: 60px;
+     width: 100%;
+     height: 70px;
+     flex-direction: row;
+     justify-content: flex-end;
+     align-items: center;
+     gap: 15px;
+     padding: 0 15px;
+     top: 0;
+     left: 0;
+     right: auto;
+     bottom: auto;
+     background-color: rgba(0, 0, 0, 0.3);
+     backdrop-filter: blur(10px);
+     z-index: 1;
    }
 
    .hamburger {
-     height: 50px;
+     height: 60px;
+     width: auto;
+     order: 3;
+     margin-left: 20px;
+     margin-right: 10px;
    }
 
    .hamburger-line {
@@ -301,16 +318,23 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
    }
 
    .i18n {
-     width: 35px;
-     height: 35px;
-     font-size: 12px;
-     line-height: 35px;
+     width: 30px;
+     height: 30px;
+     font-size: 10px;
+     line-height: 30px;
+     order: 2;
+     margin-left: 5px;
    }
 
    .reservation {
-     font-size: 14px;
-     letter-spacing: 0.25em;
-     margin: 20px 0;
+     font-size: 12px;
+     letter-spacing: 0.1em;
+     margin: 0;
+     writing-mode: horizontal-tb;
+     padding: 0;
+     order: 1;
+     white-space: nowrap;
+     width: auto;
    }
 
    .nav-opened {
