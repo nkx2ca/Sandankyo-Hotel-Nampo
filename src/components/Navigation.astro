@@ -50,6 +50,7 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
   const hamburger = document.querySelector<HTMLElement>('.hamburger');
   const navMenu = document.querySelector<HTMLElement>('.nav-opened');
   const navOverlay = document.querySelector<HTMLElement>('.nav-overlay');
+  const navBar = document.querySelector<HTMLElement>('.nav-bar');
   const hamburgerLine0 = document.querySelector<HTMLElement>('.hamburger-line-0');
   const hamburgerLine1 = document.querySelector<HTMLElement>('.hamburger-line-1');
   const hamburgerLine2 = document.querySelector<HTMLElement>('.hamburger-line-2');
@@ -69,6 +70,21 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
     hamburgerLine1?.classList.remove('active');
     hamburgerLine2?.classList.remove('active');
   });
+
+  // スクロール時の背景変更（モバイルのみ）
+  function handleScroll() {
+    if (window.innerWidth <= 960) {
+      if (window.scrollY > 50) {
+        navBar?.classList.add('scrolled');
+      } else {
+        navBar?.classList.remove('scrolled');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', handleScroll);
+  handleScroll(); // 初期状態をチェック
 </script>
 
 
@@ -284,6 +300,12 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
      left: 0;
      right: auto;
      bottom: auto;
+     background-color: transparent;
+     backdrop-filter: none;
+     transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+   }
+
+   .nav-bar.scrolled {
      background-color: rgba(0, 0, 0, 0.3);
      backdrop-filter: blur(10px);
    }
