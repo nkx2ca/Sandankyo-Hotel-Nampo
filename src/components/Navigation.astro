@@ -129,6 +129,12 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
    display: flex;
    justify-content: center;
    align-items: center;
+   cursor: pointer;
+   transition: opacity 0.3s ease;
+ }
+
+ .hamburger:hover {
+   opacity: 0.7;
  }
 
  .hamburger-line {
@@ -179,6 +185,12 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
    text-align: center;
    line-height: 40px;
    border: solid 1px #fff;
+   transition: opacity 0.3s ease, transform 0.3s ease;
+ }
+
+ .i18n:hover {
+   opacity: 0.7;
+   transform: scale(1.1);
  }
 
  .reservation {
@@ -197,6 +209,11 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
    justify-content: center;
    align-items: center;
    padding: 0px 0px;
+   transition: opacity 0.3s ease;
+ }
+
+ .reservation:hover {
+   opacity: 0.7;
  }
 
  .nav-overlay {
@@ -257,6 +274,12 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
  .main-item {
    margin: 0px 0px 15px 0px;
    font-size: 22px;
+   transition: opacity 0.3s ease, transform 0.3s ease;
+ }
+
+ .main-item:hover {
+   opacity: 0.7;
+   transform: translateX(5px);
  }
 
  .sub {
@@ -270,6 +293,12 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
  .sub-item {
    margin: 0px 0px 15px 0px;
    font-size: 16px;
+   transition: opacity 0.3s ease, transform 0.3s ease;
+ }
+
+ .sub-item:hover {
+   opacity: 0.7;
+   transform: translateX(5px);
  }
 
  .sns {
@@ -286,12 +315,24 @@ const otherLang = lang === 'ja' ? localePaths.en.locale : localePaths.ja.locale;
  .instagram-icon {
    height: 100%;
    display: flex;
+   transition: opacity 0.3s ease, transform 0.3s ease;
+ }
+
+ .instagram-icon:hover {
+   opacity: 0.7;
+   transform: translateY(-2px);
  }
 
  .facebook-icon {
    height: 100%;
    display: flex;
    margin-left: 15px;
+   transition: opacity 0.3s ease, transform 0.3s ease;
+ }
+
+ .facebook-icon:hover {
+   opacity: 0.7;
+   transform: translateY(-2px);
  }
  
  .copyright {

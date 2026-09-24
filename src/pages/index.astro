@@ -39,16 +39,8 @@ const localePaths = generateLocalePaths(Astro.url);
       <h2 class="news-title">お知らせ</h2>
       <ul class="news-list">
         <li class="news-item">
-          <span class="news-date">2026.09.01</span>
-          <a href={getRelativeLocaleUrl(lang, "/news/article/1")} class="news-link">秋の特別プランのご案内</a>
-        </li>
-        <li class="news-item">
-          <span class="news-date">2026.08.15</span>
-          <a href={getRelativeLocaleUrl(lang, "/news/article/2")} class="news-link">夏季休業のお知らせ</a>
-        </li>
-        <li class="news-item">
-          <span class="news-date">2026.07.20</span>
-          <a href={getRelativeLocaleUrl(lang, "/news/article/3")} class="news-link">新しい客室がオープンしました</a>
+          <span class="news-date">2026.10.01</span>
+          <a href={getRelativeLocaleUrl(lang, "/news/article/1")} class="news-link">リニューアルオープンのご案内</a>
         </li>
       </ul>
       <div class="news-more">
@@ -60,46 +52,12 @@ const localePaths = generateLocalePaths(Astro.url);
   <section class="intro-section">
     <div class="container">
       <div class="intro-text">
-        <p>かつては名もなき秘境であった。</p>
-        <p>その雄大な自然と、庭園のような繊細な美しさを併せ持った渓谷。</p>
-        <p>その渓谷に魅せられ、写真技師・熊南峰(くま なんぽう)は、</p>
-        <p>地元の小学校教師・斎藤露翠(さいとう ろすい)とともに、</p>
-        <p>未開の地であった渓谷を三段峡と名付け、</p>
-        <p>日本有数の名勝地へと導く礎を築きました。</p>
-        <p>先人たちが守り続けてきたこの三段峡は、</p>
-        <p>四季折々に表情を変えながら、訪れる人々にやすらぎをもたらします。</p>
-        <br/>
-        <p>「翠に染まる、癒しのひととき」</p>
-        <p>A Moment of Stillness, Awash in Green</p>
-        <br/>
-        <p>渓流を流れる清らかな水、瑞々しい草木の翠、</p>
-        <p>そして自然が織りなすやわらかな光。</p>
-        <p>三段峡の渓谷が紡ぎ出す翠の世界に身を委ね、心身をととのえる。</p>
-        <p>ゆっくりと移ろう時間の中で、自分自身と向き合う―</p>
-        <p>季節を感じ、土地を味わいながら癒しのひとときをお過ごしください。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="news-section">
-    <div class="container">
-      <h2 class="news-title">お知らせ</h2>
-      <ul class="news-list">
-        <li class="news-item">
-          <span class="news-date">2026.09.01</span>
-          <a href={getRelativeLocaleUrl(lang, "/news/article/1")} class="news-link">秋の特別プランのご案内</a>
-        </li>
-        <li class="news-item">
-          <span class="news-date">2026.08.15</span>
-          <a href={getRelativeLocaleUrl(lang, "/news/article/2")} class="news-link">夏季休業のお知らせ</a>
-        </li>
-        <li class="news-item">
-          <span class="news-date">2026.07.20</span>
-          <a href={getRelativeLocaleUrl(lang, "/news/article/3")} class="news-link">新しい客室がオープンしました</a>
-        </li>
-      </ul>
-      <div class="news-more">
-        <a href={getRelativeLocaleUrl(lang, "/news")} class="news-more-link">お知らせ一覧を見る</a>
+        <p class="concept">「翠に染まる、癒しのひととき」</p>
+        <p>渓流の清らかな水、瑞々しい草木の翠、</p>
+        <p>そして、木々の間から差し込むやわらかな光。</p>
+        <p>三段峡の自然が織りなす翠の世界に身を委ね、</p>
+        <p>季節の移ろいを感じ、この地に触れながら、</p>
+        <p>心ほどけるひとときをお過ごしください。</p>
       </div>
     </div>
   </section>
@@ -340,7 +298,7 @@ const localePaths = generateLocalePaths(Astro.url);
  .news-section {
    width: 100%;
    padding: 100px 0;
-   background-color: #f4f1e8;
+   background-color: #4e4c43;
  }
 
  .news-title {
@@ -350,7 +308,7 @@ const localePaths = generateLocalePaths(Astro.url);
    margin-bottom: 40px;
    text-align: center;
    font-weight: normal;
-   color: #000;
+   color: #fff;
  }
 
  .news-list {
@@ -361,7 +319,7 @@ const localePaths = generateLocalePaths(Astro.url);
  }
 
  .news-item {
-   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
    padding: 20px 0;
    display: flex;
    align-items: center;
@@ -376,12 +334,12 @@ const localePaths = generateLocalePaths(Astro.url);
  .news-date {
    font-size: 14px;
    letter-spacing: 2px;
-   color: rgba(0, 0, 0, 0.8);
+   color: rgba(255, 255, 255, 0.8);
    white-space: nowrap;
  }
 
  .news-link {
-   color: #000;
+   color: #fff;
    text-decoration: none;
    font-size: 16px;
    letter-spacing: 2px;
@@ -393,12 +351,12 @@ const localePaths = generateLocalePaths(Astro.url);
  }
 
  .news-more-link {
-   color: #000;
+   color: #fff;
    text-decoration: none;
    font-size: 14px;
    letter-spacing: 3px;
    padding-bottom: 5px;
-   border-bottom: 1px solid #000;
+   border-bottom: 1px solid #fff;
    transition: opacity 0.3s;
  }
 
@@ -408,7 +366,7 @@ const localePaths = generateLocalePaths(Astro.url);
 
  .intro-section {
    width: 100%;
-   padding: 100px 0;
+   padding: 200px 0;
    background-image: url('/moss.jpg');
    background-size: cover;
    background-position: center;
@@ -423,16 +381,15 @@ const localePaths = generateLocalePaths(Astro.url);
 
  .intro-text p {
    font-size: 16px;
-   line-height: 2;
+   line-height: 3;
    letter-spacing: 1px;
    text-align: left;
    margin: 0;
  }
 
- .intro-text br {
-   display: block;
-   content: "";
-   margin-top: 20px;
+ .intro-text .concept {
+   font-size: 22px;
+   margin-bottom: 100px;
  }
 
  /* モバイル対応 */

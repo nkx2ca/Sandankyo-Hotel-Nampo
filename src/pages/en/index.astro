@@ -39,16 +39,8 @@ const localePaths = generateLocalePaths(Astro.url);
       <h2 class="news-title">NEWS</h2>
       <ul class="news-list">
         <li class="news-item">
-          <span class="news-date">2026.09.01</span>
+          <span class="news-date">2026.10.01</span>
           <a href={getRelativeLocaleUrl(lang, "/news/article/1")} class="news-link">Autumn Special Plan Announcement</a>
-        </li>
-        <li class="news-item">
-          <span class="news-date">2026.08.15</span>
-          <a href={getRelativeLocaleUrl(lang, "/news/article/2")} class="news-link">Summer Closure Notice</a>
-        </li>
-        <li class="news-item">
-          <span class="news-date">2026.07.20</span>
-          <a href={getRelativeLocaleUrl(lang, "/news/article/3")} class="news-link">New Guest Rooms Now Open</a>
         </li>
       </ul>
       <div class="news-more">
@@ -60,30 +52,11 @@ const localePaths = generateLocalePaths(Astro.url);
   <section class="intro-section">
     <div class="container">
       <div class="intro-text">
-        <p>Sandankyo was once an unknown hidden sanctuary.</p>
-        <p>Captivated by its majestic landscape and natural beauty</p>
-        <p>that combines garden-like elegance,</p>
-        <p>photographer Kuma Nampo devoted himself to this place.</p>
-        <p>Together with local elementary school teacher Saito Rosui,</p>
-        <p>he shared its allure with the world,</p>
-        <p>leading Sandankyo to become one of Japan's most renowned scenic spots.</p>
-        <p>Protected by our predecessors, this Sandankyo</p>
-        <p>changes its expression with each season,</p>
-        <p>bringing peace to all who visit.</p>
-        <br/>
-        <p>"A Moment of Stillness, Awash in Green"</p>
-        <p>翠に染まる、癒しのひととき</p>
-        <br/>
-        <p>Crystal-clear water flowing through the ravine,</p>
-        <p>the fresh green of flourishing plants,</p>
-        <p>and the gentle light woven by nature.</p>
-        <p>Entrust yourself to the emerald world</p>
-        <p>created by Sandankyo's valley,</p>
-        <p>and find balance for body and mind.</p>
-        <p>In the slowly changing passage of time,</p>
-        <p>discover moments to face yourself.</p>
-        <p>Feel the seasons, savor the land,</p>
-        <p>and enjoy a moment of healing.</p>
+        <p class="concept">A Moment of Stillness, Awash in Green</p>
+        <p>Clear waters, fresh greenery,</p>
+        <p>and soft sunlight through the trees.</p>
+        <p>Slow down and unwind in Sandankyo.</p>
+        <p>Feel the seasons, savor the culture, and enjoy a peaceful moment.</p>
       </div>
     </div>
   </section>
@@ -325,7 +298,6 @@ const localePaths = generateLocalePaths(Astro.url);
  .news-section {
    width: 100%;
    padding: 100px 0;
-   background-color: #f4f1e8;
  }
 
  .news-title {
@@ -335,7 +307,7 @@ const localePaths = generateLocalePaths(Astro.url);
    margin-bottom: 40px;
    text-align: center;
    font-weight: normal;
-   color: #000;
+   color: #fff;
  }
 
  .news-list {
@@ -346,7 +318,7 @@ const localePaths = generateLocalePaths(Astro.url);
  }
 
  .news-item {
-   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
    padding: 20px 0;
    display: flex;
    align-items: center;
@@ -361,12 +333,12 @@ const localePaths = generateLocalePaths(Astro.url);
  .news-date {
    font-size: 14px;
    letter-spacing: 2px;
-   color: rgba(0, 0, 0, 0.8);
+   color: rgba(255, 255, 255, 0.8);
    white-space: nowrap;
  }
 
  .news-link {
-   color: #000;
+   color: #fff;
    text-decoration: none;
    font-size: 16px;
    letter-spacing: 2px;
@@ -378,12 +350,12 @@ const localePaths = generateLocalePaths(Astro.url);
  }
 
  .news-more-link {
-   color: #000;
+   color: #fff;
    text-decoration: none;
    font-size: 14px;
    letter-spacing: 3px;
    padding-bottom: 5px;
-   border-bottom: 1px solid #000;
+   border-bottom: 1px solid #fff;
    transition: opacity 0.3s;
  }
 
@@ -393,7 +365,7 @@ const localePaths = generateLocalePaths(Astro.url);
 
  .intro-section {
    width: 100%;
-   padding: 100px 0;
+   padding: 200px 0;
    background-image: url('/moss.jpg');
    background-size: cover;
    background-position: center;
@@ -408,16 +380,15 @@ const localePaths = generateLocalePaths(Astro.url);
 
  .intro-text p {
    font-size: 16px;
-   line-height: 2;
+   line-height: 3;
    letter-spacing: 1px;
    text-align: left;
    margin: 0;
  }
 
- .intro-text br {
-   display: block;
-   content: "";
-   margin-top: 20px;
+ .intro-text .concept {
+   font-size: 22px;
+   margin-bottom: 100px;
  }
 
  /* モバイル対応 */
