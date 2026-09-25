@@ -2,11 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import IndexPage from '../../components/pages/IndexPage.astro';
 import { getLangFromUrl, usePageContent } from '../../i18n/i18n';
+import { newsItems } from '../../data/newsData-en';
 
 const lang = getLangFromUrl(Astro.url);
 const content = usePageContent(lang, 'index');
+
+// Get latest 3 news items (sorted by date descending)
+const latestNews = newsItems
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 3);
 ---
 
 <BaseLayout>
-  <IndexPage lang={lang} content={content} />
+  <IndexPage lang={lang} content={content} news={latestNews} />
 </BaseLayout>

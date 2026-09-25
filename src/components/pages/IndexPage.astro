@@ -1,6 +1,13 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
+interface NewsItem {
+  id: number;
+  date: string;
+  category: string;
+  title: string;
+}
+
 interface Props {
   lang: 'ja' | 'en';
   content: {
@@ -11,9 +18,10 @@ interface Props {
     concept: string;
     intro: string[];
   };
+  news: NewsItem[];
 }
 
-const { lang, content } = Astro.props;
+const { lang, content, news } = Astro.props;
 ---
 
 <div class="loading">
@@ -45,12 +53,14 @@ const { lang, content } = Astro.props;
   <div class="container">
     <h2 class="news-title">{content.newsTitle}</h2>
     <ul class="news-list">
-      <li class="news-item">
-        <span class="news-date">2026.10.01</span>
-        <a href={getRelativeLocaleUrl(lang, "/news/article/1")} class="news-link">
-          {lang === 'ja' ? 'リニューアルオープンのご案内' : 'Renewal Opening Announcement'}
-        </a>
-      </li>
+      {news.map((item) => (
+        <li class="news-item">
+          <span class="news-date">{item.date}</span>
+          <a href={getRelativeLocaleUrl(lang, `/news/article/${item.id}`)} class="news-link">
+            {item.title}
+          </a>
+        </li>
+      ))}
     </ul>
     <div class="news-more">
       <a href={getRelativeLocaleUrl(lang, "/news")} class="news-more-link">{content.newsMore}</a>
