@@ -1,18 +1,24 @@
 export default {
   id: 1,
-  date: "2026.11.14",
+  date: "2026.10.01",
   category: "Announcement",
-  title: "Sandankyo Hotel Nampo Grand Reopening",
+  title: "Reopening Announcement",
   content: `
-    <p>On November 14, 2026, Sandankyo Hotel Nampo, located at the entrance of Sandankyo, a Special Place of Scenic Beauty, has reopened after renovation.</p>
+    <p>We are pleased to announce that "Sandankyo Hotel Nampo" will reopen on Tuesday, December 15, 2026, following a complete renovation.</p>
+    <p>We would like to express our sincere gratitude to all those who have supported us during our temporary closure for renovations.</p>
 
-    <h3>Renewal Concept</h3>
-    <p>This renovation is based on the concept of "A Moment of Stillness, Awash in Green," aiming to create a space where guests can fully experience the natural beauty of Sandankyo. From the guest rooms, you can enjoy a panoramic view of the beautiful gorge scenery and appreciate nature through the four seasons.</p>
+    <h3>A New Journey with Sandankyo's History</h3>
+    <p>The new name "Sandankyo Hotel Nampo" honors Kuma Nampo, a photographer who was captivated by the natural beauty of the gorge and widely shared its charm with the world.</p>
+    <p>While carefully preserving the character and memories of the original building, we have transformed it into a more comfortable space where Japanese and Western styles harmonize.</p>
+    <p>We will welcome guests from Japan and abroad, offering heartfelt hospitality that conveys the beauty of Japan that lives and breathes in this place.</p>
 
-    <h3>Introduction to New Facilities</h3>
-    <p>The large communal bath draws from local hot springs, allowing you to relax and rejuvenate your tired body. The restaurant serves kaiseki cuisine using abundant local Hiroshima ingredients.</p>
+    <h3>Concept: "A Moment of Stillness, Awash in Green"</h3>
+    <p>Clear waters, fresh greenery,</p>
+    <p>and soft sunlight through the trees.</p>
+    <p>Slow down and unwind in Sandankyo.</p>
+    <p>Feel the seasons, savor the culture, and enjoy a peaceful moment.</p>
 
     <h3>We Look Forward to Welcoming You</h3>
-    <p>All staff members look forward to your visit. Please enjoy a healing moment surrounded by the nature of Sandankyo.</p>
+    <p>Our entire staff looks forward to welcoming you. Please enjoy a moment of healing surrounded by the nature of Sandankyo.</p>
   `
 };

@@ -1,35 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Logo from '../components/Logo.astro';
+import ComingSoonPage from '../components/pages/ComingSoonPage.astro';
+import { getLangFromUrl, usePageContent } from '../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const content = usePageContent(lang, 'comingSoon');
 ---
 
 <BaseLayout>
   <Logo />
-  <div class="page-content">
-    <div class="coming-soon">準備中</div>
-  </div>
+  <ComingSoonPage content={content} />
 </BaseLayout>
-
-<style>
-  .page-content {
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .coming-soon {
-    font-size: 48px;
-    letter-spacing: 16px;
-    text-align: center;
-  }
-
-  @media screen and (max-width: 960px) {
-    .coming-soon {
-      font-size: 32px;
-      letter-spacing: 10px;
-      padding: 0 20px;
-    }
-  }
-</style>

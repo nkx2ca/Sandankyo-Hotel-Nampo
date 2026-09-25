@@ -1,0 +1,349 @@
+---
+import { FAQ_DATA } from '../../i18n/content/faq';
+
+interface Props {
+  lang: 'ja' | 'en';
+  content: {
+    pageTitle: string;
+    intro: string[];
+    contactNotice: {
+      title: string;
+      text: string;
+      tel: string;
+    };
+  };
+}
+
+const { lang, content } = Astro.props;
+const faqs = FAQ_DATA[lang];
+---
+
+<main class="faq">
+  <div class="container">
+    <h1 class="page-title">{content.pageTitle}</h1>
+
+    <div class="content-wrapper">
+      <div class="intro">
+        {content.intro.map(text => <p set:html={text} />)}
+      </div>
+
+      {faqs.map((category) => (
+        <section class="faq-category">
+          <h2 class="category-title">{category.category}</h2>
+          <div class="faq-list">
+            {category.items.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">
+                  <span class="question-icon">Q</span>
+                  <span class="question-text">{item.question}</span>
+                  <span class="toggle-icon"></span>
+                </summary>
+                <div class="faq-answer">
+                  <span class="answer-icon">A</span>
+                  <div class="answer-text">{item.answer}</div>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+</main>
+
+<style>
+  .faq {
+    min-height: 100vh;
+    padding: 150px 20px 100px;
+    background-color: #4e4c43;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-size: 32px;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: normal;
+    color: #fff;
+  }
+
+  .content-wrapper {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 8px;
+  }
+
+  .intro {
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+  }
+
+  .intro :global(p) {
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin: 8px 0;
+  }
+
+  .intro :global(.contact-link) {
+    color: #fff;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+  }
+
+  .intro :global(.contact-link:hover) {
+    opacity: 0.7;
+  }
+
+  .faq-category {
+    margin-bottom: 50px;
+  }
+
+  .faq-category:last-of-type {
+    margin-bottom: 40px;
+  }
+
+  .category-title {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 25px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .faq-item {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: background-color 0.3s;
+  }
+
+  .faq-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .faq-item[open] {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .question-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  }
+
+  .question-text {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+    color: #fff;
+    padding-right: 30px;
+  }
+
+  .toggle-icon {
+    position: absolute;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid rgba(255, 255, 255, 0.6);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+    transform: rotate(45deg);
+    transition: transform 0.3s;
+  }
+
+  .faq-item[open] .toggle-icon {
+    transform: rotate(-135deg);
+  }
+
+  .faq-answer {
+    display: flex;
+    padding: 0 20px 25px 20px;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .answer-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  }
+
+  .answer-text {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.95);
+    padding-top: 4px;
+  }
+
+  .contact-notice {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .notice-title {
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 15px 0;
+  }
+
+  .notice-text {
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin: 0;
+  }
+
+  .notice-text :global(.tel-link) {
+    color: #fff;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+  }
+
+  .notice-text :global(.tel-link:hover) {
+    opacity: 0.7;
+  }
+
+  @media screen and (max-width: 960px) {
+    .faq {
+      padding: 120px 15px 80px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .content-wrapper {
+      padding: 25px 20px;
+    }
+
+    .intro {
+      margin-bottom: 40px;
+      padding-bottom: 25px;
+    }
+
+    .intro :global(p) {
+      font-size: 13px;
+    }
+
+    .faq-category {
+      margin-bottom: 40px;
+    }
+
+    .category-title {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .faq-question {
+      padding: 15px;
+    }
+
+    .question-icon,
+    .answer-icon {
+      width: 24px;
+      height: 24px;
+      font-size: 12px;
+      margin-right: 12px;
+    }
+
+    .question-text {
+      font-size: 14px;
+      padding-right: 25px;
+    }
+
+    .toggle-icon {
+      right: 15px;
+      width: 10px;
+      height: 10px;
+    }
+
+    .faq-answer {
+      padding: 0 15px 20px 15px;
+    }
+
+    .answer-text {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .contact-notice {
+      padding: 20px;
+    }
+
+    .notice-title {
+      font-size: 15px;
+    }
+
+    .notice-text {
+      font-size: 13px;
+    }
+  }
+</style>

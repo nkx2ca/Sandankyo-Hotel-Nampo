@@ -1,0 +1,202 @@
+---
+interface Props {
+  lang: 'ja' | 'en';
+  content: {
+    pageTitle: string;
+    hotelName: string;
+    address: string;
+    mapUrl: string;
+    byCar: {
+      title: string;
+      items: string[];
+    };
+    byPublicTransport: {
+      title: string;
+      items: string[];
+    };
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<main class="main">
+  <div class="title-section">
+    <h1 class="title">{content.pageTitle}</h1>
+  </div>
+
+  <div class="address-section">
+    <p>{content.hotelName}</p>
+    <p>{content.address}</p>
+  </div>
+
+  <div class="map-container">
+    <iframe
+      src={content.mapUrl}
+      width="100%"
+      height="600"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+  </div>
+
+  <div class="info-group">
+    <h3 class="info-group-title">{content.byCar.title}</h3>
+    <ul class="transport-list">
+      {content.byCar.items.map(item => (
+        <li set:html={item} />
+      ))}
+    </ul>
+  </div>
+
+  <div class="info-group">
+    <h3 class="info-group-title">{content.byPublicTransport.title}</h3>
+    <ul class="transport-list">
+      {content.byPublicTransport.items.map(item => (
+        <li set:html={item} />
+      ))}
+    </ul>
+  </div>
+</main>
+
+<style>
+  .main {
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .title-section {
+    max-width: 1240px;
+    height: auto;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 32px;
+    letter-spacing: 8px;
+    font-weight: normal;
+    margin-top: 200px;
+  }
+
+  .address-section {
+    text-align: center;
+    margin: 60px 0;
+  }
+
+  .address-section h3 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-weight: normal;
+  }
+
+  .address-section p {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+    margin: 5px 0;
+  }
+
+  .map-container {
+    width: 100%;
+    margin: 100px 0px;
+  }
+
+  .map-container iframe {
+    width: 100%;
+  }
+
+  .info-group {
+    max-width: 1240px;
+    height: auto;
+    padding: 0 20px 70px 20px;
+    margin: 0 auto;
+  }
+
+  .info-group-title {
+    font-size: 26px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    font-weight: normal;
+  }
+
+  .info-group p {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+    margin: 5px 0;
+  }
+
+  .transport-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .transport-list li {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .transport-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+  }
+
+  .transport-list :global(.note) {
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+    padding-left: 10px;
+  }
+
+  @media screen and (max-width: 960px) {
+    .title {
+      font-size: 24px;
+      letter-spacing: 4px;
+      margin-top: 150px;
+    }
+
+    .address-section {
+      margin: 40px 0;
+      padding: 0 20px;
+    }
+
+    .address-section p {
+      font-size: 14px;
+    }
+
+    .map-container {
+      margin: 60px 0;
+    }
+
+    .info-group {
+      padding: 0 20px 50px 20px;
+    }
+
+    .info-group-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .transport-list li {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .transport-list :global(.note) {
+      font-size: 12px;
+    }
+  }
+</style>

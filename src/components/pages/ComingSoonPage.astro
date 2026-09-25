@@ -1,0 +1,58 @@
+---
+interface Props {
+  content: {
+    title: string;
+    message: string;
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<main class="coming-soon">
+  <div class="container">
+    <h1 class="title">{content.title}</h1>
+    <p class="message">{content.message}</p>
+  </div>
+</main>
+
+<style>
+  .coming-soon {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4e4c43;
+  }
+
+  .container {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .title {
+    font-size: 48px;
+    font-weight: normal;
+    letter-spacing: 4px;
+    margin: 0 0 20px 0;
+    color: #fff;
+  }
+
+  .message {
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  @media screen and (max-width: 960px) {
+    .title {
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
+
+    .message {
+      font-size: 14px;
+    }
+  }
+</style>
