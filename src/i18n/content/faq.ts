@@ -151,7 +151,7 @@ export const FAQ_DATA = {
       items: [
         {
           question: "How can I make a reservation?",
-          answer: "Reservations can be made by phone (TEL: 0826-28-2308) or through our online booking system. For online reservations, please click the 'Reserve' button on the right side of our website."
+          answer: "Reservations can be made by phone (TEL: 0826-28-2308) or through our online booking system. For online reservations, please click the 'Reserve' button on our website."
         },
         {
           question: "Until when can I cancel my reservation?",
@@ -164,7 +164,7 @@ export const FAQ_DATA = {
       ]
     },
     {
-      category: "Check-in & Check-out",
+      category: "Accommodation",
       items: [
         {
           question: "What are your check-in and check-out times?",
@@ -181,11 +181,11 @@ export const FAQ_DATA = {
       ]
     },
     {
-      category: "Rooms & Facilities",
+      category: "Rooms",
       items: [
         {
           question: "Are amenities provided in the rooms?",
-          answer: "We provide basic amenities including bath towels, face towels, toothbrushes, shampoo, conditioner, and body soap."
+          answer: "We provide basic amenities including towels, toothbrushes, skincare products, shampoo, conditioner, and body soap."
         },
         {
           question: "Is Wi-Fi available?",
@@ -196,8 +196,20 @@ export const FAQ_DATA = {
           answer: "All rooms in the hotel are non-smoking. Smoking is permitted only in designated smoking areas."
         },
         {
+          question: "What type of bedding is provided?",
+          answer: "All guest rooms are equipped with down comforters and pillows."
+        },
+        {
+          question: "What type of toilet facilities are in the rooms?",
+          answer: "All guest rooms have Western-style toilets with automatic bidet functions (washlets)."
+        },
+        {
+          question: "Is there a safe in the room?",
+          answer: "Yes, a safety box is provided in each room."
+        },
+        {
           question: "Are there barrier-free rooms available?",
-          answer: "We have barrier-free rooms available. Please request when making your reservation."
+          answer: "There are steps and stairs in the facility. We apologize, but we do not have barrier-free rooms available. Please understand in advance."
         }
       ]
     },
@@ -205,33 +217,46 @@ export const FAQ_DATA = {
       category: "Dining",
       items: [
         {
-          question: "Do you offer meal plans?",
-          answer: "Yes, we offer plans with breakfast and plans with dinner and breakfast. Enjoy Japanese-style meals featuring seasonal ingredients."
+          question: "What are the meal times?",
+          answer: "Dinner starts at 18:30 / 18:30 / 19:00 / 19:30 in a 4-session system, which will be explained at check-in. Pre-selection of dinner time is not available and will be chosen at check-in. *Please contact us in advance if you will arrive after 18:00. *Some accommodation plans may have exceptions. If your reservation plan includes specific dinner time information, that takes priority. Breakfast starts at 7:30 / 8:00 / 8:30. Dinner and breakfast are provided to guests with meal plans."
         },
         {
           question: "Can you accommodate food allergies?",
           answer: "If you inform us in advance, we will do our best to accommodate within our capabilities. Please let us know when making your reservation."
-        },
-        {
-          question: "What are the restaurant operating hours?",
-          answer: "Breakfast is served from 7:00 to 9:00, and dinner from 18:00 to 20:00 (last order 19:30)."
         }
       ]
     },
     {
-      category: "Hotel Facilities",
+      category: "Bathing",
       items: [
         {
-          question: "Do you have hot springs?",
-          answer: "We have a large communal bath. For operating hours and other details, please see our facilities page."
+          question: "Is there a bathing tax?",
+          answer: "A bathing tax of 150 yen per person per night is charged separately for guests aged junior high school and above."
         },
+        {
+          question: "What are the operating hours for the private bath (indoor)?",
+          answer: "Operating hours are 15:00 - 23:00 / Morning 6:00 - 10:00. As we clean between uses, each session is limited to 45 minutes. Reservations can be made at the front desk."
+        },
+        {
+          question: "Is the bath in the guest room a hot spring?",
+          answer: "No, it is not. Hot spring baths are only available in the private bath."
+        },
+        {
+          question: "Is there a sauna or cold bath?",
+          answer: "No, we do not have a sauna or cold bath."
+        }
+      ]
+    },
+    {
+      category: "Facilities",
+      items: [
         {
           question: "Is parking available?",
-          answer: "Yes, we have free parking available. Please note that spaces are limited and may be full."
+          answer: "Yes, free parking is available. *Parking spaces are assigned on a first-come, first-served basis. *If arriving by bus or large vehicle, please consult us in advance."
         },
         {
-          question: "Is there a shop?",
-          answer: "We have a shop corner near the front desk where you can purchase local souvenirs."
+          question: "Is there a microwave or ice machine?",
+          answer: "These are not available in common areas. If you need items heated or ice, please contact the front desk."
         }
       ]
     },
@@ -240,11 +265,7 @@ export const FAQ_DATA = {
       items: [
         {
           question: "What payment methods do you accept?",
-          answer: "We accept cash, credit cards, and traveler's checks. Accepted credit cards include VISA, MasterCard, JCB, AMEX, and Diners."
-        },
-        {
-          question: "Is advance payment possible?",
-          answer: "For online reservations, some plans allow you to select advance payment."
+          answer: "We accept cash, various credit cards, and QR code payments (electronic payments) on-site."
         }
       ]
     },
@@ -253,19 +274,19 @@ export const FAQ_DATA = {
       items: [
         {
           question: "Can I bring pets?",
-          answer: "We apologize, but pets are not allowed except for guide dogs."
+          answer: "We apologize, but pets are not allowed."
         },
         {
           question: "What are the rates for children?",
-          answer: "For children aged 3 to 12, we charge a facility usage fee of 3,300 yen (tax included) per night. Additional charges apply if you need meals and bedding for children. Infants under 2 years old stay free if they don't need bedding or meals."
+          answer: "For children aged 3 to 12, we charge a facility usage fee of 3,300 yen (tax included) per night. Additional charges apply if you need meals and bedding for children. Infants aged 2 and under stay free if they don't need bedding or meals."
         },
         {
-          question: "Can you recommend nearby tourist spots?",
-          answer: "Our hotel is located at the entrance to Sandankyo, a designated Special Place of Scenic Beauty. You can enjoy the beautiful gorge scenery, and nearby attractions include Nukui Dam and Shinyusan."
+          question: "Can I send luggage to the hotel before my stay?",
+          answer: "Yes, you can send luggage in advance. Please send it prepaid and include your 'Check-in Date' and 'Reservation Name' on the shipping label."
         },
         {
           question: "Do you provide shuttle service from the nearest station?",
-          answer: "We apologize, but we do not offer regular shuttle service. We recommend arriving by car. If using public transportation, please check our access page."
+          answer: "We apologize, but we do not offer regular shuttle service. If using public transportation, please check our access page."
         }
       ]
     }
