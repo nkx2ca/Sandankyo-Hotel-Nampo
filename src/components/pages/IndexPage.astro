@@ -70,7 +70,7 @@ const { lang, content, news } = Astro.props;
 
 <section class="intro-section">
   <div class="container">
-    <div class="intro-text">
+    <div class="intro-text fade-in-element">
       <p class="concept">{content.concept}</p>
       {content.intro.map(line => <p>{line}</p>)}
     </div>
@@ -122,6 +122,24 @@ const { lang, content, news } = Astro.props;
       resetInterval();
     });
   });
+
+  // Fade-in animation on scroll
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in-active');
+      }
+    });
+  }, observerOptions);
+
+  const fadeInElements = document.querySelectorAll('.fade-in-element');
+  fadeInElements.forEach(el => observer.observe(el));
 </script>
 
 <style>
@@ -361,6 +379,17 @@ const { lang, content, news } = Astro.props;
    width: 100%;
    height: 100%;
    color: #fff;
+ }
+
+ .fade-in-element {
+   opacity: 0;
+   transform: translateY(30px);
+   transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+ }
+
+ .fade-in-element.fade-in-active {
+   opacity: 1;
+   transform: translateY(0);
  }
 
  .intro-text p {
