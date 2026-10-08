@@ -13,7 +13,7 @@ export const GALLERY_IMAGES = {
       category: "周辺",
       title: "黒淵",
       description: "三段峡を代表する景勝地"
-    },
+    }
   ],
   en: [
     {
@@ -29,7 +29,7 @@ export const GALLERY_IMAGES = {
       category: "Surroundings",
       title: "Kurobuchi",
       description: "One of Sandankyo's most famous scenic spots"
-    },
+    }
   ]
 } as const;
 
