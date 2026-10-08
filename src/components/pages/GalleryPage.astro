@@ -41,7 +41,7 @@ const categories = GALLERY_CATEGORIES[lang];
           <div class="gallery-item" data-category={image.category}>
             <div class="image-wrapper">
               <img
-                src={image.src}
+                src={`${import.meta.env.BASE_URL}${image.src}`}
                 alt={image.title}
                 loading="lazy"
               />
