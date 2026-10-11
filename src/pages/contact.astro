@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactPage from '../components/pages/ContactPage.astro';
-import { getLangFromUrl, usePageContent } from '../i18n/i18n';
+import { getLangFromUrl, usePageContent, usePageMeta } from '../i18n/i18n';
 
 const lang = getLangFromUrl(Astro.url);
 const content = usePageContent(lang, 'contact');
+const meta = usePageMeta(lang, 'contact');
 ---
 
-<BaseLayout>
+<BaseLayout title={meta.title} description={meta.description}>
   <ContactPage lang={lang} content={content} />
 </BaseLayout>

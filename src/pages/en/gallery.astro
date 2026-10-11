@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GalleryPage from '../../components/pages/GalleryPage.astro';
-import { getLangFromUrl, usePageContent } from '../../i18n/i18n';
+import { getLangFromUrl, usePageContent, usePageMeta } from '../../i18n/i18n';
 
 const lang = getLangFromUrl(Astro.url);
 const content = usePageContent(lang, 'gallery');
+const meta = usePageMeta(lang, 'gallery');
 ---
 
-<BaseLayout>
+<BaseLayout title={meta.title} description={meta.description}>
   <GalleryPage lang={lang} content={content} />
 </BaseLayout>
