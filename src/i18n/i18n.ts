@@ -1,4 +1,4 @@
-import { UI, PAGE_CONTENT } from './ui';
+import { UI, PAGE_CONTENT, PAGE_META } from './ui';
 
 export const LANGUAGES = {
   ja: '日本語',
@@ -52,6 +52,13 @@ export function usePageContent<T extends keyof typeof PAGE_CONTENT[typeof DEFAUL
   page: T
 ) {
   return PAGE_CONTENT[lang][page] || PAGE_CONTENT[DEFAULT_LANGUAGE][page];
+};
+
+export function usePageMeta<T extends keyof typeof PAGE_META[typeof DEFAULT_LANGUAGE]>(
+  lang: keyof typeof PAGE_META,
+  page: T
+) {
+  return PAGE_META[lang][page] || PAGE_META[DEFAULT_LANGUAGE][page];
 };
 
 export function generateLocalePaths(url: URL): LocaleRouteMap {

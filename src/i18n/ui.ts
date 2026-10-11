@@ -39,6 +39,62 @@ export const UI = {
   },
 } as const;
 
+// ページメタ情報
+export const PAGE_META = {
+  ja: {
+    index: {
+      title: '三段峡ホテル 南峰 | 特別名勝三段峡の温泉旅館',
+      description: '三段峡ホテル 南峰は、特別名勝三段峡の入口に位置する温泉旅館です。渓谷の美しい景観と、地元の食材を使った料理でおもてなしいたします。'
+    },
+    faq: {
+      title: 'よくあるご質問 | 三段峡ホテル 南峰',
+      description: 'ご予約、チェックイン、客室、お食事、ご入浴など、三段峡ホテル 南峰へのよくあるご質問をまとめました。'
+    },
+    gallery: {
+      title: 'ギャラリー | 三段峡ホテル 南峰',
+      description: '三段峡ホテル 南峰の館内施設、客室、料理、周辺環境の写真をご覧いただけます。'
+    },
+    contact: {
+      title: 'お問い合わせ | 三段峡ホテル 南峰',
+      description: '三段峡ホテル 南峰へのお問い合わせ、アクセス方法はこちらからご確認ください。'
+    },
+    access: {
+      title: 'アクセス | 三段峡ホテル 南峰',
+      description: '三段峡ホテル 南峰へのアクセス方法。お車、公共交通機関でのお越しの際のご案内。'
+    },
+    news: {
+      title: 'お知らせ | 三段峡ホテル 南峰',
+      description: '三段峡ホテル 南峰からの最新情報、お知らせをご覧いただけます。'
+    }
+  },
+  en: {
+    index: {
+      title: 'Sandankyo Hotel Nampo | Hot Spring Inn at Sandankyo Gorge',
+      description: 'Sandankyo Hotel Nampo is a hot spring inn located at the entrance of Sandankyo, a Special Place of Scenic Beauty. We offer beautiful gorge views and cuisine using local ingredients.'
+    },
+    faq: {
+      title: 'FAQ | Sandankyo Hotel Nampo',
+      description: 'Frequently asked questions about reservations, check-in, rooms, dining, bathing and more at Sandankyo Hotel Nampo.'
+    },
+    gallery: {
+      title: 'Gallery | Sandankyo Hotel Nampo',
+      description: 'View photos of facilities, rooms, cuisine, and surroundings at Sandankyo Hotel Nampo.'
+    },
+    contact: {
+      title: 'Contact | Sandankyo Hotel Nampo',
+      description: 'Contact information and access directions to Sandankyo Hotel Nampo.'
+    },
+    access: {
+      title: 'Access | Sandankyo Hotel Nampo',
+      description: 'Directions to Sandankyo Hotel Nampo by car and public transportation.'
+    },
+    news: {
+      title: 'News | Sandankyo Hotel Nampo',
+      description: 'Latest news and announcements from Sandankyo Hotel Nampo.'
+    }
+  }
+} as const;
+
 // ページコンテンツ（拡張用）
 export const PAGE_CONTENT = {
   ja: {

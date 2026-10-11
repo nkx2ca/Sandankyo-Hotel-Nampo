@@ -5,9 +5,25 @@ import Logo from '../components/Logo.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 
+interface Props {
+  title?: string;
+  description?: string;
+}
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const localeUrls = generateLocaleUrls(Astro.url);
+
+// Props から title と description を取得（未指定ならデフォルト値）
+const {
+  title = t('title'),
+  description = lang === 'ja'
+    ? '三段峡ホテル 南峰は、特別名勝三段峡の入口に位置する温泉旅館です。渓谷の美しい景観と、地元の食材を使った料理でおもてなしいたします。'
+    : 'Sandankyo Hotel Nampo is a hot spring inn located at the entrance of Sandankyo, a Special Place of Scenic Beauty. We offer beautiful gorge views and cuisine using local ingredients.'
+} = Astro.props;
+
+// Canonical URL
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang={lang} style="background: #4e4c43; background-color: #4e4c43;">
@@ -16,12 +32,30 @@ const localeUrls = generateLocaleUrls(Astro.url);
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={t('title')} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
     {
       Object.keys(localeUrls).map((props) => (
         <link rel="alternate" hreflang={localeUrls[props].locale} href={localeUrls[props].path} />
       ))
     }
-    <title>{t('title')}</title>
   </head>
   <body style="background: #4e4c43; background-color: #4e4c43;">
     <Logo />
