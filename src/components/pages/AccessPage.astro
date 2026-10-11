@@ -22,6 +22,7 @@ const { content } = Astro.props;
 
 <main class="main">
   <div class="title-section">
+    <div class="title-bg" style={`background-image: url('${import.meta.env.BASE_URL}access.jpeg')`}></div>
     <h1 class="title">{content.pageTitle}</h1>
   </div>
 
@@ -68,20 +69,35 @@ const { content } = Astro.props;
   }
 
   .title-section {
-    max-width: 1240px;
-    height: auto;
-    padding: 0 20px;
-    margin: 0 auto;
+    width: 100%;
+    height: 500px;
+    position: relative;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
+  }
+
+  .title-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.7);
+    z-index: 0;
   }
 
   .title {
     font-size: 32px;
     letter-spacing: 8px;
     font-weight: normal;
-    margin-top: 200px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 10;
   }
 
   .address-section {
@@ -162,10 +178,13 @@ const { content } = Astro.props;
   }
 
   @media screen and (max-width: 960px) {
+    .title-section {
+      height: 300px;
+    }
+
     .title {
       font-size: 24px;
       letter-spacing: 4px;
-      margin-top: 150px;
     }
 
     .address-section {
