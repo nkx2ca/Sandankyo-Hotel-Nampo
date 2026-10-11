@@ -1,0 +1,21 @@
+{
+  "name": "三段峡ホテル 南峰",
+  "short_name": "南峰",
+  "description": "特別名勝三段峡の温泉旅館",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#4e4c43",
+  "theme_color": "#4e4c43",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -29,9 +29,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <html lang={lang} style="background: #4e4c43; background-color: #4e4c43;">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href={`${import.meta.env.BASE_URL}favicon.png`} />
+    <link rel="icon" type="image/png" sizes="16x16" href={`${import.meta.env.BASE_URL}favicon.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}favicon.png`} />
+    <link rel="shortcut icon" href={`${import.meta.env.BASE_URL}favicon.png`} />
+    <link rel="manifest" href={`${import.meta.env.BASE_URL}manifest.json`} />
+    <meta name="theme-color" content="#4e4c43" />
 
     <!-- SEO -->
     <title>{title}</title>
@@ -44,12 +51,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={t('title')} />
+    <meta property="og:image" content={new URL(`${import.meta.env.BASE_URL}favicon.png`, Astro.site)} />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(`${import.meta.env.BASE_URL}favicon.png`, Astro.site)} />
 
     {
       Object.keys(localeUrls).map((props) => (
