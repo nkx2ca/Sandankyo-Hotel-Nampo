@@ -109,11 +109,11 @@ const { lang, content, news } = Astro.props;
 
   function resetInterval() {
     clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 10000);
+    slideInterval = setInterval(nextSlide, 5000);
   }
 
   // Auto advance
-  slideInterval = setInterval(nextSlide, 10000);
+  slideInterval = setInterval(nextSlide, 5000);
 
   // Indicators
   indicators.forEach((indicator, index) => {
