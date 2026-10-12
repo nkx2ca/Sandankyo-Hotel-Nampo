@@ -1,23 +1,97 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Logo from '../../components/Logo.astro';
+import ComingSoonPage from '../../components/pages/ComingSoonPage.astro';
+import { getLangFromUrl, usePageContent } from '../../i18n/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const content = usePageContent(lang, 'comingSoon');
 ---
 
-<BaseLayout>
+<BaseLayout title="Statement Based on The Specified Commercial Transaction Law | Sandankyo Hotel Nampo" description="Statement Based on The Specified Commercial Transaction Law of Sandankyo Hotel Nampo">
   <Logo />
-  <div class="main-container">
-    <p>特定商取引法に基づく表記</p>
-  </div>
+  <main class="policy-page">
+    <div class="container">
+      <h1 class="page-title">Statement Based on The Specified Commercial Transaction Law</h1>
+      <div class="notice">
+        <p>The English version of this page is currently being prepared.</p>
+        <p>Please refer to the Japanese version for now.</p>
+        <p><a href="/transaction-law" class="link">Japanese version (特定商取引法に基づく表記)</a></p>
+      </div>
+    </div>
+  </main>
 </BaseLayout>
 
 <style>
-  @media screen and (max-width: 960px) {
+  .policy-page {
+    min-height: 100vh;
+    padding: 150px 20px 100px;
+    background-color: #4e4c43;
   }
 
-  .main-container {
-    width: 100%;
-    height: 500px;
-    background-color: #fff;
-    color: #000
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: normal;
+    color: #fff;
+    line-height: 1.6;
+    word-wrap: break-word;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .notice {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .notice p {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 10px 0;
+  }
+
+  .link {
+    color: #fff;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+  }
+
+  .link:hover {
+    opacity: 0.7;
+  }
+
+  @media screen and (max-width: 960px) {
+    .policy-page {
+      padding: 120px 15px 80px;
+    }
+
+    .page-title {
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      margin-bottom: 40px;
+      line-height: 1.5;
+      max-width: 100%;
+    }
+
+    .notice {
+      padding: 25px 20px;
+    }
+
+    .notice p {
+      font-size: 14px;
+    }
   }
 </style>
