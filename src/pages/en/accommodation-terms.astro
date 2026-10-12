@@ -1,36 +1,457 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Logo from '../../components/Logo.astro';
-import ComingSoonPage from '../../components/pages/ComingSoonPage.astro';
-import { getLangFromUrl, usePageContent } from '../../i18n/i18n';
+import { getLangFromUrl } from '../../i18n/i18n';
 
 const lang = getLangFromUrl(Astro.url);
-const content = usePageContent(lang, 'comingSoon');
 ---
 
 <BaseLayout title="Terms and Conditions for Accommodation Contracts | Sandankyo Hotel Nampo" description="Terms and Conditions for Accommodation Contracts of Sandankyo Hotel Nampo">
-  <Logo />
-  <main class="policy-page">
+  <main class="accommodation-terms">
     <div class="container">
       <h1 class="page-title">Terms and Conditions for Accommodation Contracts</h1>
-      <div class="notice">
-        <p>The English version of this page is currently being prepared.</p>
-        <p>Please refer to the Japanese version for now.</p>
-        <p><a href="/accommodation-terms" class="link">Japanese version (宿泊約款)</a></p>
+
+      <div class="content">
+        <section class="article">
+          <h2 class="article-title">Article 1 (Scope of Application)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>Accommodation contracts and related contracts concluded between the Hotel and guests shall be governed by these Terms and Conditions. Matters not stipulated in these Terms and Conditions shall be governed by laws and regulations (meaning laws and regulations or those based on laws and regulations; hereinafter the same) or generally established customs.</p>
+            <p class="clause"><span class="clause-num">2.</span>Notwithstanding the provisions of the preceding paragraph, when the Hotel accepts special agreements insofar as they do not violate laws, regulations, and customs, such special agreements shall take precedence.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 2 (Application for Accommodation Contracts)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>Those who wish to apply for an accommodation contract with the Hotel are requested to inform the Hotel of the following matters:</p>
+            <ul class="sub-list">
+              <li>(1) Name of the guest and contact telephone number</li>
+              <li>(2) Accommodation date and estimated time of arrival</li>
+              <li>(3) Accommodation charges (in principle, based on the basic accommodation charges in Appendix 1)</li>
+              <li>(4) Other matters deemed necessary by the Hotel</li>
+            </ul>
+            <p class="clause"><span class="clause-num">2.</span>If a guest requests continuation of accommodation beyond the accommodation date specified in item (2) of the preceding paragraph during the stay, the Hotel shall process it as a new application for an accommodation contract at the time such request is made.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 3 (Conclusion of Accommodation Contracts, etc.)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>An accommodation contract shall be concluded when the Hotel accepts the application as stipulated in the preceding Article. However, this shall not apply when the Hotel proves that it did not accept the application.</p>
+            <p class="clause"><span class="clause-num">2.</span>When an accommodation contract is concluded pursuant to the provisions of the preceding paragraph, the guest shall be requested to pay a deposit determined by the Hotel, up to the basic accommodation charge for the accommodation period (up to 3 days when the period exceeds 3 days), by the date designated by the Hotel.</p>
+            <p class="clause"><span class="clause-num">3.</span>The deposit shall first be appropriated to the accommodation charge to be finally paid by the guest. In the event that the provisions of Article 6 and Article 18 apply, the deposit shall be appropriated first to the penalty charge and then to the compensation, and the balance, if any, shall be returned when the charges are paid pursuant to the provisions of Article 12.</p>
+            <p class="clause"><span class="clause-num">4.</span>If the deposit specified in paragraph 2 is not paid by the date designated by the Hotel pursuant to the provisions of the same paragraph, the accommodation contract shall lose its validity. However, this shall apply only when the Hotel notifies the guest to that effect when designating the payment date for the deposit.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 4 (Special Agreement Not Requiring Payment of Deposit)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>Notwithstanding the provisions of paragraph 2 of the preceding Article, the Hotel may accept a special agreement not requiring payment of the deposit specified in the same paragraph after the contract is concluded.</p>
+            <p class="clause"><span class="clause-num">2.</span>When the Hotel accepts an application for an accommodation contract without requesting payment of the deposit specified in paragraph 2 of the preceding Article or without designating a payment date for said deposit, it shall be treated as having accepted the special agreement specified in the preceding paragraph.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 4-2 (Request for Cooperation in Infection Prevention Measures at the Facility)</h2>
+          <div class="article-body">
+            <p class="clause">The Hotel may request cooperation from those who wish to stay in accordance with the provisions of Article 4-2, Paragraph 1 of the Hotel Business Act (Act No. 138 of 1948).</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 5 (Refusal to Conclude Accommodation Contracts)</h2>
+          <div class="article-body">
+            <p class="clause">The Hotel may not accept the conclusion of an accommodation contract in the following cases. However, this paragraph does not mean that the Hotel may refuse accommodation in cases other than those listed in Article 5 of the Hotel Business Act.</p>
+            <ul class="sub-list">
+              <li>(1) When the accommodation application is not based on these Terms and Conditions.</li>
+              <li>(2) When there is no room vacancy due to full occupancy.</li>
+              <li>(3) When it is recognized that the person seeking accommodation is likely to engage in conduct that violates laws and regulations, public order, or good morals in connection with the accommodation (including, but not limited to, criminal acts such as assault, threats, extortion, coercion, defamation, insults, property damage, obstruction of business by force, fraud, non-consensual indecent acts, public indecency, violations of the Minor Offenses Act, etc.).</li>
+              <li>(4) When the person seeking accommodation is recognized to fall under any of the following (a) to (c):<br/>
+                (a) An organized crime group as stipulated in Article 2, Paragraph 2 of the Act on Prevention of Unjust Acts by Organized Crime Group Members (Act No. 77 of 1991; hereinafter referred to as the "Organized Crime Group"), a member of an organized crime group as stipulated in Article 2, Paragraph 6 of the same Act (hereinafter referred to as "Organized Crime Group Member"), an associate member of an organized crime group, or a person related to an organized crime group, or other antisocial forces<br/>
+                (b) A corporation or other organization whose business activities are controlled by an organized crime group or organized crime group members<br/>
+                (c) A corporation having executives who are organized crime group members
+              </li>
+              <li>(5) When the person seeking accommodation engages in noisy conduct or other conduct that causes danger, anxiety, etc., or makes statements or actions that significantly inconvenience other guests.</li>
+              <li>(6) When the person seeking accommodation is a patient with a specified infectious disease, etc., as stipulated in Article 4-2, Paragraph 1, Item 2 of the Hotel Business Act (hereinafter referred to as "patient with a specified infectious disease, etc.").</li>
+              <li>(7) When violent demands are made in connection with accommodation or an unreasonable burden beyond a reasonable range is requested (except when the person seeking accommodation requests the removal of social barriers pursuant to the provisions of Article 7, Paragraph 2 or Article 8, Paragraph 2 of the Act on Elimination of Discrimination against Persons with Disabilities (Act No. 65 of 2013; hereinafter referred to as the "Act on Elimination of Discrimination against Persons with Disabilities")).</li>
+              <li>(8) When the person seeking accommodation repeatedly makes requests that impose an excessive burden on the Hotel and significantly impede the provision of accommodation services to other guests, as defined in Article 5-6 of the Hotel Business Act Enforcement Regulations (requests for matters that are not easily realizable, crude, violent, insulting, persistent, coercive, or discriminatory language or conduct, or other requests accompanied by language or conduct that burden the minds and bodies of employees, etc.) (Specified Demand Acts. Specific examples are as shown in [Appendix 2]).</li>
+              <li>(9) When accommodation is not possible due to natural disasters, facility failures, or other unavoidable reasons.</li>
+              <li>(10) When the provisions of Article 11 of the Hiroshima Prefecture Hotel Business Act Enforcement Ordinance apply.</li>
+              <li>(11) When the person seeking accommodation has previously engaged in any of the acts stipulated in this Article at the Hotel.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 5-2 (Explanation of Refusal to Conclude Accommodation Contracts)</h2>
+          <div class="article-body">
+            <p class="clause">Those who wish to stay may request an explanation of the reason when the Hotel does not accept the conclusion of an accommodation contract based on the preceding Article.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 6 (Right of Guest to Cancel the Contract)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>A guest may request the Hotel to cancel the accommodation contract.</p>
+            <p class="clause"><span class="clause-num">2.</span>The Hotel shall collect the penalty charges listed in Appendix 3 when the guest cancels all or part of the accommodation contract due to causes attributable to the guest (except when the Hotel requested payment of the deposit by designating the payment date pursuant to the provisions of paragraph 2 of Article 3 and the guest cancels the accommodation contract prior to such payment). However, in cases where the Hotel has accepted the special agreement specified in paragraph 1 of Article 4, this shall apply only when the Hotel notifies the guest of the obligation to pay the penalty charge when canceling the accommodation contract when accepting such special agreement.</p>
+            <p class="clause"><span class="clause-num">3.</span>If the guest does not arrive by 8:00 p.m. on the accommodation date without advance notice (or 2 hours after the estimated time of arrival if such time is specified in advance), the Hotel may regard the accommodation contract as having been canceled by the guest.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 7 (Right of the Hotel to Cancel the Contract)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>The Hotel may cancel the accommodation contract in the following cases. However, this paragraph does not mean that the Hotel may refuse accommodation in cases other than those listed in Article 5 of the Hotel Business Act.</p>
+            <ul class="sub-list">
+              <li>(1) When it is recognized that the guest is likely to engage in conduct that violates laws and regulations, public order, or good morals in connection with accommodation (including, but not limited to, criminal acts such as assault, threats, extortion, coercion, defamation, insults, property damage, obstruction of business by force, fraud, non-consensual indecent acts, public indecency, violations of the Minor Offenses Act, etc.), or when it is recognized that the guest has engaged in such conduct.</li>
+              <li>(2) When the guest is recognized to fall under any of the following (a) to (c):<br/>
+                (a) An organized crime group, organized crime group member, associate member of an organized crime group, or a person related to an organized crime group, or other antisocial forces<br/>
+                (b) A corporation or other organization whose business activities are controlled by an organized crime group or organized crime group members<br/>
+                (c) A corporation having executives who are organized crime group members
+              </li>
+              <li>(3) When the guest engages in noisy conduct or other conduct that causes danger, anxiety, etc., or makes statements or actions that significantly inconvenience other guests.</li>
+              <li>(4) When the guest is a patient with a specified infectious disease, etc.</li>
+              <li>(5) When violent demands are made in connection with accommodation or an unreasonable burden beyond a reasonable range is requested (except when the guest requests the removal of social barriers pursuant to the provisions of Article 7, Paragraph 2 or Article 8, Paragraph 2 of the Act on Elimination of Discrimination against Persons with Disabilities).</li>
+              <li>(6) When the guest repeatedly makes requests that impose an excessive burden on the Hotel and significantly impede the provision of accommodation services to other guests, as defined in Article 5-6 of the Hotel Business Act Enforcement Regulations (requests for matters that are not easily realizable, crude, violent, insulting, persistent, coercive, or discriminatory language or conduct, or other requests accompanied by language or conduct that burden the minds and bodies of employees, etc.) (Specified Demand Acts. Specific examples are as shown in [Appendix 2]).</li>
+              <li>(7) When accommodation is not possible due to reasons attributable to force majeure such as natural disasters.</li>
+              <li>(8) When the provisions of Article 16 of the Hiroshima Prefecture Hotel Business Act Enforcement Ordinance apply.</li>
+              <li>(9) When the guest does not comply with prohibited items in the facility rules established by the Hotel (limited to those necessary for fire prevention), such as smoking in bed or tampering with fire prevention equipment.</li>
+              <li>(10) When it is discovered during use of the Hotel that the guest has previously engaged in any of the acts stipulated in Article 5 or this Article at the Hotel.</li>
+            </ul>
+            <p class="clause"><span class="clause-num">2.</span>When the Hotel cancels the accommodation contract pursuant to the provisions of the preceding paragraph, the Hotel shall not collect charges for accommodation services, etc., that the guest has not yet received.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 7-2 (Explanation of Contract Cancellation)</h2>
+          <div class="article-body">
+            <p class="clause">Guests may request an explanation of the reason when the Hotel cancels the accommodation contract based on the preceding Article.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 8 (Registration of Accommodation)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>Guests are requested to register the following matters at the Hotel's front desk on the accommodation date:</p>
+            <ul class="sub-list">
+              <li>(1) Guest's name, age, address, and contact information</li>
+              <li>(2) For foreigners, nationality and passport number</li>
+              <li>(3) Departure date and departure time</li>
+              <li>(4) Other matters deemed necessary by the Hotel</li>
+            </ul>
+            <p class="clause"><span class="clause-num">2.</span>When a guest intends to pay the charges specified in Article 12 by means that can replace currency, such as travelers' checks, accommodation vouchers, or credit cards, such means shall be presented in advance at the time of registration specified in the preceding paragraph.</p>
+            <p class="clause"><span class="clause-num">3.</span>For foreign guests, a copy of the passport will be taken for identity verification purposes.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 9 (Hours of Use of Guest Rooms)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>Guests may use the Hotel's guest rooms from 3:00 p.m. to 11:00 a.m. the following day. However, in the case of consecutive stays, the room may be used all day except on the arrival and departure dates.</p>
+            <p class="clause"><span class="clause-num">2.</span>Notwithstanding the provisions of the preceding paragraph, the Hotel may accept use of guest rooms outside the hours specified in the same paragraph. In this case, the following additional charges shall be collected:</p>
+            <ul class="sub-list">
+              <li>(1) Up to 2 hours overtime: One-half of the room charge (or 50% of the room charge equivalent)</li>
+              <li>(2) Up to 5 hours overtime: Full room charge (or 100% of the room charge equivalent)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 10 (Compliance with Usage Rules)</h2>
+          <div class="article-body">
+            <p class="clause">Guests are requested to comply with the usage rules established by the Hotel and posted within the Hotel.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 11 (Business Hours)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>The operating hours of the Hotel's main facilities and other facilities will be announced on the website, in brochures provided, on notices posted in various locations, and on equipment in guest rooms.</p>
+            <p class="clause"><span class="clause-num">2.</span>The hours specified in the preceding paragraph may be temporarily changed when necessary and unavoidable. In such cases, appropriate methods will be used to notify guests.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 12 (Payment of Charges)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>The breakdown of accommodation charges, etc., to be paid by guests is as listed in Appendix 1.</p>
+            <p class="clause"><span class="clause-num">2.</span>Payment of the accommodation charges, etc., specified in the preceding paragraph shall be made in currency or by travelers' checks, accommodation vouchers, credit cards, or other means recognized by the Hotel that can replace currency, at the front desk upon the guest's departure or when requested by the Hotel.</p>
+            <p class="clause"><span class="clause-num">3.</span>Accommodation charges shall be collected even when the guest voluntarily does not stay after the Hotel has provided the guest room and made it available for use.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 13 (Liability of the Hotel)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>The Hotel shall compensate for damages when damages are caused to guests in the performance of the accommodation contract and related contracts or in the non-performance thereof. However, this shall not apply when such damages are not attributable to causes for which the Hotel is responsible.</p>
+            <p class="clause"><span class="clause-num">2.</span>The Hotel has subscribed to hotel liability insurance to deal with possible fires, etc.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 14 (Handling When Contracted Guest Rooms Cannot Be Provided)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>When the Hotel is unable to provide the contracted guest room to the guest, the Hotel shall, with the consent of the guest, arrange for other accommodation facilities under the same conditions as much as possible.</p>
+            <p class="clause"><span class="clause-num">2.</span>Notwithstanding the provisions of the preceding paragraph, when the Hotel is unable to arrange other accommodation facilities, the Hotel shall pay compensation equivalent to the penalty charge to the guest, and such compensation shall be appropriated to the amount of compensation for damages. However, when the Hotel is not responsible for the inability to provide the guest room, no compensation shall be paid.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 15 (Handling of Deposited Articles, etc.)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>The Hotel shall compensate for damages when loss, damage, or other damage occurs to articles, cash, or valuables deposited at the front desk by the guest, except in cases of force majeure. However, for cash and valuables, when the Hotel has requested the guest to declare the type and value and the guest has not done so, the Hotel shall compensate for such damage up to 150,000 yen.</p>
+            <p class="clause"><span class="clause-num">2.</span>The Hotel shall compensate for damages when loss, damage, or other damage occurs to articles, cash, or valuables brought into the Hotel by the guest but not deposited at the front desk due to the Hotel's intentional or negligent acts. However, for items whose type and value were not declared in advance by the guest, the Hotel shall compensate for such damage up to 150,000 yen, except when the Hotel was intentional or grossly negligent.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 16 (Custody of Guest's Baggage or Personal Belongings)</h2>
+          <div class="article-body">
+            <p class="clause"><span class="clause-num">1.</span>When a guest's baggage arrives at the Hotel prior to accommodation, the Hotel shall be responsible for its custody only when the Hotel has agreed to such custody prior to its arrival, and shall deliver it to the guest at check-in at the front desk.</p>
+            <p class="clause"><span class="clause-num">2.</span>After the guest has checked out, if the guest's baggage or personal belongings are left behind at the Hotel and the owner is identified, the Hotel shall contact the owner and request instructions. However, when there are no instructions from the owner or when the owner cannot be identified, the Hotel shall keep it for 7 days including the day of discovery, and thereafter deliver it to the nearest police station or dispose of it after 3 months. In addition, food and beverages, magazines, and other items similar to waste will be disposed of at the discretion of the Hotel.</p>
+            <p class="clause"><span class="clause-num">3.</span>The Hotel's responsibility for the custody of the guest's baggage or personal belongings in the two preceding paragraphs shall be in accordance with the provisions of paragraph 1 of the preceding Article in the case of paragraph 1, and in accordance with the provisions of paragraph 2 of the same Article in the case of the preceding paragraph.</p>
+            <p class="clause"><span class="clause-num">4.</span>Please refrain from bringing bicycles into guest rooms.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 17 (Parking Liability)</h2>
+          <div class="article-body">
+            <p class="clause">When a guest uses the Hotel's parking lot, the Hotel shall only provide space regardless of whether vehicle keys are deposited, and shall not assume responsibility for the management of the vehicle. However, the Hotel shall be liable for compensation when damage is caused due to the Hotel's intentional or negligent acts in the management of the parking lot.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 18 (Liability of the Guest)</h2>
+          <div class="article-body">
+            <p class="clause">When the Hotel suffers damages due to the intentional or negligent acts of a guest, such guest shall compensate the Hotel for such damages.</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 19 (Protection of Personal Information)</h2>
+          <div class="article-body">
+            <p class="clause">Personal information disclosed by guests in connection with accommodation contracts shall be managed in accordance with the "Act on the Protection of Personal Information."</p>
+          </div>
+        </section>
+
+        <section class="article">
+          <h2 class="article-title">Article 20 (Governing Language)</h2>
+          <div class="article-body">
+            <p class="clause">These Terms and Conditions are prepared in both Japanese and English, but in the event of any inconsistency or discrepancy between the two, the Japanese version shall prevail.</p>
+          </div>
+        </section>
+
+        <section class="appendix">
+          <h2 class="appendix-title">[Appendix 1] Breakdown of Accommodation Charges, etc.</h2>
+          <p class="appendix-subtitle">(Related to Article 2, Paragraph 1 and Article 12, Paragraph 1)</p>
+          <table class="appendix-table">
+            <thead>
+              <tr>
+                <th colspan="2">Breakdown</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="label">Total amount to be paid by guests</td>
+                <td>Accommodation charge (1) Basic accommodation charge [room rate (and room rate + dinner and breakfast)]</td>
+              </tr>
+              <tr>
+                <td class="label">Additional charges</td>
+                <td>(3) Additional food and beverage and other usage fees, etc.</td>
+              </tr>
+              <tr>
+                <td class="label">Taxes</td>
+                <td>(5) Consumption tax<br/>(6) Bathing tax (Akiota Town)<br/>(7) Accommodation tax (Hiroshima Prefecture)</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="appendix-notes">
+            <p class="note-title">Notes</p>
+            <p class="note-text">1. Basic accommodation charges are based on the rate table posted on the Hotel's official website.</p>
+            <p class="note-text">2. For children aged 3 to 12 years old, no basic accommodation charge will be collected, but a facility usage fee of 3,300 yen (tax included) per person per night will be charged. If you require meals and bedding for children, a separate prescribed charge will be collected. No charge will be collected for infants who do not require bedding and meals (limited to infants aged 2 years and under).</p>
+            <p class="note-text">3. If the tax law is amended, the amended provisions shall apply.</p>
+          </div>
+        </section>
+
+        <section class="appendix">
+          <h2 class="appendix-title">[Appendix 2] Specific Examples of Specified Demand Acts</h2>
+          <ul class="specific-list">
+            <li>Acts in which a person seeking accommodation repeatedly requests accommodation service employees to provide excessive services compared to services provided to other guests, such as unreasonable discounts on accommodation charges, unreasonable consolation money, unreasonable room upgrades, unreasonable late checkout, unreasonable early check-in, transportation not included in the contract, etc.</li>
+            <li>Acts in which a person seeking accommodation repeatedly requests accommodation service employees not to allow guests to stay in rooms above, below, left, or right of the person's own room</li>
+            <li>Acts in which a person seeking accommodation repeatedly requests accommodation service employees to have only specific persons respond to the person or to not allow specific persons to come to work</li>
+            <li>Acts in which a person seeking accommodation repeatedly requests accommodation service employees to apologize in a socially inappropriate manner, such as by bowing down (dogeza)</li>
+            <li>Acts in which a guest who is intoxicated and likely to inconvenience other guests repeatedly requests accommodation service employees for long-term care</li>
+            <li>Acts in which a person seeking accommodation repeatedly makes unreasonable demands to accommodation service employees in person, by phone, by email, etc., for a long period of time or while scolding</li>
+            <li>Acts in which a person seeking accommodation repeatedly makes demands to accommodation service employees even though there are no defects or faults in the services provided by the Hotel, or repeatedly makes demands unrelated to the content of services provided by the Hotel</li>
+            <li>Acts in which a person seeking accommodation repeatedly makes demands to accommodation service employees with inappropriate language or conduct in the following means or manner:
+              <ul class="sub-examples">
+                <li>Physical attacks (assault, injury)</li>
+                <li>Mental attacks (threats, slander, defamation, insults, abusive language)</li>
+                <li>Demands for bowing down (dogeza)</li>
+                <li>Continuous (repeated), persistent (insistent) language or conduct</li>
+                <li>Coercive behavior (refusal to leave, sitting in, confinement)</li>
+                <li>Discriminatory language or conduct</li>
+                <li>Sexual language or conduct</li>
+                <li>Attacks or demands directed at individual employees (which may be deemed inappropriate in light of the validity of the request)</li>
+                <li>Demands for product exchange</li>
+                <li>Demands for monetary compensation</li>
+                <li>Demands for apology (excluding dogeza)</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section class="appendix">
+          <h2 class="appendix-title">[Appendix 3] Penalty Charges</h2>
+          <p class="appendix-subtitle">(Related to Article 6, Paragraph 2)</p>
+          <table class="cancellation-table">
+            <thead>
+              <tr>
+                <th>Reservation Cancellation Date</th>
+                <th>Individual</th>
+                <th>Group (5 or more rooms)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>No-show</td>
+                <td>100%</td>
+                <td rowspan="5" class="group-note">Based on separate prior consultation (contract) provisions</td>
+              </tr>
+              <tr>
+                <td>Same day</td>
+                <td>100%</td>
+              </tr>
+              <tr>
+                <td>1 day before</td>
+                <td>80%</td>
+              </tr>
+              <tr>
+                <td>3 days before</td>
+                <td>50%</td>
+              </tr>
+              <tr>
+                <td>7 days before</td>
+                <td>20%</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="appendix-notes">
+            <p class="note-title">Notes</p>
+            <p class="note-text">1. % represents the ratio of the penalty charge to the basic accommodation charge.</p>
+            <p class="note-text">2. In the case of shortening the contract period, a penalty charge for one night (first day) shall be collected regardless of the number of shortened days.</p>
+            <p class="note-text">3. For individual reservations, the penalty charge specified in the reservation confirmation takes precedence.</p>
+          </div>
+        </section>
+
+        <section class="rules">
+          <h2 class="rules-title">Facility Usage Rules</h2>
+          <div class="rules-intro">
+            <p>In order to ensure a safe and comfortable stay for our guests, the Hotel has established the following usage rules pursuant to Article 10 of the Terms and Conditions for Accommodation Contracts. We kindly request your cooperation.</p>
+            <p>Failure to comply with these usage rules may result in refusal of accommodation or use of hotel facilities in accordance with Article 7 of the Terms and Conditions for Accommodation Contracts. Please note that the Hotel cannot be held responsible for accidents resulting from failure to comply with these usage rules.</p>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">1. Regarding Use of Guest Rooms</h3>
+            <ul class="rules-list">
+              <li>(1) An evacuation route map from the guest room is posted on the back of the guest room entrance door. Please confirm it.</li>
+              <li>(2) While in the room, especially when going to bed, please lock the inner lock and door latch.</li>
+              <li>(3) When someone knocks on the door, please open the door with the door latch locked or check through the door scope. In case of suspicious visitors, please contact the front desk without opening the door carelessly.</li>
+              <li>(4) Please refrain from smoking in guest rooms and anywhere other than designated areas within the hotel. If you smoke in non-designated areas, you will be charged the actual cost of cleaning bedding, curtains, wallpaper, etc., and other repair costs.</li>
+              <li>(5) Please refrain from using any other fire devices.</li>
+              <li>(6) Please do not use heating, cooking, or other fire devices that are likely to cause fires in guest rooms.</li>
+              <li>(7) Guest rooms may not be used for purposes other than accommodation, such as commercial activities (exhibitions, parties, etc.) without the Hotel's permission.</li>
+              <li>(8) Without the Hotel's permission, you may not move the equipment in the guest room, make alterations to the guest room, or significantly change the current state of the guest room.</li>
+              <li>(9) Please do not place items that impair the appearance of the Hotel on the window side.</li>
+              <li>(10) Meetings with visitors after 10:00 p.m. are requested to be held in the lobby.</li>
+              <li>(11) Accommodation by persons other than registered guests is strictly prohibited.</li>
+              <li>(12) Accommodation by minors alone will be refused unless there is special permission from a parent or guardian.</li>
+              <li>(13) From the viewpoint of guest safety, even when "Do not disturb" is posted on the guest room door, if the Hotel has not been able to contact the guest for a long period of time, hotel employees will make phone calls to the guest room or call out in front of the guest room. Please understand that if there is no response or in case of emergency, the Hotel may unavoidably enter the guest room when deemed necessary.</li>
+              <li>(15) At the Hotel, guests staying at the hotel for 8 or more consecutive nights are requested to change rooms periodically from a hygiene perspective based on Article 4 of the Hotel Business Act.</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">2. Room Keys and Room Numbers</h3>
+            <ul class="rules-list">
+              <li>(1) When going out, please make sure the room is locked and take the key with you. (The Hotel uses automatic locking.)</li>
+              <li>(2) When you use the hotel restaurant by signature, your charges will be added to your room account after verifying your name and room number with the hotel reservation management system.</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">3. Regarding Payment</h3>
+            <ul class="rules-list">
+              <li>(1) Please settle your bill at the front desk when you depart. Depending on circumstances, we may request payment during your stay, so please pay each time.</li>
+              <li>(2) We may collect a deposit upon arrival. Please understand this.</li>
+              <li>(3) We cannot make advance payments for shopping, stamps, taxi fares, postage stamps, baggage shipping charges, etc.</li>
+              <li>(4) We decline payment and currency exchange by checks other than travelers' checks.</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">4. Valuables and Deposited Items</h3>
+            <ul class="rules-list">
+              <li>(1) For the safekeeping of cash, securities, and other valuables during your stay, please use the prescribed safe (free of charge) provided. Please note that in the event of loss, theft, etc., if you do not use this, the Hotel cannot be held responsible. We cannot accept custody of artworks, antiques, etc.</li>
+              <li>(2) Lost property found at the Hotel will be kept at the Hotel for a certain period of time and thereafter will be handled in accordance with the Lost Property Act.</li>
+              <li>(3) Items deposited at the Hotel will be disposed of if there is no contact for the prescribed period (one month), assuming there is no intention to collect them.</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">5. The following items or acts that may inconvenience other guests are prohibited from being brought onto the hotel premises:</h3>
+            <ul class="rules-list">
+              <li>(1) Animals, birds, and other pets, except guide dogs</li>
+              <li>(2) Gunpowder, volatile oil, and other flammable or ignitable substances</li>
+              <li>(3) Items that emit foul odors</li>
+              <li>(4) Pistols, swords, stimulants, and similar items prohibited by law</li>
+              <li>(5) Gambling, acts that disturb public morals, or language and behavior that inconvenience other guests</li>
+              <li>(6) Distribution of advertising materials, sales of goods, solicitation, etc.</li>
+              <li>(7) Using photographs taken inside the Hotel for commercial purposes without the Hotel's permission</li>
+              <li>(8) Entering facilities not for guest use, such as emergency stairs, rooftops, and machine rooms, except in emergencies or unavoidable circumstances</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <ul class="rules-list rules-list-continued">
+              <li>6. If there is a possibility of violating public order and morals as stipulated in Article 5, Paragraph 1, Item 3 of the Terms and Conditions for Accommodation Contracts, or if you fall under organized crime groups, etc., as stipulated in Item 4 of the same paragraph, use of the Hotel will be refused. (If such facts are discovered after the reservation is established or during use, use will be refused at that point.)</li>
+              <li>7. If you damage, soil, or lose buildings, equipment, or other items, you may be required to compensate a reasonable amount.</li>
+              <li>8. Please do not engage in behavior that inconveniences other guests, such as loud voices, singing, or turning up the volume of televisions or speakers. Please be considerate of nearby residents.</li>
+              <li>9. Please dispose of garbage in the trash cans in the guest rooms or hand it to hotel staff.</li>
+              <li>11. At night, for safety reasons, please refrain from entering or passing through the Sandankyo area.</li>
+            </ul>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">12. Precautions for Use After Drinking Alcohol</h3>
+            <p class="rules-text">We may not be able to provide or sell alcoholic beverages to those who have already drunk excessively, those who are in poor physical condition, those who plan to drive a car, and those whom the Hotel has determined it inappropriate to provide or sell alcoholic beverages.</p>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">13. Pursuant to the provisions of Article 24 of the Pharmaceutical and Medical Device Act (formerly Pharmaceutical Affairs Act), we do not provide medicines.</h3>
+            <p class="rules-text">We provide information about hospitals and pharmacies near the hotel at the front desk, so please inquire at the front desk if you wish. Please note that depending on the time of day and day of the week, you may not be able to purchase medicines.</p>
+          </div>
+
+          <div class="rules-section">
+            <h3 class="rules-section-title">14. Mobile Batteries</h3>
+            <p class="rules-text">Please charge mobile batteries and similar devices in a place where you can see them to ensure safety. If any abnormality is observed, stop using it immediately. For storage, avoid bags and drawers, and keep them in a place where you can see them, avoiding direct sunlight and high-temperature locations. Please refrain from charging mobile batteries when you leave the guest room. If charging is confirmed to be taking place while you are away from the room, staff may stop the charging.</p>
+          </div>
+        </section>
       </div>
     </div>
   </main>
 </BaseLayout>
 
 <style>
-  .policy-page {
+  .accommodation-terms {
     min-height: 100vh;
     padding: 150px 20px 100px;
     background-color: #4e4c43;
   }
 
   .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 
@@ -43,33 +464,248 @@ const content = usePageContent(lang, 'comingSoon');
     color: #fff;
   }
 
-  .notice {
+  .content {
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 40px;
+    padding: 50px;
     border-radius: 8px;
-    text-align: center;
   }
 
-  .notice p {
+  .article {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .article:last-of-type {
+    border-bottom: none;
+  }
+
+  .article-title {
     font-size: 16px;
-    line-height: 2;
+    font-weight: normal;
     letter-spacing: 1px;
     color: #fff;
+    margin: 0 0 20px 0;
+  }
+
+  .article-body {
+    padding-left: 10px;
+  }
+
+  .clause {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin: 0 0 15px 0;
+    position: relative;
+  }
+
+  .clause-num {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .sub-list {
+    list-style: none;
+    padding-left: 1.5em;
     margin: 10px 0;
   }
 
-  .link {
+  .sub-list li {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
     color: #fff;
-    text-decoration: underline;
-    transition: opacity 0.3s;
+    margin-bottom: 8px;
   }
 
-  .link:hover {
-    opacity: 0.7;
+  .appendix {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .appendix-title {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 10px 0;
+  }
+
+  .appendix-subtitle {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 20px 0;
+  }
+
+  .appendix-table,
+  .cancellation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+
+  .appendix-table th,
+  .appendix-table td,
+  .cancellation-table th,
+  .cancellation-table td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .appendix-table th,
+  .cancellation-table th {
+    background-color: rgba(255, 255, 255, 0.05);
+    font-weight: normal;
+  }
+
+  .appendix-table .label {
+    font-weight: normal;
+    white-space: nowrap;
+    width: 180px;
+  }
+
+  .cancellation-table .group-note {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .appendix-notes {
+    margin-top: 15px;
+  }
+
+  .note-title {
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 0 0 10px 0;
+  }
+
+  .note-text {
+    font-size: 12px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 5px 0;
+    padding-left: 1em;
+  }
+
+  .specific-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0;
+  }
+
+  .specific-list > li {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin-bottom: 15px;
+    padding-left: 1.2em;
+    position: relative;
+  }
+
+  .specific-list > li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+  }
+
+  .sub-examples {
+    list-style: none;
+    padding-left: 1.5em;
+    margin: 10px 0;
+  }
+
+  .sub-examples li {
+    font-size: 12px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 5px;
+  }
+
+  .sub-examples li::before {
+    content: "- ";
+  }
+
+  .rules {
+    margin-top: 60px;
+    padding-top: 50px;
+    border-top: 3px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .rules-title {
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 3px;
+    color: #fff;
+    margin: 0 0 30px 0;
+    text-align: center;
+  }
+
+  .rules-intro {
+    margin-bottom: 40px;
+  }
+
+  .rules-intro p {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin: 0 0 15px 0;
+  }
+
+  .rules-section {
+    margin-bottom: 35px;
+  }
+
+  .rules-section-title {
+    font-size: 15px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 0 0 15px 0;
+  }
+
+  .rules-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .rules-list li {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin-bottom: 12px;
+    padding-left: 0;
+  }
+
+  .rules-list-continued {
+    margin-top: 20px;
+  }
+
+  .rules-text {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin: 0;
   }
 
   @media screen and (max-width: 960px) {
-    .policy-page {
+    .accommodation-terms {
       padding: 120px 15px 80px;
     }
 
@@ -78,12 +714,42 @@ const content = usePageContent(lang, 'comingSoon');
       margin-bottom: 40px;
     }
 
-    .notice {
+    .content {
       padding: 25px 20px;
     }
 
-    .notice p {
+    .article {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+    }
+
+    .article-title {
       font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .article-body {
+      padding-left: 5px;
+    }
+
+    .clause,
+    .sub-list li,
+    .specific-list > li,
+    .rules-list li {
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .appendix-table th,
+    .appendix-table td,
+    .cancellation-table th,
+    .cancellation-table td {
+      font-size: 12px;
+      padding: 10px;
+    }
+
+    .note-text {
+      font-size: 11px;
     }
   }
 </style>

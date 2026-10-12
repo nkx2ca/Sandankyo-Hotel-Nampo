@@ -1,36 +1,121 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Logo from '../../components/Logo.astro';
-import ComingSoonPage from '../../components/pages/ComingSoonPage.astro';
-import { getLangFromUrl, usePageContent } from '../../i18n/i18n';
+import { getLangFromUrl } from '../../i18n/i18n';
 
 const lang = getLangFromUrl(Astro.url);
-const content = usePageContent(lang, 'comingSoon');
 ---
 
 <BaseLayout title="Personal Information Protection Policy | Sandankyo Hotel Nampo" description="Personal Information Protection Policy of Sandankyo Hotel Nampo">
-  <Logo />
-  <main class="policy-page">
+  <main class="privacy-policy">
     <div class="container">
       <h1 class="page-title">Personal Information Protection Policy</h1>
-      <div class="notice">
-        <p>The English version of this page is currently being prepared.</p>
-        <p>Please refer to the Japanese version for now.</p>
-        <p><a href="/privacy-policy" class="link">Japanese version (個人情報保護方針)</a></p>
+
+      <div class="content">
+        <section class="section">
+          <h2 class="section-title">Basic Policy</h2>
+          <p class="section-text">
+            Sandankyo Hotel Nampo (hereinafter referred to as "the Company") recognizes the personal information of customers who use our services as important, and exercises utmost care in its handling through strict management.
+          </p>
+          <p class="section-text">
+            The Company establishes the following with regard to the protection of personal information, constructs internal systems, implements and maintains measures, and continuously improves them, complying with laws and regulations such as the "Act on the Protection of Personal Information" (hereinafter referred to as the "Personal Information Protection Act") and guidelines, striving to respond to the trust of our customers.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Collection of Personal Information</h2>
+          <p class="section-text">
+            The Company may collect personal information such as "name," "address," and "contact information" from customers in the following cases:
+          </p>
+          <ul class="section-list">
+            <li>Hotel reservation and use</li>
+            <li>Inquiries and requests for various materials</li>
+            <li>Responses to surveys for service improvement and marketing purposes</li>
+            <li>Applications for various events</li>
+          </ul>
+          <p class="section-text">
+            When collecting personal information from customers for purposes other than those listed above, we will clearly inform you of the purpose and content, and limit the collection to the minimum necessary personal information.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Use of Personal Information</h2>
+          <p class="section-text">
+            The Company, in principle, will use the personal information provided for the following purposes and will not use it for any other purpose or beyond the scope of these purposes.
+          </p>
+          <ul class="section-list">
+            <li>Hotel reservation and use</li>
+            <li>Inquiries and requests for various materials</li>
+            <li>Responses to surveys for service improvement and marketing purposes</li>
+            <li>Applications for various events</li>
+          </ul>
+          <p class="section-text">
+            When using personal information from customers for purposes other than those listed above, we will clearly inform you of the purpose and content, and limit the use to the minimum necessary personal information.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Disclosure and Provision of Personal Information to Third Parties</h2>
+          <p class="section-text">
+            The Company will not disclose or provide personal information provided by customers to third parties except in the following cases:
+          </p>
+          <ul class="section-list">
+            <li>When the customer has given consent</li>
+            <li>When disclosure or provision is required based on laws and regulations</li>
+            <li>When necessary for the protection of the life, body, or property of a person and it is difficult to obtain the customer's consent</li>
+            <li>When cooperation is necessary for the implementation of public affairs by the government or other public organizations, and obtaining the customer's consent may hinder the execution of such affairs</li>
+            <li>When disclosing or providing statistical data or other information in a form that does not identify individuals</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Management of Personal Information</h2>
+          <p class="section-text">
+            The Company will strictly manage customer personal information, paying maximum attention to the prevention of leakage, loss, and alteration, and based on laws and regulations such as the Personal Information Protection Act and guidelines, will construct internal systems, implement and maintain measures, and continuously improve them as necessary.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Disclosure and Correction of Personal Information</h2>
+          <p class="section-text">
+            The Company will appropriately respond when customers request disclosure of their own personal information that the Company has collected and holds. In such cases, if the identity of the individual cannot be confirmed, the Company may not be able to respond to the disclosure request.
+          </p>
+          <p class="section-text">
+            In addition, if there are errors in the content of personal information and customers request correction or addition, the Company will appropriately respond to these requests after investigation. In such cases as well, if the identity of the individual cannot be confirmed, the Company may not be able to respond to the request.
+          </p>
+          <p class="section-text">
+            Please note that a handling fee of 500 yen (tax included) will be charged per request for disclosure. Please understand that it may take several days to respond depending on the case.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Application and Changes to the Personal Information Protection Policy</h2>
+          <p class="section-text">
+            This Personal Information Protection Policy explains the handling of customer personal information by the Company, and customers who use the Company's services and products are deemed to have fully understood and agreed to this policy.
+          </p>
+          <p class="section-text">
+            The Company may change this Personal Information Protection Policy at any time as necessary in response to revisions and changes to related laws and regulations. The changed policy will become effective when posted on this website.
+          </p>
+        </section>
+
+        <div class="footer-info">
+          <p class="company-name">Sandankyo Hotel Nampo</p>
+          <p class="dates">Established: September 1, 2026</p>
+          <p class="dates">Last Revised: September 1, 2026</p>
+        </div>
       </div>
     </div>
   </main>
 </BaseLayout>
 
 <style>
-  .policy-page {
+  .privacy-policy {
     min-height: 100vh;
     padding: 150px 20px 100px;
     background-color: #4e4c43;
   }
 
   .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
   }
 
@@ -43,33 +128,86 @@ const content = usePageContent(lang, 'comingSoon');
     color: #fff;
   }
 
-  .notice {
+  .content {
     background-color: rgba(255, 255, 255, 0.05);
     padding: 40px;
     border-radius: 8px;
+  }
+
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .section:last-of-type {
+    margin-bottom: 60px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .section-text {
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin: 0 0 15px 0;
+  }
+
+  .section-text:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+  }
+
+  .section-list li {
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: #fff;
+    padding-left: 1.2em;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .section-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+  }
+
+  .footer-info {
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     text-align: center;
   }
 
-  .notice p {
+  .company-name {
     font-size: 16px;
-    line-height: 2;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 20px 0;
+  }
+
+  .dates {
+    font-size: 13px;
     letter-spacing: 1px;
-    color: #fff;
-    margin: 10px 0;
-  }
-
-  .link {
-    color: #fff;
-    text-decoration: underline;
-    transition: opacity 0.3s;
-  }
-
-  .link:hover {
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 5px 0;
   }
 
   @media screen and (max-width: 960px) {
-    .policy-page {
+    .privacy-policy {
       padding: 120px 15px 80px;
     }
 
@@ -78,12 +216,36 @@ const content = usePageContent(lang, 'comingSoon');
       margin-bottom: 40px;
     }
 
-    .notice {
+    .content {
       padding: 25px 20px;
     }
 
-    .notice p {
-      font-size: 14px;
+    .section {
+      margin-bottom: 35px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .section-list li {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .company-name {
+      font-size: 15px;
+    }
+
+    .dates {
+      font-size: 12px;
     }
   }
 </style>
+

@@ -1,36 +1,102 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Logo from '../../components/Logo.astro';
-import ComingSoonPage from '../../components/pages/ComingSoonPage.astro';
-import { getLangFromUrl, usePageContent } from '../../i18n/i18n';
+import { getLangFromUrl } from '../../i18n/i18n';
 
 const lang = getLangFromUrl(Astro.url);
-const content = usePageContent(lang, 'comingSoon');
 ---
 
 <BaseLayout title="Statement Based on The Specified Commercial Transaction Law | Sandankyo Hotel Nampo" description="Statement Based on The Specified Commercial Transaction Law of Sandankyo Hotel Nampo">
-  <Logo />
-  <main class="policy-page">
+  <main class="transaction-law">
     <div class="container">
       <h1 class="page-title">Statement Based on The Specified Commercial Transaction Law</h1>
-      <div class="notice">
-        <p>The English version of this page is currently being prepared.</p>
-        <p>Please refer to the Japanese version for now.</p>
-        <p><a href="/transaction-law" class="link">Japanese version (特定商取引法に基づく表記)</a></p>
+
+      <div class="content">
+        <table class="transaction-table">
+          <tbody>
+            <tr>
+              <th>Business Operator</th>
+              <td>Sandankyo-no-yado Co., Ltd.</td>
+            </tr>
+            <tr>
+              <th>Representative</th>
+              <td>President and CEO: Hideaki Kawamoto</td>
+            </tr>
+            <tr>
+              <th>Site Name</th>
+              <td>Sandankyo Hotel Nampo</td>
+            </tr>
+            <tr>
+              <th>URL</th>
+              <td><a href="https://sandankyo-nampo.com">https://sandankyo-nampo.com</a></td>
+            </tr>
+            <tr>
+              <th>Address</th>
+              <td>1734 Shibaki, Akiota-cho, Yamagata-gun, Hiroshima Prefecture, Japan</td>
+            </tr>
+            <tr>
+              <th>Phone Number</th>
+              <td>0826-28-2308</td>
+            </tr>
+            <tr>
+              <th>Timing of Reservation Completion</th>
+              <td>
+                When making a hotel reservation using this website, the reservation is completed when the reservation completion notification is displayed on the screen.<br/>
+                In the case of advance payment by credit card, the reservation is completed when the credit card payment is completed.
+              </td>
+            </tr>
+            <tr>
+              <th>Fees (Consideration for Services)</th>
+              <td>
+                Varies depending on the accommodation plan or product.<br/>
+                Please refer to the accommodation plan details page for details.
+              </td>
+            </tr>
+            <tr>
+              <th>Payment Timing and Method</th>
+              <td>
+                Varies depending on the accommodation plan or product.<br/>
+                Please refer to the accommodation plan details page for details.<br/>
+                *In the case of advance payment by credit card, payment will be made by credit card when the online reservation is completed.
+              </td>
+            </tr>
+            <tr>
+              <th>Timing of Service Provision</th>
+              <td>
+                Varies depending on the accommodation plan or product.<br/>
+                Please refer to the accommodation plan details page for details.
+              </td>
+            </tr>
+            <tr>
+              <th>Cancellation Fees</th>
+              <td>
+                Varies depending on the accommodation plan or product.<br/>
+                Please refer to the accommodation plan details page for details.
+              </td>
+            </tr>
+            <tr>
+              <th>Refunds</th>
+              <td>No refunds will be issued after use.</td>
+            </tr>
+            <tr>
+              <th>Inquiries</th>
+              <td>For inquiries regarding accommodation, please contact the hotel directly.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </main>
 </BaseLayout>
 
 <style>
-  .policy-page {
+  .transaction-law {
     min-height: 100vh;
     padding: 150px 20px 100px;
     background-color: #4e4c43;
   }
 
   .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
   }
 
@@ -48,33 +114,56 @@ const content = usePageContent(lang, 'comingSoon');
     margin-right: auto;
   }
 
-  .notice {
+  .content {
     background-color: rgba(255, 255, 255, 0.05);
     padding: 40px;
     border-radius: 8px;
-    text-align: center;
   }
 
-  .notice p {
-    font-size: 16px;
-    line-height: 2;
-    letter-spacing: 1px;
+  .transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    padding: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
-    margin: 10px 0;
   }
 
-  .link {
+  .transaction-table th {
+    width: 240px;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .transaction-table td {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+  }
+
+  .transaction-table tr:last-child th,
+  .transaction-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .transaction-table a {
     color: #fff;
     text-decoration: underline;
     transition: opacity 0.3s;
   }
 
-  .link:hover {
+  .transaction-table a:hover {
     opacity: 0.7;
   }
 
   @media screen and (max-width: 960px) {
-    .policy-page {
+    .transaction-law {
       padding: 120px 15px 80px;
     }
 
@@ -86,12 +175,25 @@ const content = usePageContent(lang, 'comingSoon');
       max-width: 100%;
     }
 
-    .notice {
-      padding: 25px 20px;
+    .content {
+      padding: 20px;
     }
 
-    .notice p {
-      font-size: 14px;
+    .transaction-table th,
+    .transaction-table td {
+      display: block;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .transaction-table th {
+      padding-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .transaction-table td {
+      padding-bottom: 20px;
     }
   }
 </style>
+
