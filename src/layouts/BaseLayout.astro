@@ -18,7 +18,7 @@ const localeUrls = generateLocaleUrls(Astro.url);
 const {
   title = t('title'),
   description = lang === 'ja'
-    ? '三段峡ホテル 南峰は、特別名勝三段峡の入口に位置する温泉旅館です。渓谷の美しい景観と、地元の食材を使った料理でおもてなしいたします。'
+    ? '三段峡ホテル 南峰は、特別名勝三段峡の入口に位置する温泉宿です。渓谷の美しい景観と、地元の食材を使った料理でおもてなしいたします。'
     : 'Sandankyo Hotel Nampo is a hot spring inn located at the entrance of Sandankyo, a Special Place of Scenic Beauty. We offer beautiful gorge views and cuisine using local ingredients.'
 } = Astro.props;
 
@@ -44,14 +44,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:site_name" content={t('title')} />
-    <meta property="og:image" content={new URL(`${import.meta.env.BASE_URL}favicon.png`, Astro.site)} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
