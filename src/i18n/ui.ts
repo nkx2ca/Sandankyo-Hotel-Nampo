@@ -43,8 +43,8 @@ export const UI = {
 export const PAGE_META = {
   ja: {
     index: {
-      title: '三段峡ホテル 南峰 | 特別名勝三段峡の温泉旅館',
-      description: '三段峡ホテル 南峰は、特別名勝三段峡の入口に位置する温泉旅館です。渓谷の美しい景観と、地元の食材を使った料理でおもてなしいたします。'
+      title: '三段峡ホテル 南峰',
+      description: '三段峡ホテル 南峰は、特別名勝三段峡の入口に位置するホテルです。渓谷の美しい景観と、地元の食材を使った料理でおもてなしいたします。'
     },
     faq: {
       title: 'よくあるご質問 | 三段峡ホテル 南峰',
@@ -69,8 +69,8 @@ export const PAGE_META = {
   },
   en: {
     index: {
-      title: 'Sandankyo Hotel Nampo | Hot Spring Inn at Sandankyo Gorge',
-      description: 'Sandankyo Hotel Nampo is a hot spring inn located at the entrance of Sandankyo, a Special Place of Scenic Beauty. We offer beautiful gorge views and cuisine using local ingredients.'
+      title: 'Sandankyo Hotel Nampo',
+      description: 'Sandankyo Hotel Nampo is a hotel located at the entrance of Sandankyo, a Special Place of Scenic Beauty. We offer beautiful gorge views and cuisine using local ingredients.'
     },
     faq: {
       title: 'FAQ | Sandankyo Hotel Nampo',
